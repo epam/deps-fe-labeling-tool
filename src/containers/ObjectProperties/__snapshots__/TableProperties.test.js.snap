@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: TableProperties component should render layout correctly 1`] = `
+<ObjectPropertiesstyles__Grid>
+  <ObjectTitle
+    title="CONTENT"
+  />
+  <ObjectNameAndIndex
+    object={
+      Table {
+        "fieldCode": "",
+        "index": undefined,
+        "merges": Array [],
+        "meta": Object {},
+        "typeName": "table",
+        "uid": "10",
+        "values": Array [],
+        "xGuidelines": Array [
+          0.21,
+          0.33,
+        ],
+        "yGuidelines": Array [
+          0.1,
+          0.51,
+        ],
+      }
+    }
+    onChange={[MockFunction]}
+  />
+  <ObjectPropertiesstyles__StyledButton
+    onClick={[Function]}
+    type="primary"
+  >
+    Extract data
+  </ObjectPropertiesstyles__StyledButton>
+  <TablePropertiesstyles__TableData>
+    <TablePropertiesstyles__TableDataName>
+      <TableIcon />
+      Table Data
+    </TablePropertiesstyles__TableDataName>
+    <TablePropertiesstyles__StyledOpenButton
+      onClick={[Function]}
+    >
+      Open
+    </TablePropertiesstyles__StyledOpenButton>
+  </TablePropertiesstyles__TableData>
+  <ObjectPropertiesstyles__StyledDivider />
+  <ObjectTitle
+    title="COORDINATES"
+  />
+  <ObjectCoordinates />
+  <ObjectPropertiesstyles__StyledDivider />
+  <ObjectTitle
+    title="OCR"
+  />
+  <OcrSelect
+    ocr={[Function]}
+  />
+</ObjectPropertiesstyles__Grid>
+`;
+
+exports[`Container: TableProperties mapStateToProps should pass expected state as props to WrappedComponent 1`] = `
+Object {
+  "currentPage": 1,
+  "fields": Array [
+    Field {
+      "code": "123",
+      "fieldType": "string",
+      "name": "TestField",
+      "required": false,
+    },
+    Field {
+      "code": "enum",
+      "fieldMeta": Object {
+        "options": Array [
+          "test",
+          "test1",
+        ],
+      },
+      "fieldType": "enum",
+      "name": "TestField",
+      "required": false,
+    },
+    Field {
+      "code": "enumList",
+      "fieldMeta": ListFieldMeta {
+        "baseType": "enum",
+        "baseTypeMeta": EnumFieldMeta {
+          "options": Array [
+            "test",
+            "test1",
+          ],
+        },
+      },
+      "fieldType": "list",
+      "name": "EnumerationList",
+      "required": false,
+    },
+  ],
+  "ocrEngines": Array [
+    OcrEngine {
+      "code": "ocrCode",
+      "name": "ocr Name",
+    },
+  ],
+  "primaryEngine": "ocrCode",
+  "settings": Settings {
+    "features": Array [
+      SubSettings {
+        "code": "autoSave",
+        "data": Object {
+          "interval": 180000,
+        },
+      },
+      "export",
+      "import",
+      SubSettings {
+        "code": "paging",
+        "data": Object {
+          "initialPage": 1,
+        },
+      },
+      "language",
+      "rotation",
+      SubSettings {
+        "code": "specialSymbols",
+        "data": Array [
+          "&",
+          "$",
+          "£",
+          "¥",
+          "©",
+          "®",
+          "¢",
+          "%",
+          "*",
+          "@",
+          "µ",
+          "±",
+          "´",
+          "²",
+          "~",
+          "½",
+          "«",
+          "»",
+          "°",
+          "–",
+          "—",
+          "“",
+          "”",
+        ],
+      },
+      "manageFields",
+      "multiAssignLabels",
+      "multiAssignTables",
+    ],
+    "mode": "default",
+    "panels": Array [
+      "TOOLBAR",
+      "MARKUP_SIDEBAR",
+      "LEFT_SIDEBAR",
+    ],
+    "tools": Array [
+      "detectTables",
+      "label",
+      "area",
+      "table",
+      "merge",
+      "split",
+      "pointer",
+      "grabbing",
+    ],
+  },
+}
+`;

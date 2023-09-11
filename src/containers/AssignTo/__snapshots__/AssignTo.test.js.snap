@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: AssignTo component should filter fields correctly 1`] = `
+<AssignTostyles__ContentWrapper>
+  <AssignTostyles__FiltersWrapper>
+    <SearchInput
+      onChange={[Function]}
+      value="mockFilter"
+    />
+    <FieldsViewSwitcher
+      groups={
+        Array [
+          Group {
+            "code": "View All",
+            "name": "View All",
+          },
+          Group {
+            "code": "View required fields first",
+            "name": "View required fields first",
+          },
+          Group {
+            "code": "View according to field type",
+            "name": "View according to field type",
+          },
+        ]
+      }
+      setFieldsGrouping={[Function]}
+    />
+  </AssignTostyles__FiltersWrapper>
+  <AssignTostyles__FieldsManagingWrapper>
+    <FieldsDeleteModeManager />
+    <AddFieldDrawer />
+  </AssignTostyles__FieldsManagingWrapper>
+  <NothingFound
+    resetFilter={[Function]}
+  />
+</AssignTostyles__ContentWrapper>
+`;
+
+exports[`Container: AssignTo component should render empty layout 1`] = `
+<AssignTostyles__ContentWrapper>
+  <AssignTostyles__FiltersWrapper>
+    <SearchInput
+      onChange={[Function]}
+      value="very long text"
+    />
+    <FieldsViewSwitcher
+      groups={
+        Array [
+          Group {
+            "code": "View All",
+            "name": "View All",
+          },
+          Group {
+            "code": "View required fields first",
+            "name": "View required fields first",
+          },
+          Group {
+            "code": "View according to field type",
+            "name": "View according to field type",
+          },
+        ]
+      }
+      setFieldsGrouping={[Function]}
+    />
+  </AssignTostyles__FiltersWrapper>
+  <AssignTostyles__FieldsManagingWrapper>
+    <FieldsDeleteModeManager />
+    <AddFieldDrawer />
+  </AssignTostyles__FieldsManagingWrapper>
+  <NothingFound
+    resetFilter={[Function]}
+  />
+</AssignTostyles__ContentWrapper>
+`;
+
+exports[`Container: AssignTo component should render layout correctly 1`] = `
+<AssignTostyles__ContentWrapper>
+  <AssignTostyles__FiltersWrapper>
+    <SearchInput
+      onChange={[Function]}
+      value="mockFilter"
+    />
+    <FieldsViewSwitcher
+      groups={
+        Array [
+          Group {
+            "code": "View All",
+            "name": "View All",
+          },
+          Group {
+            "code": "View required fields first",
+            "name": "View required fields first",
+          },
+          Group {
+            "code": "View according to field type",
+            "name": "View according to field type",
+          },
+        ]
+      }
+      setFieldsGrouping={[Function]}
+    />
+  </AssignTostyles__FiltersWrapper>
+  <AssignTostyles__FieldsManagingWrapper>
+    <FieldsDeleteModeManager />
+    <AddFieldDrawer />
+  </AssignTostyles__FieldsManagingWrapper>
+  <NothingFound
+    resetFilter={[Function]}
+  />
+</AssignTostyles__ContentWrapper>
+`;

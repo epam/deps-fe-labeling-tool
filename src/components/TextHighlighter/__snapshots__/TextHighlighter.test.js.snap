@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextHighlighter should render layout correctly in case there is a match in text 1`] = `
+<span>
+  <TextHighlighterstyles__Mark
+    key="0"
+  >
+    m
+  </TextHighlighterstyles__Mark>
+  ock Text
+</span>
+`;
+
+exports[`TextHighlighter should render layout correctly in case there is no match in text 1`] = `
+<span>
+  mock Text
+</span>
+`;

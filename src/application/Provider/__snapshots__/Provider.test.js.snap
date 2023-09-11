@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: Provider should render correct layout 1`] = `
+<Provider
+  store={
+    Object {
+      "MOCK_STORE": "MOCK_STORE",
+      "dispatch": [MockFunction],
+      "getState": [MockFunction] {
+        "calls": Array [
+          Array [],
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": Object {
+              "MOCK_STATE": "MOCK_STATE",
+            },
+          },
+          Object {
+            "type": "return",
+            "value": Object {
+              "MOCK_STATE": "MOCK_STATE",
+            },
+          },
+        ],
+      },
+      "subscribe": [MockFunction] {
+        "calls": Array [
+          Array [
+            [Function],
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      },
+    }
+  }
+>
+  <div />
+</Provider>
+`;

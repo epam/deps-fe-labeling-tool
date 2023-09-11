@@ -1,0 +1,327 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: FieldsToAssign should match snapshot if several markup objects are selected 1`] = `
+<div>
+  <FieldsToAssignstyles__ListItemStyled
+    actions={
+      Array [
+        <Button
+          disabled={true}
+          onClick={[Function]}
+          type="link"
+        >
+          Value
+        </Button>,
+      ]
+    }
+  >
+    <IconSize32>
+      <StringIcon />
+    </IconSize32>
+    <FieldsToAssignstyles__ListItemMetaStyled
+      description={false}
+      title={
+        <FieldsToAssignstyles__StyledTextHighlighter
+          searchTerm="mockFilter"
+          text="FirstField"
+        />
+      }
+    />
+  </FieldsToAssignstyles__ListItemStyled>
+</div>
+`;
+
+exports[`Container: FieldsToAssign should match snapshot of renderItem for checkmark field type 1`] = `
+<div>
+  <FieldsToAssignstyles__ListItemStyled
+    actions={
+      Array [
+        <Button
+          disabled={false}
+          onClick={[Function]}
+          type="link"
+        >
+          Boolean
+        </Button>,
+      ]
+    }
+  >
+    <IconSize32>
+      <CheckmarkIcon />
+    </IconSize32>
+    <FieldsToAssignstyles__ListItemMetaStyled
+      description={false}
+      title={
+        <FieldsToAssignstyles__StyledTextHighlighter
+          searchTerm="mockFilter"
+          text="Check box i na"
+        />
+      }
+    />
+  </FieldsToAssignstyles__ListItemStyled>
+</div>
+`;
+
+exports[`Container: FieldsToAssign should match snapshot of renderItem for list field type with pair as base field type 1`] = `
+<div>
+  <AssignToListItem
+    field={
+      Field {
+        "code": "MOCK_FIELD_1",
+        "fieldMeta": ListFieldMeta {
+          "baseType": "pair",
+          "baseTypeMeta": PairFieldMeta {
+            "keyType": "string",
+            "valueType": "string",
+          },
+        },
+        "fieldType": "list",
+        "name": "name",
+        "required": false,
+      }
+    }
+    listIcon={
+      <IconSize32>
+        <KeyValuePairIcon />
+      </IconSize32>
+    }
+    renderActions={[Function]}
+    renderDeleteButton={[Function]}
+    requiredMark={
+      <Tooltip
+        title="Required field"
+      >
+        <FieldsToAssignstyles__StyledRequiredMark>
+          *
+        </FieldsToAssignstyles__StyledRequiredMark>
+      </Tooltip>
+    }
+  />
+</div>
+`;
+
+exports[`Container: FieldsToAssign should match snapshot of renderItem for list field type with table as base field type 1`] = `
+<div>
+  <AssignToListItem
+    field={
+      Field {
+        "code": "MOCK_FIELD_4",
+        "fieldMeta": ListFieldMeta {
+          "baseType": "table",
+        },
+        "fieldType": "list",
+        "name": "name",
+        "required": false,
+      }
+    }
+    listIcon={
+      <IconSize32>
+        <TableIcon />
+      </IconSize32>
+    }
+    renderActions={[Function]}
+    renderDeleteButton={[Function]}
+    requiredMark={
+      <Tooltip
+        title="Required field"
+      >
+        <FieldsToAssignstyles__StyledRequiredMark>
+          *
+        </FieldsToAssignstyles__StyledRequiredMark>
+      </Tooltip>
+    }
+  />
+</div>
+`;
+
+exports[`Container: FieldsToAssign should match snapshot of renderItem for pair field type 1`] = `
+<div>
+  <FieldsToAssignstyles__ListItemStyled
+    actions={
+      Array [
+        <Button
+          disabled={false}
+          onClick={[Function]}
+          type="link"
+        >
+          Key
+        </Button>,
+        <Button
+          disabled={false}
+          onClick={[Function]}
+          type="link"
+        >
+          Value
+        </Button>,
+      ]
+    }
+  >
+    <IconSize32>
+      <KeyValuePairIcon />
+    </IconSize32>
+    <FieldsToAssignstyles__ListItemMetaStyled
+      description={false}
+      title={
+        <FieldsToAssignstyles__StyledTextHighlighter
+          searchTerm="mockFilter"
+          text="SecondField"
+        />
+      }
+    />
+  </FieldsToAssignstyles__ListItemStyled>
+</div>
+`;
+
+exports[`Container: FieldsToAssign should match snapshot of renderItem for string field type 1`] = `
+<div>
+  <FieldsToAssignstyles__ListItemStyled
+    actions={
+      Array [
+        <Button
+          disabled={false}
+          onClick={[Function]}
+          type="link"
+        >
+          Value
+        </Button>,
+      ]
+    }
+  >
+    <IconSize32>
+      <StringIcon />
+    </IconSize32>
+    <FieldsToAssignstyles__ListItemMetaStyled
+      description={false}
+      title={
+        <FieldsToAssignstyles__StyledTextHighlighter
+          searchTerm="mockFilter"
+          text="FirstField"
+        />
+      }
+    />
+  </FieldsToAssignstyles__ListItemStyled>
+</div>
+`;
+
+exports[`Container: FieldsToAssign should match snapshot of renderItem for table field type 1`] = `
+<div>
+  <FieldsToAssignstyles__ListItemStyled
+    actions={
+      Array [
+        <Button
+          disabled={true}
+          onClick={[Function]}
+          type="link"
+        >
+          Table
+        </Button>,
+      ]
+    }
+  >
+    <IconSize32>
+      <TableIcon />
+    </IconSize32>
+    <FieldsToAssignstyles__ListItemMetaStyled
+      description={false}
+      title={
+        <FieldsToAssignstyles__StyledTextHighlighter
+          searchTerm="mockFilter"
+          text="ThirdField"
+        />
+      }
+    />
+  </FieldsToAssignstyles__ListItemStyled>
+</div>
+`;
+
+exports[`Container: FieldsToAssign should render layout correctly 1`] = `
+<FieldsToAssignstyles__LayoutStyled
+  height={20}
+>
+  <FieldsToAssignstyles__CollapseStyled
+    collapseId="ALL"
+    defaultActiveKey={
+      Array [
+        "checkmark",
+        "string",
+        "pair",
+        "table",
+        "list",
+        "enum",
+        "date",
+        "ALL",
+        "REQUIRED",
+        "OTHER",
+      ]
+    }
+    expandIcon={[Function]}
+    expandIconPosition="right"
+    header={
+      <FieldsToAssignstyles__HeaderStyled>
+        ALL
+      </FieldsToAssignstyles__HeaderStyled>
+    }
+    key="View All.ALL"
+  >
+    <FieldsToAssignstyles__PossibleNamesList
+      dataSource={
+        Array [
+          Field {
+            "code": "1",
+            "fieldType": "string",
+            "name": "FirstField",
+            "required": false,
+          },
+          Field {
+            "code": "2",
+            "fieldType": "pair",
+            "name": "SecondField",
+            "required": false,
+          },
+          Field {
+            "code": "3",
+            "fieldType": "table",
+            "name": "ThirdField",
+            "required": false,
+          },
+          Field {
+            "code": "MOCK_FIELD_1",
+            "fieldMeta": ListFieldMeta {
+              "baseType": "pair",
+              "baseTypeMeta": PairFieldMeta {
+                "keyType": "string",
+                "valueType": "string",
+              },
+            },
+            "fieldType": "list",
+            "name": "name",
+            "required": false,
+          },
+          Field {
+            "code": "MOCK_FIELD_4",
+            "fieldMeta": ListFieldMeta {
+              "baseType": "table",
+            },
+            "fieldType": "list",
+            "name": "name",
+            "required": false,
+          },
+          Field {
+            "code": "checkboxina",
+            "fieldType": "checkmark",
+            "name": "Check box i na",
+            "required": false,
+          },
+          Field {
+            "code": "enum",
+            "fieldType": "enum",
+            "name": "enum",
+            "required": false,
+          },
+        ]
+      }
+      renderItem={[Function]}
+    />
+  </FieldsToAssignstyles__CollapseStyled>
+</FieldsToAssignstyles__LayoutStyled>
+`;

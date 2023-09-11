@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: ToolsPicker component should render layout correctly 1`] = `
+<Fragment>
+  <ToolsPickerItem
+    key="pointer"
+    onClick={[MockFunction]}
+    selectedTool="label"
+    tool="pointer"
+  />
+  <ToolsPickerItem
+    key="grabbing"
+    onClick={[MockFunction]}
+    selectedTool="label"
+    tool="grabbing"
+  />
+  <ToolsPickerDropdown
+    onSelection={[MockFunction]}
+    selectedTool="label"
+    tools={
+      Array [
+        "label",
+        "area",
+        "table",
+        "detectTables",
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Container: ToolsPicker mapStateToProps should pass expected state as props to WrappedComponent 1`] = `
+Object {
+  "selectedTool": "label",
+  "settings": Settings {
+    "features": Array [
+      SubSettings {
+        "code": "autoSave",
+        "data": Object {
+          "interval": 180000,
+        },
+      },
+      "export",
+      "import",
+      SubSettings {
+        "code": "paging",
+        "data": Object {
+          "initialPage": 1,
+        },
+      },
+      "language",
+      "rotation",
+      SubSettings {
+        "code": "specialSymbols",
+        "data": Array [
+          "&",
+          "$",
+          "£",
+          "¥",
+          "©",
+          "®",
+          "¢",
+          "%",
+          "*",
+          "@",
+          "µ",
+          "±",
+          "´",
+          "²",
+          "~",
+          "½",
+          "«",
+          "»",
+          "°",
+          "–",
+          "—",
+          "“",
+          "”",
+        ],
+      },
+      "manageFields",
+      "multiAssignLabels",
+      "multiAssignTables",
+    ],
+    "mode": "default",
+    "panels": Array [
+      "TOOLBAR",
+      "MARKUP_SIDEBAR",
+      "LEFT_SIDEBAR",
+    ],
+    "tools": Array [
+      "detectTables",
+      "label",
+      "area",
+      "table",
+      "merge",
+      "split",
+      "pointer",
+      "grabbing",
+    ],
+  },
+}
+`;

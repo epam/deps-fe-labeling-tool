@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: HotKeysDrawer mapStateToProps should pass expected props to WrappedComponent 1`] = `
+Object {
+  "hotKeyEvents": Array [
+    "COPY",
+  ],
+}
+`;
+
+exports[`Container: HotKeysDrawer should match snapshot of renderItem with the selected tools 1`] = `
+<div>
+  <ListItem
+    key="Copy"
+  >
+    <HotKeysDrawerstyles__StyledRow>
+      <HotKeysDrawerstyles__StyledCol
+        span={8}
+      >
+        Copy
+      </HotKeysDrawerstyles__StyledCol>
+      <HotKeysDrawerstyles__StyledCol
+        span={16}
+      >
+        <HotKeysDrawerstyles__StyledTag>
+          Ctrl
+        </HotKeysDrawerstyles__StyledTag>
+        +
+        <HotKeysDrawerstyles__StyledTag>
+          C
+        </HotKeysDrawerstyles__StyledTag>
+      </HotKeysDrawerstyles__StyledCol>
+    </HotKeysDrawerstyles__StyledRow>
+  </ListItem>
+</div>
+`;
+
+exports[`Container: HotKeysDrawer should render correct layout 1`] = `
+<HotKeysDrawerstyles__StyledDrawer
+  bodyStyle={
+    Object {
+      "paddingTop": 0,
+    }
+  }
+  closable={false}
+  headerStyle={
+    Object {
+      "justifyContent": "flex-end",
+    }
+  }
+  height={350}
+  onClose={[MockFunction]}
+  placement="bottom"
+  visible={true}
+>
+  <HotKeysDrawerstyles__StyledTab
+    centered={true}
+    defaultActiveKey="info"
+    size="small"
+  >
+    <TabPane
+      key="info"
+      tab="Hot keys info"
+    >
+      <List
+        dataSource={
+          Array [
+            HotKey {
+              "description": "Copy",
+              "name": "COPY",
+              "note": undefined,
+              "shortcut": Array [
+                "ctrl+KeyC",
+              ],
+            },
+          ]
+        }
+        grid={
+          Object {
+            "column": 3,
+            "gutter": 18,
+          }
+        }
+        renderItem={[Function]}
+        split={false}
+      />
+    </TabPane>
+  </HotKeysDrawerstyles__StyledTab>
+</HotKeysDrawerstyles__StyledDrawer>
+`;

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: ObjectActions should render correctly 1`] = `
+<Fragment>
+  <CompilationFeatureControl
+    featureName="SHOW_NOT_IMPLEMENTED"
+  >
+    <Tooltip
+      title="OCR text"
+    >
+      <IconButton
+        icon={<OcrIcon />}
+      />
+    </Tooltip>
+    <Tooltip
+      title="Autocrop"
+    >
+      <IconButton
+        icon={<CropIcon />}
+      />
+    </Tooltip>
+    <Tooltip
+      title="Table lineitems sorting"
+    >
+      <IconButton
+        icon={<AlignmentIcon />}
+      />
+    </Tooltip>
+    <Tooltip
+      title="Group boxes coordinates and size adjustment"
+    >
+      <IconButton
+        icon={<TableLineItemIcon />}
+      />
+    </Tooltip>
+  </CompilationFeatureControl>
+</Fragment>
+`;

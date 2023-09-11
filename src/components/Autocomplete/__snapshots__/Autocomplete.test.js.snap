@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Autocomplete should render correct layout according to props 1`] = `
+<ForwardRef(AutoComplete)
+  defaultValue="test"
+  disabled={false}
+  notFoundContent="not Found Content mock"
+  onChange={[Function]}
+  onFocus={[MockFunction]}
+  onSearch={[Function]}
+  options={
+    Array [
+      Option {
+        "disabled": undefined,
+        "text": "test",
+        "value": "test",
+      },
+    ]
+  }
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+/>
+`;

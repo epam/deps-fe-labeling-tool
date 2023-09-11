@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: MarkupSider should render layout correctly 1`] = `
+<MarkupSiderstyles__MarkupSidebarSider
+  width={300}
+>
+  <MarkupSidebar />
+</MarkupSiderstyles__MarkupSidebarSider>
+`;

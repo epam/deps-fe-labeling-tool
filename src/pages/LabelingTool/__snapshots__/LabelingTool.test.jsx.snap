@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: LabelingTool component should render correct layout 1`] = `
+<Fragment>
+  <ApplicationToolbar />
+  <LabelingToolstyles__LayoutStyled
+    height={900}
+  >
+    <LeftSidebar
+      height={854}
+    />
+    <LabelingCanvas
+      height={854}
+      width={NaN}
+    />
+    <MarkupSider
+      setMarkupSiderWidth={[Function]}
+    />
+  </LabelingToolstyles__LayoutStyled>
+</Fragment>
+`;
