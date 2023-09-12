@@ -1,13 +1,14 @@
 {
   "name": "labeling-tool",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "private": false,
   "description": "Project agnostic tool for documents labeling",
   "main": "lib/application/Root/Root.js",
   "module": "lib/application/Root/Root.js",
   "scripts": {
-    "build": "yarn lint && node -r esm ./node_modules/webpack/bin/webpack.js --config webpack.prod.js",
+    "build": "node scripts/package.js",
     "build:dev": "yarn lint && node -r esm ./node_modules/webpack/bin/webpack.js --config webpack.dev.js",
+    "build:prod": "yarn lint && node -r esm ./node_modules/webpack/bin/webpack.js --config webpack.prod.js",
     "start": "node -r esm ./node_modules/webpack/bin/webpack.js serve --config webpack.dev.js",
     "lint": "yarn eslint && yarn stylelint",
     "lint:fix": "yarn eslint:fix && yarn stylelint:fix",
@@ -19,11 +20,19 @@
     "test:ci": "node --expose-gc --trace-warnings --unhandled-rejections=strict ./node_modules/jest/bin/jest.js --bail --ci --colors --expand --errorOnDeprecated --coverage --reporters=default --maxWorkers=1 --forceExit --logHeapUsage",
     "test:manual": "jest --expand --colors --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --expand --colors --watch --runInBand",
-    "package": "yarn build && node scripts/package.js"
+    "prepublishOnly": "yarn build"
   },
+  "files": [
+    "lib"
+  ],
   "repository": {
-    "type": "git"
+    "type": "git",
+    "url": "git+https://github.com/epam/deps-fe-labeling-tool.git"
   },
+  "bugs": {
+    "url": "https://github.com/epam/deps-fe-labeling-tool/issues"
+  },
+  "homepage": "https://github.com/epam/deps-fe-labeling-tool#readme",
   "keywords": [
     "documents labeling",
     "data labeling",
