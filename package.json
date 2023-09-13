@@ -6,7 +6,6 @@
   "main": "lib/application/Root/Root.js",
   "module": "lib/application/Root/Root.js",
   "scripts": {
-    "build": "node scripts/package.js",
     "build:dev": "yarn lint && node -r esm ./node_modules/webpack/bin/webpack.js --config webpack.dev.js",
     "build:prod": "yarn lint && node -r esm ./node_modules/webpack/bin/webpack.js --config webpack.prod.js",
     "start": "node -r esm ./node_modules/webpack/bin/webpack.js serve --config webpack.dev.js",
@@ -20,7 +19,7 @@
     "test:ci": "node --expose-gc --trace-warnings --unhandled-rejections=strict ./node_modules/jest/bin/jest.js --bail --ci --colors --expand --errorOnDeprecated --coverage --reporters=default --maxWorkers=1 --forceExit --logHeapUsage",
     "test:manual": "jest --expand --colors --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --expand --colors --watch --runInBand",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "node scripts/npm-package.js"
   },
   "files": [
     "lib"
