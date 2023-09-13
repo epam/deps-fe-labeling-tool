@@ -9,7 +9,7 @@ module.exports = {
       require.resolve('babel-plugin-module-resolver'),
       {
         alias: {
-          '@': '../lib'
+          '@': './lib'
         }
       }
     ]

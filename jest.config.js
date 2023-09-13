@@ -30,7 +30,7 @@ module.exports = {
   ],
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: [
-    './package'
+    './lib'
   ],
   moduleDirectories: [
     './src',
