@@ -116,6 +116,10 @@ The config object contains all necessary settings and configurations.
 
 Check the working example of the config [here](https://git.epam.com/epm-deps/deps-LT/-/blob/main/src/config/shim.js). This config could be used for playing with LabelingTool package. 
 
+## Requirements
+
+Min NodeJS version 14.16.0 
+
 ## Installation and Usage
 To get started, follow these steps:
 
