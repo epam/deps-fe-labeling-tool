@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Application: Root component should render correct layout 1`] = `
+exports[`Application: LabelingTool component should render correct layout 1`] = `
 <Fragment>
   <Memo(l) />
   <Provider>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Container: LabelingTool component should render correct layout 1`] = `
+exports[`Container: LabelingToolPage component should render correct layout 1`] = `
 <Fragment>
   <ApplicationToolbar />
   <LabelingToolstyles__LayoutStyled

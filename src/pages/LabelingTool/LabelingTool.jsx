@@ -99,5 +99,5 @@ const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(withPare
 })(LabelingTool))
 
 export {
-  ConnectedComponent as LabelingTool
+  ConnectedComponent as LabelingToolPage
 }

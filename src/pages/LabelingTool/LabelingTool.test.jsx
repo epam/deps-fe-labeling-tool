@@ -5,7 +5,7 @@ import { mockSettingsSelectors } from '@/mocks/selectors/settings'
 import React from 'react'
 import { shallow } from 'enzyme'
 import { resetDefault } from '@/actions/ui'
-import { LabelingTool as Container } from '@/pages/LabelingTool'
+import { LabelingToolPage as Container } from '@/pages/LabelingTool'
 import { settingsSelector } from '@/selectors/settings'
 
 jest.mock('react-redux', () => mockReactRedux)
@@ -26,7 +26,7 @@ const {
   mapDispatchToProps
 } = Container
 
-describe('Container: LabelingTool', () => {
+describe('Container: LabelingToolPage', () => {
   describe('mapStateToProps', () => {
     it('should call settingsSelector and pass the result as settings prop', () => {
       const { props } = mapStateToProps()
