@@ -20,8 +20,7 @@
     "test:manual": "jest --expand --colors --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --expand --colors --watch --runInBand",
     "prepublishOnly": "node scripts/npm-package.js",
-    "deploy": "gh-pages -d dist",
-    "predeploy": "npm run build:prod"
+    "deploy": "gh-pages -d dist"
   },
   "files": [
     "lib"
