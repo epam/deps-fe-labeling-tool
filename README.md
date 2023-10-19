@@ -150,7 +150,7 @@ export default App
 3. Update `yourConfigHere` with your desired configurations.
 
 ## Demo
-There is a demo hosted on [Demo Link] which allows to check _labeling-tool_ package.
+There is a demo hosted on https://epam.github.io/deps-fe-labeling-tool which allows to check _labeling-tool_ package.
 
 ## License
 _labeling-tool_ is licensed under the MIT License.
