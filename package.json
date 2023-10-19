@@ -19,7 +19,9 @@
     "test:ci": "node --expose-gc --trace-warnings --unhandled-rejections=strict ./node_modules/jest/bin/jest.js --bail --ci --colors --expand --errorOnDeprecated --coverage --reporters=default --maxWorkers=1 --forceExit --logHeapUsage",
     "test:manual": "jest --expand --colors --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --expand --colors --watch --runInBand",
-    "prepublishOnly": "node scripts/npm-package.js"
+    "prepublishOnly": "node scripts/npm-package.js",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build:prod"
   },
   "files": [
     "lib"
@@ -74,6 +76,7 @@
     "esm": "^3.2.25",
     "flush-promises": "^1.0.2",
     "fs-extra": "^10.1.0",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^4.3.8",
     "identity-obj-proxy": "^3.0.0",
