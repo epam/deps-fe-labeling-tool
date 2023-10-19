@@ -2,14 +2,14 @@ import 'antd/lib/style/themes/default.less'
 import 'antd/lib/style/core/index.less'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Root } from '@/application/Root'
+import { LabelingTool } from '@/application/LabelingTool'
 import { SHIM_CONFIG } from '@/config/shim'
 
 const LABELING_TOOL_EXPORT_KEY = 'LabelingTool'
 
 const mount = (targetId, config) => {
   ReactDOM.render(
-    <Root config={config} />,
+    <LabelingTool config={config} />,
     document.getElementById(targetId)
   )
 }

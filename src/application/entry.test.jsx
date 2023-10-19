@@ -27,7 +27,7 @@ jest.mock('@/config/model', () => ({
   fields: 'MOCK_FIELDS'
 }))
 
-jest.mock('@/application/Root', () => mockComponent('Root'))
+jest.mock('@/application/LabelingTool', () => mockComponent('LabelingTool'))
 
 const mockOcrLanguage = new OcrLanguage(KnownLanguage.English, 'English')
 

@@ -2,7 +2,7 @@ import { mockUuid } from '@/mocks/mockUuid'
 import { mockOcrEngine } from '@/mocks/selectors/ocr'
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Root } from '@/application/Root'
+import { LabelingTool } from '@/application/LabelingTool'
 import { FieldType } from '@/enums/FieldType'
 import { KnownLanguage } from '@/enums/KnownLanguage'
 import { Mode } from '@/enums/Mode'
@@ -20,7 +20,7 @@ jest.mock('@/assets/pdfs/Labeling_Tool_Guide.pdf', () => { })
 
 const mockOcrLanguage = new OcrLanguage(KnownLanguage.ENGLISH, 'English')
 
-describe('Application: Root', () => {
+describe('Application: LabelingTool', () => {
   describe('component', () => {
     let defaultProps
     let wrapper
@@ -84,7 +84,7 @@ describe('Application: Root', () => {
         )
       }
 
-      wrapper = shallow(<Root {...defaultProps} />)
+      wrapper = shallow(<LabelingTool {...defaultProps} />)
     })
 
     it('should render correct layout', () => {

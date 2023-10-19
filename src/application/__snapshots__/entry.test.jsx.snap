@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Entry Point should expose a window var with mount & unmount methods if global LABELING_TOOL_SHIM_TARGET_ID var is not set 1`] = `
-<Root
+<LabelingTool
   config={
     Config {
       "api": Object {
@@ -171,7 +171,7 @@ exports[`Entry Point should expose a window var with mount & unmount methods if 
 `;
 
 exports[`Entry Point should render the application if global LABELING_TOOL_SHIM_TARGET_ID var is set on script load 1`] = `
-<Root
+<LabelingTool
   config={
     Config {
       "api": Object {

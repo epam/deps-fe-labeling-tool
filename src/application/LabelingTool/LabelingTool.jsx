@@ -2,26 +2,26 @@ import React from 'react'
 import { ConfigLoader } from '@/application/ConfigLoader'
 import { Provider } from '@/application/Provider'
 import { configShape } from '@/models/Config'
-import { LabelingTool } from '@/pages/LabelingTool'
-import { GlobalStyle } from './Root.styles'
+import { LabelingToolPage } from '@/pages/LabelingTool'
+import { GlobalStyle } from './LabelingTool.styles'
 
-const Root = ({ config }) => (
+const LabelingTool = ({ config }) => (
   <>
     <GlobalStyle />
     <Provider>
       <ConfigLoader
         config={config}
       >
-        <LabelingTool />
+        <LabelingToolPage />
       </ConfigLoader>
     </Provider>
   </>
 )
 
-Root.propTypes = {
+LabelingTool.propTypes = {
   config: configShape.isRequired
 }
 
 export {
-  Root
+  LabelingTool
 }
