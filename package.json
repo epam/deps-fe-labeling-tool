@@ -1,10 +1,10 @@
 {
   "name": "labeling-tool",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": false,
   "description": "Project agnostic tool for documents labeling",
-  "main": "lib/application/Root/Root.js",
-  "module": "lib/application/Root/Root.js",
+  "main": "lib/application/LabelingTool/LabelingTool.js",
+  "module": "lib/application/LabelingTool/LabelingTool.js",
   "scripts": {
     "build:dev": "yarn lint && node -r esm ./node_modules/webpack/bin/webpack.js --config webpack.dev.js",
     "build:prod": "yarn lint && node -r esm ./node_modules/webpack/bin/webpack.js --config webpack.prod.js",
