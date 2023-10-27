@@ -34,7 +34,6 @@ const HotKeyEvent = {
   SELECT_TOOL_TABLE: new HotKey('SELECT_TOOL_TABLE', ['shift+KeyT'], 'Table tool'),
   SELECT_TOOL_TABLE_MERGE: new HotKey('SELECT_TOOL_TABLE_MERGE', ['shift+KeyM'], 'Merge tool'),
   SELECT_TOOL_TABLE_SPLIT: new HotKey('SELECT_TOOL_TABLE_SPLIT', ['shift+KeyK'], 'Split tool'),
-  SELECT_TOOL_AREA: new HotKey('SELECT_TOOL_AREA', ['shift+KeyL'], 'Area tool'),
   GRABBING_DOWN: new HotKey('GRABBING_DOWN', { action: 'keydown', sequence: 'alt' }, 'Drag', 'with left mouse button'),
   GRABBING_UP: new HotKey('GRABBING_UP', { action: 'keyup', sequence: 'alt' }),
   ROTATION_LEFT: new HotKey('ROTATION_LEFT', ['ctrl+KeyLeftArrow'], 'Rotate left'),

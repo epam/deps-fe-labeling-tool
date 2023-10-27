@@ -30,17 +30,12 @@ import {
   storeImportMarkup,
   importMarkup,
   exportMarkup,
-  addAreas,
-  updateAreas,
-  removeAreas,
-  selectAreas,
   updatePageMarkup,
   updateLabelsWithSettings,
   updateTablesWithSettings
 } from '@/actions/markup'
 import { Feature } from '@/enums/Feature'
 import { Mode } from '@/enums/Mode'
-import { Area } from '@/models/Area'
 import { Label, LabelType } from '@/models/Label'
 import { Markup, PageMarkup } from '@/models/Markup'
 import { Rectangle } from '@/models/Rectangle'
@@ -49,7 +44,6 @@ import { documentNameSelector } from '@/selectors/document'
 import {
   markupSelector,
   pageSelectedLabelsSelector,
-  pageSelectedAreasSelector,
   pageSelectedTablesSelector
 } from '@/selectors/markup'
 import { currentPageSelector } from '@/selectors/pagination'
@@ -72,13 +66,9 @@ const MOCK_RECT = new Rectangle(4, 4, 4, 4)
 
 const MOCK_TABLE_1 = Table.fromRectangle(MOCK_RECT)
 
-const MOCK_AREA_1 = Area.fromRectangle(MOCK_RECT)
-
 const MOCK_LABELS = [MOCK_LABEL_1, MOCK_LABEL_2]
 
 const MOCK_TABLES = [MOCK_TABLE_1]
-
-const MOCK_AREAS = [MOCK_AREA_1]
 
 const MOCK_PAGE = 1
 
@@ -89,8 +79,7 @@ const MOCK_LABELS_ACTION_PAYLOAD = {
 
 const MOCK_PAGE_MARKUP = new PageMarkup(
   MOCK_LABELS,
-  MOCK_TABLES,
-  MOCK_AREAS
+  MOCK_TABLES
 )
 
 const MOCK_MARKUP = new Markup(
@@ -105,11 +94,6 @@ const MOCK_MARKUP = new Markup(
 const MOCK_TABLES_ACTION_PAYLOAD = {
   page: MOCK_PAGE,
   tables: MOCK_TABLES
-}
-
-const MOCK_AREAS_ACTION_PAYLOAD = {
-  page: MOCK_PAGE,
-  areas: MOCK_AREAS
 }
 
 jest.mock('redux-undo', () => mockReduxUndo)
@@ -292,42 +276,6 @@ describe('Actions: markup', () => {
     })
   })
 
-  it('should create addAreas action with correct type and payload', () => {
-    const action = addAreas(MOCK_PAGE, MOCK_AREAS)
-
-    expect(action).toEqual({
-      type: addAreas.toString(),
-      payload: MOCK_AREAS_ACTION_PAYLOAD
-    })
-  })
-
-  it('should create updateAreas action with correct type and payload', () => {
-    const action = updateAreas(MOCK_PAGE, MOCK_AREAS)
-
-    expect(action).toEqual({
-      type: updateAreas.toString(),
-      payload: MOCK_AREAS_ACTION_PAYLOAD
-    })
-  })
-
-  it('should create removeAreas action with correct type and payload', () => {
-    const action = removeAreas(MOCK_PAGE, MOCK_AREAS)
-
-    expect(action).toEqual({
-      type: removeAreas.toString(),
-      payload: MOCK_AREAS_ACTION_PAYLOAD
-    })
-  })
-
-  it('should create selectAreas action with correct type and payload', () => {
-    const action = selectAreas(MOCK_PAGE, MOCK_AREAS)
-
-    expect(action).toEqual({
-      type: selectAreas.toString(),
-      payload: MOCK_AREAS_ACTION_PAYLOAD
-    })
-  })
-
   describe('copyMarkup', () => {
     it('should call getState once', async () => {
       await copyMarkup()(dispatch, getState)
@@ -338,8 +286,7 @@ describe('Actions: markup', () => {
       await copyMarkup()(dispatch, getState)
       const expectedMarkupToCopy = new PageMarkup(
         pageSelectedLabelsSelector(),
-        pageSelectedTablesSelector(),
-        pageSelectedAreasSelector()
+        pageSelectedTablesSelector()
       )
 
       expect(clipboardStorage.write).nthCalledWith(1, expectedMarkupToCopy)
@@ -382,7 +329,6 @@ describe('Actions: markup', () => {
       mockReactRedux.batch(() => {
         expect(dispatch).nthCalledWith(1, updateLabels(MOCK_LABELS_ACTION_PAYLOAD))
         expect(dispatch).nthCalledWith(1, updateTables(MOCK_TABLES_ACTION_PAYLOAD))
-        expect(dispatch).nthCalledWith(1, updateAreas(MOCK_AREAS_ACTION_PAYLOAD))
       })
     })
   })

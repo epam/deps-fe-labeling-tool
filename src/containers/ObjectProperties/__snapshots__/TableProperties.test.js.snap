@@ -13,7 +13,7 @@ exports[`Container: TableProperties component should render layout correctly 1`]
         "merges": Array [],
         "meta": Object {},
         "typeName": "table",
-        "uid": "10",
+        "uid": "6",
         "values": Array [],
         "xGuidelines": Array [
           0.21,
@@ -163,7 +163,6 @@ Object {
     "tools": Array [
       "detectTables",
       "label",
-      "area",
       "table",
       "merge",
       "split",

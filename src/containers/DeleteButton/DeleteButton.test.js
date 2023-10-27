@@ -5,10 +5,9 @@ import React from 'react'
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 import { Modal } from 'antd'
 import { shallow } from 'enzyme'
-import { removeLabels, removeTables, removeAreas } from '@/actions/markup'
+import { removeLabels, removeTables } from '@/actions/markup'
 import { Button } from '@/components/Button'
 import { DeleteButton } from '@/containers/DeleteButton'
-import { Area } from '@/models/Area'
 import { Label, LabelType } from '@/models/Label'
 import { Table } from '@/models/Table'
 
@@ -54,8 +53,6 @@ describe('Container: DeleteButton', () => {
       labels: [labelA, labelB],
       selectedLabels: [labelA, labelB],
       selectedTables: [new Table([1, 1], [2, 2])],
-      selectedAreas: [new Area(3, 3, 3, 3)],
-      removeAreas: jest.fn(),
       removeTables: jest.fn(),
       removeLabels: jest.fn(),
       setActiveSidebar: jest.fn(),
@@ -87,14 +84,13 @@ describe('Container: DeleteButton', () => {
     })
   })
 
-  it('should call props removeLabels, removeTables, removeAreas when calling onOk confirm', () => {
+  it('should call props removeLabels, removeTables when calling onOk confirm', () => {
     Modal.confirm = jest.fn((config) => config.onOk())
     const deleteButtonProps = wrapper.find(Button.Icon).props()
     deleteButtonProps.onClick()
 
     expect(defaultProps.removeLabels).nthCalledWith(1, defaultProps.currentPage, defaultProps.selectedLabels)
     expect(defaultProps.removeTables).nthCalledWith(1, defaultProps.currentPage, defaultProps.selectedTables)
-    expect(defaultProps.removeAreas).nthCalledWith(1, defaultProps.currentPage, defaultProps.selectedAreas)
   })
 
   describe('mapStateToProps', () => {
@@ -122,12 +118,6 @@ describe('Container: DeleteButton', () => {
       props.removeTables(defaultProps.selectedTables)
       expect(removeTables).toHaveBeenCalledWith(defaultProps.selectedTables)
       expect(dispatch).toHaveBeenCalledWith(removeTables(defaultProps.selectedTables))
-    })
-
-    it('should dispatch removeAreas actions when calling to removeAreas props', () => {
-      props.removeAreas(defaultProps.selectedAreas)
-      expect(removeAreas).toHaveBeenCalledWith(defaultProps.selectedAreas)
-      expect(dispatch).toHaveBeenCalledWith(removeAreas(defaultProps.selectedAreas))
     })
   })
 })

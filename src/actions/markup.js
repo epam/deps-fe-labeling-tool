@@ -9,7 +9,6 @@ import { documentNameSelector } from '@/selectors/document'
 import {
   markupSelector,
   pageSelectedLabelsSelector,
-  pageSelectedAreasSelector,
   pageSelectedTablesSelector
 } from '@/selectors/markup'
 import { currentPageSelector } from '@/selectors/pagination'
@@ -98,39 +97,6 @@ const updateTables = createAction(
   })
 )
 
-// TODO: #1431
-const addAreas = createAction(
-  `${FEATURE_NAME}/ADD_AREAS`,
-  (page, areas) => ({
-    page,
-    areas
-  })
-)
-
-const removeAreas = createAction(
-  `${FEATURE_NAME}/REMOVE_AREAS`,
-  (page, areas) => ({
-    page,
-    areas
-  })
-)
-
-const selectAreas = createAction(
-  `${FEATURE_NAME}/SELECT_AREAS`,
-  (page, areas) => ({
-    page,
-    areas
-  })
-)
-
-const updateAreas = createAction(
-  `${FEATURE_NAME}/UPDATE_AREAS`,
-  (page, areas) => ({
-    page,
-    areas
-  })
-)
-
 const insertCopiedMarkup = createAction(
   `${FEATURE_NAME}/INSERT_COPIED_MARKUP`,
   (page, pageMarkup) => ({
@@ -161,8 +127,7 @@ const copyMarkup = () => async (dispatch, getState) => {
   const state = getState()
   const markupToCopy = new PageMarkup(
     pageSelectedLabelsSelector(state),
-    pageSelectedTablesSelector(state),
-    pageSelectedAreasSelector(state)
+    pageSelectedTablesSelector(state)
   )
 
   await clipboardStorage.write(markupToCopy)
@@ -194,13 +159,12 @@ const exportMarkup = () => (dispatch, getState) => {
   exportService.exportMarkup(markup, documentNameForExport)
 }
 
-const updatePageMarkup = ({ labels, tables, areas }) => (dispatch, getState) => {
+const updatePageMarkup = ({ labels, tables }) => (dispatch, getState) => {
   const state = getState()
   const currentPage = currentPageSelector(state)
   batch(() => {
     labels && dispatch(updateLabels(currentPage, labels))
     tables && dispatch(updateTables(currentPage, tables))
-    areas && dispatch(updateAreas(currentPage, areas))
   })
 }
 
@@ -254,10 +218,6 @@ export {
   reset,
   importMarkup,
   exportMarkup,
-  addAreas,
-  removeAreas,
-  selectAreas,
-  updateAreas,
   updateAllLabels,
   updateAllTables,
   updateInitialMarkup,

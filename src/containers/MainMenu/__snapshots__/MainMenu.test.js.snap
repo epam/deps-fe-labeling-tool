@@ -55,82 +55,6 @@ exports[`Container: MainMenu mapStateToProps should pass expected props to Wrapp
 Object {
   "markup": Object {
     "1": Object {
-      "areas": Array [
-        Area {
-          "h": 0.4,
-          "meta": Object {},
-          "typeName": "area",
-          "uid": "5",
-          "w": 0.3,
-          "x": 0.1,
-          "y": 0.2,
-        },
-        Area {
-          "h": 0.8,
-          "meta": Object {},
-          "typeName": "area",
-          "uid": "6",
-          "w": 0.7,
-          "x": 0.5,
-          "y": 0.6,
-        },
-        Area {
-          "h": 0.12,
-          "meta": Object {},
-          "typeName": "area",
-          "uid": "7",
-          "w": 0.11,
-          "x": 0.09,
-          "y": 0.1,
-        },
-        Area {
-          "h": 0.16,
-          "meta": Object {},
-          "typeName": "area",
-          "uid": "8",
-          "w": 0.15,
-          "x": 0.13,
-          "y": 0.14,
-        },
-      ],
-      "initialAreas": Array [
-        Area {
-          "h": 0.4,
-          "meta": Object {},
-          "typeName": "area",
-          "uid": "5",
-          "w": 0.3,
-          "x": 0.1,
-          "y": 0.2,
-        },
-        Area {
-          "h": 0.8,
-          "meta": Object {},
-          "typeName": "area",
-          "uid": "6",
-          "w": 0.7,
-          "x": 0.5,
-          "y": 0.6,
-        },
-        Area {
-          "h": 0.12,
-          "meta": Object {},
-          "typeName": "area",
-          "uid": "7",
-          "w": 0.11,
-          "x": 0.09,
-          "y": 0.1,
-        },
-        Area {
-          "h": 0.16,
-          "meta": Object {},
-          "typeName": "area",
-          "uid": "8",
-          "w": 0.15,
-          "x": 0.13,
-          "y": 0.14,
-        },
-      ],
       "initialLabels": Array [
         Label {
           "confidence": 0.8,
@@ -196,7 +120,7 @@ Object {
           "merges": Array [],
           "meta": Object {},
           "typeName": "table",
-          "uid": "9",
+          "uid": "5",
           "values": Array [
             CellValue {
               "column": 0,
@@ -276,7 +200,6 @@ Object {
         },
       ],
       "modifiedObjects": Array [],
-      "selectedAreasIds": Array [],
       "selectedLabelsIds": Array [
         "1",
       ],
@@ -288,7 +211,7 @@ Object {
           "merges": Array [],
           "meta": Object {},
           "typeName": "table",
-          "uid": "9",
+          "uid": "5",
           "values": Array [
             CellValue {
               "column": 0,
@@ -371,7 +294,6 @@ Object {
     "tools": Array [
       "detectTables",
       "label",
-      "area",
       "table",
       "merge",
       "split",

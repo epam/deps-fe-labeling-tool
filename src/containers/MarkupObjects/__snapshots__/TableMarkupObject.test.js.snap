@@ -7,7 +7,7 @@ exports[`Component: TableMarkupObject component should render correct layout 1`]
       <TableIcon />
     </IconSize23>
   }
-  key="9"
+  key="5"
   name="test Field Name "
   onHeaderClick={[Function]}
   page={1}

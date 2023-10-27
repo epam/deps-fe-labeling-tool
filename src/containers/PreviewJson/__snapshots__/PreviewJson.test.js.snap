@@ -22,44 +22,6 @@ exports[`Container: PreviewJson component should render correct layout 1`] = `
   sortKeys={false}
   src={
     Object {
-      "areas": Array [
-        Area {
-          "h": 0.4,
-          "meta": Object {},
-          "typeName": "area",
-          "uid": "5",
-          "w": 0.3,
-          "x": 0.1,
-          "y": 0.2,
-        },
-        Area {
-          "h": 0.8,
-          "meta": Object {},
-          "typeName": "area",
-          "uid": "6",
-          "w": 0.7,
-          "x": 0.5,
-          "y": 0.6,
-        },
-        Area {
-          "h": 0.12,
-          "meta": Object {},
-          "typeName": "area",
-          "uid": "7",
-          "w": 0.11,
-          "x": 0.09,
-          "y": 0.1,
-        },
-        Area {
-          "h": 0.16,
-          "meta": Object {},
-          "typeName": "area",
-          "uid": "8",
-          "w": 0.15,
-          "x": 0.13,
-          "y": 0.14,
-        },
-      ],
       "labels": Array [
         Label {
           "confidence": 0.8,
@@ -125,7 +87,7 @@ exports[`Container: PreviewJson component should render correct layout 1`] = `
           "merges": Array [],
           "meta": Object {},
           "typeName": "table",
-          "uid": "9",
+          "uid": "5",
           "values": Array [
             CellValue {
               "column": 0,
@@ -176,44 +138,6 @@ exports[`Container: PreviewJson component should render correct layout 1`] = `
 exports[`Container: PreviewJson mapStateToProps should pass state as props to WrappedComponent 1`] = `
 Object {
   "pageMarkup": Object {
-    "areas": Array [
-      Area {
-        "h": 0.4,
-        "meta": Object {},
-        "typeName": "area",
-        "uid": "5",
-        "w": 0.3,
-        "x": 0.1,
-        "y": 0.2,
-      },
-      Area {
-        "h": 0.8,
-        "meta": Object {},
-        "typeName": "area",
-        "uid": "6",
-        "w": 0.7,
-        "x": 0.5,
-        "y": 0.6,
-      },
-      Area {
-        "h": 0.12,
-        "meta": Object {},
-        "typeName": "area",
-        "uid": "7",
-        "w": 0.11,
-        "x": 0.09,
-        "y": 0.1,
-      },
-      Area {
-        "h": 0.16,
-        "meta": Object {},
-        "typeName": "area",
-        "uid": "8",
-        "w": 0.15,
-        "x": 0.13,
-        "y": 0.14,
-      },
-    ],
     "labels": Array [
       Label {
         "confidence": 0.8,
@@ -279,7 +203,7 @@ Object {
         "merges": Array [],
         "meta": Object {},
         "typeName": "table",
-        "uid": "9",
+        "uid": "5",
         "values": Array [
           CellValue {
             "column": 0,

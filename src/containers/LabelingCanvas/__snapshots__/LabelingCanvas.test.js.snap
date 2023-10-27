@@ -36,7 +36,7 @@ exports[`Container: LabelingCanvas Component should render layout correctly 1`] 
         }
       }
       isContentVisible={true}
-      key="10"
+      key="6"
       label={
         Label {
           "confidence": 0.8,
@@ -47,7 +47,7 @@ exports[`Container: LabelingCanvas Component should render layout correctly 1`] 
           "meta": Object {},
           "type": "key",
           "typeName": "label",
-          "uid": "10",
+          "uid": "6",
           "w": 0.3,
           "x": 0.1,
           "y": 0.2,
@@ -182,29 +182,6 @@ exports[`Container: LabelingCanvas Component should render layout correctly 1`] 
           ],
         }
       }
-    />
-    <CanvasHOC
-      area={
-        Area {
-          "h": 0.4,
-          "meta": Object {},
-          "typeName": "area",
-          "uid": "11",
-          "w": 0.3,
-          "x": 0.1,
-          "y": 0.2,
-        }
-      }
-      image={
-        Object {
-          "height": 1000,
-          "width": 1000,
-        }
-      }
-      key="11"
-      onUpdate={[Function]}
-      scale={2}
-      selectable={false}
     />
   </Canvas>
   <DefaultCanvasHotKeys />
@@ -347,7 +324,6 @@ Object {
     "tools": Array [
       "detectTables",
       "label",
-      "area",
       "table",
       "merge",
       "split",

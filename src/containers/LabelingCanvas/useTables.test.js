@@ -12,7 +12,6 @@ import {
 import { setActiveSidebar } from '@/actions/ui'
 import { useTables } from '@/containers/LabelingCanvas/useTables'
 import { SidebarContent } from '@/enums/SidebarContent'
-import { Area } from '@/models/Area'
 import { Rectangle } from '@/models/Rectangle'
 import { Table } from '@/models/Table'
 import {
@@ -38,9 +37,8 @@ jest.mock('@/actions/markup', () => mockMarkupActions)
 jest.mock('@/actions/ui', () => mockUiActions)
 
 const mockTable = new Table([0.45, 0.765], [8.234, 9.564])
-const mockArea = new Area(1, 2, 3, 4)
 const mockTables = [mockTable]
-const mockObjects = [mockTable, mockArea]
+const mockObjects = [mockTable]
 
 describe('Hook: useTables', () => {
   let hookApi

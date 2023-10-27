@@ -4,7 +4,6 @@ exports[`Container: DeleteButton mapStateToProps should pass correct props to th
 Object {
   "currentPage": 1,
   "labels": Array [],
-  "selectedAreas": Array [],
   "selectedLabels": Array [],
   "selectedTables": Array [],
 }

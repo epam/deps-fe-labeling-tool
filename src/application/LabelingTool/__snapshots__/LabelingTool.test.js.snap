@@ -161,7 +161,6 @@ exports[`Application: LabelingTool component should render correct layout 1`] = 
             "tools": Array [
               "detectTables",
               "label",
-              "area",
               "table",
               "merge",
               "split",

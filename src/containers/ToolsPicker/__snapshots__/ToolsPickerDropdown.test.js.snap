@@ -3,7 +3,7 @@
 exports[`Container: ToolsPickerDropdown should render layout correctly 1`] = `
 <Fragment>
   <Tooltip
-    title="Area (Shift+L)"
+    title="Table (Shift+T)"
     zIndex={0}
   >
     <ToolsPickerstyles__ButtonIcon
@@ -11,10 +11,10 @@ exports[`Container: ToolsPickerDropdown should render layout correctly 1`] = `
       icon={
         <ToolsPickerDropdownstyles__DropdownTools>
           <Tooltip
-            title="Area (Shift+L)"
+            title="Table (Shift+T)"
           >
             <IconSize32>
-              <LabelingIcon
+              <TableIcon
                 onClick={[Function]}
               />
             </IconSize32>
@@ -77,5 +77,17 @@ exports[`Container: ToolsPickerDropdown should render layout correctly 1`] = `
       }
     />
   </Tooltip>
+  <ToolsPickerItem
+    key="merge"
+    onClick={[MockFunction]}
+    selectedTool="pointer"
+    tool="merge"
+  />
+  <ToolsPickerItem
+    key="split"
+    onClick={[MockFunction]}
+    selectedTool="pointer"
+    tool="split"
+  />
 </Fragment>
 `;

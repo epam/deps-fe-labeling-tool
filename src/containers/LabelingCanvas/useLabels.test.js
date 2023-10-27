@@ -12,7 +12,6 @@ import {
 import { setActiveSidebar } from '@/actions/ui'
 import { useLabels } from '@/containers/LabelingCanvas/useLabels'
 import { SidebarContent } from '@/enums/SidebarContent'
-import { Area } from '@/models/Area'
 import { Label } from '@/models/Label'
 import { Rectangle } from '@/models/Rectangle'
 import {
@@ -38,9 +37,8 @@ jest.mock('@/actions/markup', () => mockMarkupActions)
 jest.mock('@/actions/ui', () => mockUiActions)
 
 const mockLabel = new Label(1, 2, 3, 4)
-const mockArea = new Area(1, 2, 3, 4)
 const mockLabels = [mockLabel]
-const mockObjects = [mockLabel, mockArea]
+const mockObjects = [mockLabel]
 
 describe('Hook: useLabels', () => {
   let hookApi

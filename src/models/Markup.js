@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import { Area, areaShape } from '@/models/Area'
 import { Label, labelShape } from '@/models/Label'
 import { Table, tableShape } from '@/models/Table'
 import { DictionaryShape } from '@/utils/propTypes'
@@ -8,10 +7,9 @@ const MARKUP_ERROR_MESSAGE = 'Markup is invalid'
 const PAGE_MARKUP_ERROR_MESSAGE = 'Page markup is invalid'
 
 class PageMarkup {
-  constructor (labels, tables, areas) {
+  constructor (labels, tables) {
     labels && (this.labels = Array.isArray(labels) ? labels : [labels])
     tables && (this.tables = Array.isArray(tables) ? tables : [tables])
-    areas && (this.areas = Array.isArray(areas) ? areas : [areas])
   }
 
   static isValid = (pageMarkup) => {
@@ -37,17 +35,6 @@ class PageMarkup {
 
       pageMarkup.tables && pageMarkup.tables.forEach((table) => {
         const valid = Table.isValid(table)
-        if (!valid) {
-          throw new Error(PAGE_MARKUP_ERROR_MESSAGE)
-        }
-      })
-
-      if (pageMarkup.areas && !Array.isArray(pageMarkup.areas)) {
-        throw new Error(PAGE_MARKUP_ERROR_MESSAGE)
-      }
-
-      pageMarkup.areas && pageMarkup.areas.forEach((area) => {
-        const valid = Area.isValid(area)
         if (!valid) {
           throw new Error(PAGE_MARKUP_ERROR_MESSAGE)
         }
@@ -139,14 +126,12 @@ class Markup {
 
 const markupShape = DictionaryShape(PropTypes.number.isRequired, {
   labels: PropTypes.arrayOf(labelShape),
-  tables: PropTypes.arrayOf(tableShape),
-  areas: PropTypes.arrayOf(areaShape)
+  tables: PropTypes.arrayOf(tableShape)
 })
 
 const pageMarkupShape = PropTypes.shape({
   labels: PropTypes.arrayOf(labelShape),
-  tables: PropTypes.arrayOf(tableShape),
-  areas: PropTypes.arrayOf(areaShape)
+  tables: PropTypes.arrayOf(tableShape)
 })
 
 export {
