@@ -38,7 +38,6 @@ jest.mock('@/actions/ui', () => mockUiActions)
 
 const mockTable = new Table([0.45, 0.765], [8.234, 9.564])
 const mockTables = [mockTable]
-const mockObjects = [mockTable]
 
 describe('Hook: useTables', () => {
   let hookApi
@@ -89,7 +88,7 @@ describe('Hook: useTables', () => {
   })
 
   it('should call selectTables action with correct page and tables', () => {
-    hookApi.selectTables(mockObjects)
+    hookApi.selectTables(mockTables)
     const currentPage = currentPageSelector()
     mockReactRedux.batch(() => {
       expect(selectTables).nthCalledWith(1, currentPage, mockTables)
@@ -97,7 +96,7 @@ describe('Hook: useTables', () => {
   })
 
   it('should call setActiveSidebar action with correct value', () => {
-    hookApi.selectTables(mockObjects)
+    hookApi.selectTables(mockTables)
     mockReactRedux.batch(() => {
       expect(setActiveSidebar).nthCalledWith(1, SidebarContent.MARKUP)
     })
@@ -105,7 +104,7 @@ describe('Hook: useTables', () => {
 
   it('should not call setActiveSidebar action with correct value if active sidebar is equal to "Markup"', () => {
     activeSidebarSelector.mockImplementationOnce(() => SidebarContent.MARKUP)
-    hookApi.selectTables(mockObjects)
+    hookApi.selectTables(mockTables)
     mockReactRedux.batch(() => {
       expect(setActiveSidebar).not.toHaveBeenCalled()
     })
