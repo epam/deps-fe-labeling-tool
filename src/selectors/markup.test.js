@@ -1,4 +1,3 @@
-import { Area } from '@/models/Area'
 import { Label, LabelType } from '@/models/Label'
 import { Rectangle } from '@/models/Rectangle'
 import { Relation } from '@/models/Relation'
@@ -10,8 +9,6 @@ import {
   pageRelationsSelector,
   pageTablesSelector,
   pageSelectedTablesSelector,
-  pageAreasSelector,
-  pageSelectedAreasSelector,
   modifiedObjectsSelector,
   pageMarkupStateSelector,
   pageMarkupSelector,
@@ -27,9 +24,6 @@ jest.mock('reselect', () => {
 })
 
 const MOCK_PAGE = 1
-
-const areaA = new Area(1, 1, 1, 1)
-const areaB = new Area(2, 2, 2, 2)
 
 const labelA = new Label(1, 1, 1, 1, 'MOCK_CODE_1', 0, LabelType.KEY)
 const labelB = new Label(2, 2, 2, 2, 'MOCK_CODE_1', 0, LabelType.VALUE)
@@ -71,13 +65,6 @@ describe('Selectors: markup', () => {
             ],
             selectedTablesIds: [
               tableA.uid
-            ],
-            areas: [
-              areaA,
-              areaB
-            ],
-            selectedAreasIds: [
-              areaA.uid
             ]
           }
         }
@@ -98,10 +85,6 @@ describe('Selectors: markup', () => {
           tables: [
             tableA,
             tableB
-          ],
-          areas: [
-            areaA,
-            areaB
           ]
         }
       }
@@ -218,40 +201,6 @@ describe('Selectors: markup', () => {
     )
   })
 
-  it('should return page tables when calling to pageAreasSelector', () => {
-    expect(
-      pageAreasSelector(defaultState)
-    ).toEqual(
-      [areaA, areaB]
-    )
-  })
-
-  it('should return empty array for non existing page when using pageAreasSelector', () => {
-    defaultState.pagination.currentPage = 2
-    expect(
-      pageAreasSelector(defaultState)
-    ).toEqual(
-      []
-    )
-  })
-
-  it('should get selected tables from state when using pageSelectedAreasSelector', () => {
-    expect(
-      pageSelectedAreasSelector(defaultState)
-    ).toEqual(
-      [areaA]
-    )
-  })
-
-  it('should return empty array for non existing page when using pageSelectedAreasSelector', () => {
-    defaultState.pagination.currentPage = 2
-    expect(
-      pageSelectedAreasSelector(defaultState)
-    ).toEqual(
-      []
-    )
-  })
-
   it('should get page markup from state when using pageMarkupStateSelector', () => {
     expect(
       pageMarkupStateSelector(defaultState)
@@ -270,10 +219,6 @@ describe('Selectors: markup', () => {
         tables: [
           tableA,
           tableB
-        ],
-        areas: [
-          areaA,
-          areaB
         ]
       }
     )

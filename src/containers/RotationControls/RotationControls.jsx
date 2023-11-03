@@ -10,7 +10,6 @@ import { Tooltip } from '@/components/Tooltip'
 import { HotKeyEvent } from '@/constants/hotKeys'
 import { Direction } from '@/enums/Rotation'
 import { withHotKeys } from '@/hocs/withHotKeys'
-import { Area } from '@/models/Area'
 import { Label } from '@/models/Label'
 import { PageMarkup, pageMarkupShape } from '@/models/Markup'
 import { Table } from '@/models/Table'
@@ -40,12 +39,11 @@ const RotationControls = ({
   }, [angle])
 
   const rotateObjects = useCallback((direction) => {
-    const updatedAreas = pageMarkup?.areas?.map((area) => Area.rotate(area, direction))
     const updatedLabels = pageMarkup?.labels?.map((label) => Label.rotate(label, direction))
     const updatedTables = pageMarkup?.tables?.map((table) => Table.rotate(table, direction))
 
-    updatePageMarkup(new PageMarkup(updatedLabels, updatedTables, updatedAreas))
-  }, [pageMarkup?.areas, pageMarkup?.labels, pageMarkup?.tables, updatePageMarkup])
+    updatePageMarkup(new PageMarkup(updatedLabels, updatedTables))
+  }, [pageMarkup?.labels, pageMarkup?.tables, updatePageMarkup])
 
   const changeRotation = useCallback((direction) => {
     const nextAngle = getNextAngle(direction)

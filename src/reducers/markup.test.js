@@ -16,16 +16,11 @@ import {
   storeMarkup,
   storeAssignedMarkup,
   storeImportMarkup,
-  addAreas,
-  removeAreas,
-  updateAreas,
-  selectAreas,
   updateAllLabels,
   updateAllTables,
   updateInitialMarkup
 } from '@/actions/markup'
 import { FieldType } from '@/enums/FieldType'
-import { Area } from '@/models/Area'
 import { Field } from '@/models/Field'
 import { PairFieldMeta, ListFieldMeta } from '@/models/FieldMeta'
 import { Label, LabelType } from '@/models/Label'
@@ -84,10 +79,6 @@ const mockFiledTableList = new Field(
   new ListFieldMeta(FieldType.TABLE)
 )
 
-const areaA = new Area(1, 1, 1, 1)
-const areaB = new Area(1, 1, 1, 1)
-const areaC = new Area(3, 3, 3, 3)
-
 const labelPairKey = new Label(1, 1, 1, 1, mockFiled1.code, undefined, LabelType.KEY, 'mock content A')
 const labelPairValue = new Label(2, 2, 2, 2, mockFiled1.code, undefined, LabelType.VALUE, 'mock content B')
 const labelString = new Label(3, 3, 3, 3, mockFiled2.code, undefined, LabelType.VALUE, 'mock content C')
@@ -138,13 +129,10 @@ const tableAssignedToList = new Table(
 let lastMockUid = tableNotAssigned.uid
 
 const defaultPageState = {
-  areas: [],
   labels: [],
   tables: [],
-  initialAreas: [],
   initialLabels: [],
   initialTables: [],
-  selectedAreasIds: [],
   selectedLabelsIds: [],
   selectedTablesIds: [],
   modifiedObjects: []
@@ -202,14 +190,12 @@ describe('Reducer: markup', () => {
   it('should handle updateInitialMarkup action correctly', () => {
     const pageOneState = getStateForPage(1, {
       labels: [labelPairKey],
-      tables: [tableA],
-      areas: [areaA]
+      tables: [tableA]
     })
 
     const pageTwoState = getStateForPage(2, {
       labels: [labelPairKey],
-      tables: [tableA],
-      areas: [areaA]
+      tables: [tableA]
     })
 
     const stateBefore = {
@@ -220,19 +206,16 @@ describe('Reducer: markup', () => {
     const afterPageOne = getStateForPage(1, {
       labels: [labelPairKey],
       tables: [tableA],
-      areas: [areaA],
       initialLabels: [labelPairKey],
-      initialTables: [tableA],
-      initialAreas: [areaA]
+      initialTables: [tableA]
     })
 
     const afterPageTwo = getStateForPage(2, {
       labels: [labelPairKey],
       tables: [tableA],
-      areas: [areaA],
+
       initialLabels: [labelPairKey],
-      initialTables: [tableA],
-      initialAreas: [areaA]
+      initialTables: [tableA]
     })
 
     const afterState = {
@@ -247,14 +230,12 @@ describe('Reducer: markup', () => {
   it('should handle updateInitialMarkup action correctly when objects empty', () => {
     const pageOneState = getStateForPage(1, {
       labels: null,
-      tables: null,
-      areas: null
+      tables: null
     })
 
     const pageTwoState = getStateForPage(2, {
       labels: [labelPairKey],
-      tables: [tableA],
-      areas: [areaA]
+      tables: [tableA]
     })
 
     const stateBefore = {
@@ -265,19 +246,15 @@ describe('Reducer: markup', () => {
     const afterPageOne = getStateForPage(1, {
       labels: null,
       tables: null,
-      areas: null,
       initialLabels: [],
-      initialTables: [],
-      initialAreas: []
+      initialTables: []
     })
 
     const afterPageTwo = getStateForPage(2, {
       labels: [labelPairKey],
       tables: [tableA],
-      areas: [areaA],
       initialLabels: [labelPairKey],
-      initialTables: [tableA],
-      initialAreas: [areaA]
+      initialTables: [tableA]
     })
 
     const afterState = {
@@ -291,26 +268,20 @@ describe('Reducer: markup', () => {
 
   it('should handle storeMarkup action correctly', () => {
     const pageOneState = getStateForPage(1, {
-      areas: [areaA],
       labels: [labelPairKey],
       tables: [tableA],
-      initialAreas: [areaA],
       initialLabels: [labelPairKey],
       initialTables: [tableA],
-      selectedAreasIds: [areaA.uid],
       selectedLabelsIds: [labelPairKey.uid],
       selectedTablesIds: [tableA.uid],
       modifiedObjects: []
     })
 
     const pageTwoState = getStateForPage(2, {
-      areas: [areaA],
       labels: [labelPairKey],
       tables: [tableA],
-      initialAreas: [areaA],
       initialLabels: [labelPairKey],
       initialTables: [tableA],
-      selectedAreasIds: [areaA.uid],
       selectedLabelsIds: [labelPairKey.uid],
       selectedTablesIds: [tableA.uid],
       modifiedObjects: []
@@ -337,26 +308,20 @@ describe('Reducer: markup', () => {
     )
 
     const afterPageOne = getStateForPage(1, {
-      areas: [],
       labels: [labelPairKey, labelPairValue],
       tables: [],
-      initialAreas: [],
       initialLabels: [labelPairKey, labelPairValue],
       initialTables: [],
-      selectedAreasIds: [],
       selectedLabelsIds: [],
       selectedTablesIds: [],
       modifiedObjects: []
     })
 
     const afterPageTwo = getStateForPage(2, {
-      areas: [],
       labels: [],
       tables: [tableA, tableB],
-      initialAreas: [],
       initialLabels: [],
       initialTables: [tableA, tableB],
-      selectedAreasIds: [],
       selectedLabelsIds: [],
       selectedTablesIds: [],
       modifiedObjects: []
@@ -383,14 +348,11 @@ describe('Reducer: markup', () => {
     const action = storeAssignedMarkup(newMarkup)
 
     const afterState = getStateForPage(1, {
-      areas: [],
       labels: [labelPairKey, labelPairValue],
       tables: [],
-      initialAreas: [],
       initialLabels: [labelPairKey, labelPairValue],
       initialTables: [],
       modifiedObjects: [],
-      selectedAreasIds: [],
       selectedLabelsIds: [],
       selectedTablesIds: []
     })
@@ -411,14 +373,11 @@ describe('Reducer: markup', () => {
     const action = storeAssignedMarkup(newMarkup)
 
     const afterState = getStateForPage(1, {
-      areas: [],
       labels: [],
       tables: [tableA, tableB],
-      initialAreas: [],
       initialLabels: [],
       initialTables: [tableA, tableB],
       modifiedObjects: [],
-      selectedAreasIds: [],
       selectedLabelsIds: [],
       selectedTablesIds: []
     })
@@ -428,26 +387,20 @@ describe('Reducer: markup', () => {
 
   it('should handle storeImportMarkup action correctly', () => {
     const pageOneState = getStateForPage(1, {
-      areas: [areaA],
       labels: [labelPairKey],
       tables: [tableA],
-      initialAreas: [areaA],
       initialLabels: [labelPairKey],
       initialTables: [tableA],
-      selectedAreasIds: [areaA.uid],
       selectedLabelsIds: [labelPairKey.uid],
       selectedTablesIds: [tableA.uid],
       modifiedObjects: []
     })
 
     const pageTwoState = getStateForPage(2, {
-      areas: [areaA],
       labels: [labelPairKey],
       tables: [tableA],
-      initialAreas: [areaA],
       initialLabels: [labelPairKey],
       initialTables: [tableA],
-      selectedAreasIds: [areaA.uid],
       selectedLabelsIds: [labelPairKey.uid],
       selectedTablesIds: [tableA.uid],
       modifiedObjects: []
@@ -473,8 +426,7 @@ describe('Reducer: markup', () => {
             2,
             new PageMarkup(
               null,
-              [tableA, tableB],
-              [areaC]
+              [tableA, tableB]
             )
           ]
         ])
@@ -482,29 +434,23 @@ describe('Reducer: markup', () => {
     )
 
     const afterPageOne = getStateForPage(1, {
-      areas: [],
       labels: [labelPairKey, labelPairValue],
       tables: [],
-      initialAreas: [],
       initialLabels: [],
       initialTables: [],
-      selectedAreasIds: [],
       selectedLabelsIds: [],
       selectedTablesIds: [],
       modifiedObjects: [labelPairKey.uid, labelPairValue.uid]
     })
 
     const afterPageTwo = getStateForPage(2, {
-      areas: [areaC],
       labels: [],
       tables: [tableA, tableB],
-      initialAreas: [],
       initialLabels: [],
       initialTables: [],
-      selectedAreasIds: [],
       selectedLabelsIds: [],
       selectedTablesIds: [],
-      modifiedObjects: [areaC.uid, tableA.uid, tableB.uid]
+      modifiedObjects: [tableA.uid, tableB.uid]
     })
 
     const afterState = {
@@ -517,26 +463,20 @@ describe('Reducer: markup', () => {
 
   it('should handle storeImportMarkup action correctly when set empty markup', () => {
     const pageOneState = getStateForPage(1, {
-      areas: [areaA],
       labels: [labelPairKey],
       tables: [tableA],
-      initialAreas: [areaA],
       initialLabels: [labelPairKey],
       initialTables: [tableA],
-      selectedAreasIds: [areaA.uid],
       selectedLabelsIds: [labelPairKey.uid],
       selectedTablesIds: [tableA.uid],
       modifiedObjects: []
     })
 
     const pageTwoState = getStateForPage(2, {
-      areas: [areaA],
       labels: [labelPairKey],
       tables: [tableA],
-      initialAreas: [areaA],
       initialLabels: [labelPairKey],
       initialTables: [tableA],
-      selectedAreasIds: [areaA.uid],
       selectedLabelsIds: [labelPairKey.uid],
       selectedTablesIds: [tableA.uid],
       modifiedObjects: []
@@ -575,39 +515,30 @@ describe('Reducer: markup', () => {
     )
 
     const afterPageOne = getStateForPage(1, {
-      areas: [],
       labels: [],
       tables: [],
-      initialAreas: [],
       initialLabels: [],
       initialTables: [],
-      selectedAreasIds: [],
       selectedLabelsIds: [],
       selectedTablesIds: [],
       modifiedObjects: []
     })
 
     const afterPageTwo = getStateForPage(2, {
-      areas: [],
       labels: [],
       tables: [],
-      initialAreas: [],
       initialLabels: [],
       initialTables: [],
-      selectedAreasIds: [],
       selectedLabelsIds: [],
       selectedTablesIds: [],
       modifiedObjects: []
     })
 
     const afterPageThree = getStateForPage(3, {
-      areas: [],
       labels: [],
       tables: [],
-      initialAreas: [],
       initialLabels: [],
       initialTables: [],
-      selectedAreasIds: [],
       selectedLabelsIds: [],
       selectedTablesIds: [],
       modifiedObjects: []
@@ -852,93 +783,6 @@ describe('Reducer: markup', () => {
     const stateAfter = getStateForPage(MOCK_PAGE, {
       tables: [tableA],
       selectedTablesIds: [tableA.uid]
-    })
-
-    expect(markupReducer(stateBefore, action)).toEqual(stateAfter)
-  })
-
-  it('should save new areas under state.areas with handling addAreas', () => {
-    const stateBefore = getStateForPage(MOCK_PAGE, {
-      areas: []
-    })
-
-    const action = addAreas(MOCK_PAGE, [areaA, areaB])
-
-    const stateAfter = getStateForPage(MOCK_PAGE, {
-      areas: [areaA, areaB],
-      modifiedObjects: [areaA.uid, areaB.uid]
-    })
-
-    expect(markupReducer(stateBefore, action)).toEqual(stateAfter)
-  })
-
-  it('should update areas in state when handling updateAreas', () => {
-    const updatedAreaC = {
-      ...areaC,
-      w: areaC.w + 100
-    }
-
-    const stateBefore = getStateForPage(MOCK_PAGE, {
-      areas: [areaA, areaB, updatedAreaC],
-      initialAreas: [areaA, areaB, areaC],
-      modifiedObjects: [areaC.uid]
-    })
-
-    const updatedAreaA = {
-      ...areaA,
-      w: areaA.w + 100
-    }
-
-    const action = updateAreas(MOCK_PAGE, [updatedAreaA, areaC])
-
-    const stateAfter = getStateForPage(MOCK_PAGE, {
-      areas: [
-        updatedAreaA,
-        areaB,
-        areaC
-      ],
-      initialAreas: [
-        areaA,
-        areaB,
-        areaC
-      ],
-      modifiedObjects: [updatedAreaA.uid]
-    })
-
-    expect(markupReducer(stateBefore, action)).toEqual(stateAfter)
-  })
-
-  it('should remove areas from state when handling removeAreas', () => {
-    const stateBefore = getStateForPage(MOCK_PAGE, {
-      areas: [areaA, areaB, areaC],
-      initialAreas: [areaA, areaB],
-      modifiedObjects: [areaC.uid],
-      selectedAreasIds: [areaA.uid, areaB.uid]
-    })
-
-    const action = removeAreas(MOCK_PAGE, [areaA, areaC])
-
-    const stateAfter = getStateForPage(MOCK_PAGE, {
-      areas: [areaB],
-      initialAreas: [areaA, areaB],
-      selectedAreasIds: [areaB.uid],
-      modifiedObjects: [areaA.uid]
-    })
-
-    expect(markupReducer(stateBefore, action)).toEqual(stateAfter)
-  })
-
-  it('should save uid inside selectedAreasIds when handling selectAreas', () => {
-    const stateBefore = getStateForPage(MOCK_PAGE, {
-      areas: [areaA],
-      selectedAreasIds: []
-    })
-
-    const action = selectAreas(MOCK_PAGE, [areaA])
-
-    const stateAfter = getStateForPage(MOCK_PAGE, {
-      areas: [areaA],
-      selectedAreasIds: [areaA.uid]
     })
 
     expect(markupReducer(stateBefore, action)).toEqual(stateAfter)
@@ -1299,17 +1143,14 @@ describe('Reducer: markup', () => {
   it('should add correct markup correct when handling insertCopiedMarkup', () => {
     const stateBefore = getStateForPage(MOCK_PAGE, {
       labels: [labelPairKey, labelPairKeyList],
-      areas: [areaA],
       tables: [tableA],
-      selectedAreasIds: [areaA.uid],
       selectedLabelsIds: [labelPairKey.uid, labelPairKeyList.uid],
       selectedTablesIds: [tableA.uid]
     })
 
     const copiedMarkup = new PageMarkup(
       stateBefore[MOCK_PAGE].labels,
-      stateBefore[MOCK_PAGE].tables,
-      stateBefore[MOCK_PAGE].areas
+      stateBefore[MOCK_PAGE].tables
     )
 
     const action = insertCopiedMarkup(MOCK_PAGE, copiedMarkup)
@@ -1330,11 +1171,6 @@ describe('Reducer: markup', () => {
       fieldCode: ''
     })
 
-    const copiedAreaA = Area.shift({
-      ...areaA,
-      uid: `${++lastMockUid}`
-    })
-
     const copiedTableA = Table.shift({
       ...tableA,
       uid: `${++lastMockUid}`
@@ -1347,21 +1183,15 @@ describe('Reducer: markup', () => {
         copiedLabelA,
         copiedLabelD
       ],
-      areas: [
-        areaA,
-        copiedAreaA
-      ],
       tables: [
         tableA,
         copiedTableA
       ],
-      selectedAreasIds: [copiedAreaA.uid],
       selectedLabelsIds: [copiedLabelA.uid, copiedLabelD.uid],
       selectedTablesIds: [copiedTableA.uid],
       modifiedObjects: [
         copiedLabelA.uid,
         copiedLabelD.uid,
-        copiedAreaA.uid,
         copiedTableA.uid
       ]
     })
@@ -1369,12 +1199,10 @@ describe('Reducer: markup', () => {
     expect(markupReducer(stateBefore, action)).toEqual(stateAfter)
   })
 
-  it('should add correct markup correct when handling insertCopiedMarkup in case empty payload for tables and areas', () => {
+  it('should add correct markup correct when handling insertCopiedMarkup in case empty payload for tables', () => {
     const stateBefore = getStateForPage(MOCK_PAGE, {
       labels: [labelPairKey],
-      areas: [areaA],
       tables: [tableA],
-      selectedAreasIds: [areaA.uid],
       selectedLabelsIds: [labelPairKey.uid, labelPairKeyList.uid],
       selectedTablesIds: [tableA.uid]
     })
@@ -1397,13 +1225,9 @@ describe('Reducer: markup', () => {
         labelPairKey,
         copiedLabelA
       ],
-      areas: [
-        areaA
-      ],
       tables: [
         tableA
       ],
-      selectedAreasIds: [areaA.uid],
       selectedLabelsIds: [copiedLabelA.uid],
       selectedTablesIds: [tableA.uid],
       modifiedObjects: [
@@ -1419,9 +1243,7 @@ describe('Reducer: markup', () => {
 
     const stateBefore = getStateForPage(MOCK_PAGE, {
       labels: [labelString],
-      areas: [areaA],
       tables: [tableA],
-      selectedAreasIds: [areaA.uid],
       selectedLabelsIds: [labelString.uid],
       selectedTablesIds: [tableA.uid]
     })
@@ -1442,9 +1264,7 @@ describe('Reducer: markup', () => {
 
     const anotherPageState = getStateForPage(anotherPage, {
       labels: [copiedLabel],
-      areas: [],
       tables: [],
-      selectedAreasIds: [],
       selectedLabelsIds: [copiedLabel.uid],
       selectedTablesIds: [],
       modifiedObjects: [copiedLabel.uid]

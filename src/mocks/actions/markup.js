@@ -52,26 +52,6 @@ const removeTables = jest.fn((tables) => ({
   payload: tables
 }))
 
-const addAreas = jest.fn((areas) => ({
-  type: 'MOCK_ADD_AREAS_ACTION',
-  payload: areas
-}))
-
-const removeAreas = jest.fn((areas) => ({
-  type: 'MOCK_REMOVE_AREAS_ACTION',
-  payload: areas
-}))
-
-const selectAreas = jest.fn((areas) => ({
-  type: 'MOCK_SELECT_AREAS_ACTION',
-  payload: areas
-}))
-
-const updateAreas = jest.fn((areas) => ({
-  type: 'MOCK_UPDATE_AREAS_ACTION',
-  payload: areas
-}))
-
 const importMarkup = jest.fn(() => ({
   type: 'MOCK_IMPORT_MARKUP'
 }))
@@ -141,10 +121,6 @@ const mockMarkupActions = {
   selectTables,
   clearSelection,
   removeTables,
-  addAreas,
-  removeAreas,
-  selectAreas,
-  updateAreas,
   importMarkup,
   exportMarkup,
   undo,

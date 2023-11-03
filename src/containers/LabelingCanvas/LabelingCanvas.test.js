@@ -19,7 +19,6 @@ import { CanvasBackground } from '@/components/CanvasBackground'
 import { CanvasMouseSelection } from '@/components/CanvasMouseSelection'
 import { CanvasObjectsSelection } from '@/components/CanvasObjectsSelection'
 import { Tool } from '@/enums/Tool'
-import { Area } from '@/models/Area'
 import { Label } from '@/models/Label'
 import { Rectangle } from '@/models/Rectangle'
 import { Table, CellValue } from '@/models/Table'
@@ -30,7 +29,6 @@ import { currentPageSelector } from '@/selectors/pagination'
 import { settingsSelector } from '@/selectors/settings'
 import { selectedToolSelector } from '@/selectors/tools'
 import { LabelingCanvas as ConnectedCanvas } from './LabelingCanvas'
-import { useAreas } from './useAreas'
 import { useLabels } from './useLabels'
 import { useTables } from './useTables'
 
@@ -62,16 +60,6 @@ const mockLabels = [
   )
 ]
 
-const mockAreas = [
-  new Area(
-    0.1,
-    0.2,
-    0.3,
-    0.4,
-    {}
-  )
-]
-
 const mockTables = [
   new Table(
     [0.5, 0.6, 0.8],
@@ -97,16 +85,6 @@ jest.mock('./useLabels', () => ({
     createLabels: jest.fn(),
     selectLabels: jest.fn(),
     updateLabels: jest.fn()
-  }))
-}))
-
-jest.mock('./useAreas', () => ({
-  useAreas: jest.fn(() => ({
-    areas: mockAreas,
-    selectedAreas: mockAreas,
-    createAreas: jest.fn(),
-    selectAreas: jest.fn(),
-    updateAreas: jest.fn()
   }))
 }))
 
@@ -234,16 +212,6 @@ describe('Container: LabelingCanvas', () => {
       const CanvasMouseSelectionWrapper = wrapper.find(CanvasMouseSelection).at(0)
       CanvasMouseSelectionWrapper.props().onSelectionEnd(selection)
       expect(hookApi.createLabels).nthCalledWith(1, rectangle)
-    })
-
-    it('should call createAreas once, with correct args when onSelectionEnd is called', () => {
-      const selectedTool = Tool.AREA
-      hookApi = useAreas()
-      useAreas.mockImplementationOnce(() => hookApi)
-      wrapper = shallow(<WrappedComponent {...defaultProps} selectedTool={selectedTool} />)
-      const CanvasMouseSelectionWrapper = wrapper.find(CanvasMouseSelection).at(0)
-      CanvasMouseSelectionWrapper.props().onSelectionEnd(selection)
-      expect(hookApi.createAreas).nthCalledWith(1, rectangle)
     })
 
     it('should call createTables once, with correct args when onSelectionEnd is called', () => {

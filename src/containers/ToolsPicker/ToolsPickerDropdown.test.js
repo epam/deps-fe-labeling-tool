@@ -2,7 +2,7 @@ import { mockReactRedux } from '@/mocks/mockReactRedux'
 import { mockSettingsSelectors } from '@/mocks/selectors/settings'
 import React from 'react'
 import { shallow } from 'enzyme'
-import { LabelingIcon } from '@/components/Icons/LabelingIcon'
+import { TableIcon } from '@/components/Icons/TableIcon'
 import { Tool } from '@/enums/Tool'
 import { ButtonIcon } from './ToolsPicker.styles'
 import { ToolsPickerDropdown } from './ToolsPickerDropdown'
@@ -17,7 +17,7 @@ describe('Container: ToolsPickerDropdown', () => {
   let wrapper, defaultProps
   beforeEach(() => {
     defaultProps = {
-      tools: [Tool.AREA, Tool.GRABBING, Tool.LABEL, Tool.SPLIT],
+      tools: [Tool.TABLE, Tool.GRABBING, Tool.LABEL, Tool.SPLIT],
       selectedTool: Tool.POINTER,
       onSelection: jest.fn(),
       ...mapStateToProps().props
@@ -48,7 +48,7 @@ describe('Container: ToolsPickerDropdown', () => {
         {Icon}
       </div>
     )
-    const VisibleToolIconWrapper = DropdownWrapper.find(LabelingIcon).props()
+    const VisibleToolIconWrapper = DropdownWrapper.find(TableIcon).props()
     VisibleToolIconWrapper.onClick()
     expect(defaultProps.onSelection).nthCalledWith(1, wrapper.state('visibleTool'))
   })
@@ -68,7 +68,7 @@ describe('Container: ToolsPickerDropdown', () => {
 
   it('should render secondary tools if selectedTool is Table', () => {
     wrapper.setProps({
-      tools: [Tool.AREA, Tool.GRABBING, Tool.TABLE],
+      tools: [Tool.GRABBING, Tool.TABLE],
       selectedTool: Tool.TABLE,
       settings: {
         ...defaultProps.settings,

@@ -18,14 +18,12 @@ const GENERAL_TOOLS = [
 
 const PRIMARY_TOOLS = [
   Tool.LABEL,
-  Tool.AREA,
   Tool.TABLE,
   Tool.DETECT_TABLES
 ]
 
 const TOOL_TO_HOTKEY = {
   [Tool.POINTER]: HotKeyEvent.SELECT_TOOL_POINTER,
-  [Tool.AREA]: HotKeyEvent.SELECT_TOOL_AREA,
   [Tool.DETECT_TABLES]: HotKeyEvent.SELECT_TOOL_DETECT_TABLES,
   [Tool.LABEL]: HotKeyEvent.SELECT_TOOL_LABEL,
   [Tool.TABLE]: HotKeyEvent.SELECT_TOOL_TABLE,

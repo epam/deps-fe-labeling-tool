@@ -10,7 +10,7 @@ const markupSelector = createDeepEqualSelector(
   [rootSelector],
   (markupRootState) => {
     const markup = Object.entries(markupRootState).reduce((markup, [page, pageMarkup]) => {
-      const { labels, tables, areas } = pageMarkup
+      const { labels, tables } = pageMarkup
 
       if (labels && labels.length) {
         markup[page] = {
@@ -23,13 +23,6 @@ const markupSelector = createDeepEqualSelector(
         markup[page] = {
           ...(markup[page] || {}),
           tables
-        }
-      }
-
-      if (areas && areas.length) {
-        markup[page] = {
-          ...(markup[page] || {}),
-          areas
         }
       }
 
@@ -122,22 +115,6 @@ const pageSelectedTablesSelector = createSelector(
   (tables, selectedTablesIds) => selectedTablesIds.map((uid) => tables.find((obj) => obj.uid === uid))
 )
 
-// TODO: #1431
-const pageAreasSelector = createSelector(
-  [pageMarkupStateSelector],
-  (pageMarkupState) => (pageMarkupState && pageMarkupState.areas) || []
-)
-
-const pageSelectedAreasIdsSelector = createSelector(
-  [pageMarkupStateSelector],
-  (pageMarkupState) => (pageMarkupState && pageMarkupState.selectedAreasIds) || []
-)
-
-const pageSelectedAreasSelector = createSelector(
-  [pageAreasSelector, pageSelectedAreasIdsSelector],
-  (areas, selectedIds) => selectedIds.map((uid) => areas.find((obj) => obj.uid === uid))
-)
-
 const pageSelectedMarkupObjectsSelector = createSelector(
   [pageSelectedLabelsSelector, pageSelectedTablesSelector],
   (labels, tables) => [...labels, ...tables]
@@ -151,9 +128,6 @@ export {
   pageRelationsSelector,
   pageTablesSelector,
   pageSelectedTablesSelector,
-  pageAreasSelector,
-  pageSelectedAreasIdsSelector,
-  pageSelectedAreasSelector,
   pageMarkupSelector,
   pageMarkupStateSelector,
   pageSelectedMarkupObjectsSelector

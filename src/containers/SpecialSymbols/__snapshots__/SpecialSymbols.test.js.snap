@@ -259,7 +259,6 @@ Object {
     "tools": Array [
       "detectTables",
       "label",
-      "area",
       "table",
       "merge",
       "split",

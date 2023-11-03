@@ -20,7 +20,6 @@ exports[`Container: ToolsPicker component should render layout correctly 1`] = `
     tools={
       Array [
         "label",
-        "area",
         "table",
         "detectTables",
       ]
@@ -91,7 +90,6 @@ Object {
     "tools": Array [
       "detectTables",
       "label",
-      "area",
       "table",
       "merge",
       "split",

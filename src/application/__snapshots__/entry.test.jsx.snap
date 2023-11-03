@@ -157,7 +157,6 @@ exports[`Entry Point should expose a window var with mount & unmount methods if 
         "tools": Array [
           "detectTables",
           "label",
-          "area",
           "table",
           "merge",
           "split",
@@ -1053,7 +1052,6 @@ the form to the IRS . . . . . . . . . . . . . . .",
         "tools": Array [
           "detectTables",
           "label",
-          "area",
           "table",
           "merge",
           "split",

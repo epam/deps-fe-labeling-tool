@@ -12,7 +12,6 @@ import {
 import { setActiveSidebar } from '@/actions/ui'
 import { useLabels } from '@/containers/LabelingCanvas/useLabels'
 import { SidebarContent } from '@/enums/SidebarContent'
-import { Area } from '@/models/Area'
 import { Label } from '@/models/Label'
 import { Rectangle } from '@/models/Rectangle'
 import {
@@ -38,9 +37,7 @@ jest.mock('@/actions/markup', () => mockMarkupActions)
 jest.mock('@/actions/ui', () => mockUiActions)
 
 const mockLabel = new Label(1, 2, 3, 4)
-const mockArea = new Area(1, 2, 3, 4)
 const mockLabels = [mockLabel]
-const mockObjects = [mockLabel, mockArea]
 
 describe('Hook: useLabels', () => {
   let hookApi
@@ -85,7 +82,7 @@ describe('Hook: useLabels', () => {
   })
 
   it('should call selectLabels action with correct page and labels', () => {
-    hookApi.selectLabels(mockObjects)
+    hookApi.selectLabels(mockLabels)
     const currentPage = currentPageSelector()
     mockReactRedux.batch(() => {
       expect(selectLabels).nthCalledWith(1, currentPage, mockLabels)
@@ -93,7 +90,7 @@ describe('Hook: useLabels', () => {
   })
 
   it('should call setActiveSidebar action with correct value', () => {
-    hookApi.selectLabels(mockObjects)
+    hookApi.selectLabels(mockLabels)
     mockReactRedux.batch(() => {
       expect(setActiveSidebar).nthCalledWith(1, SidebarContent.MARKUP)
     })
@@ -101,7 +98,7 @@ describe('Hook: useLabels', () => {
 
   it('should not call setActiveSidebar action with correct value if active sidebar is equal to "Markup"', () => {
     activeSidebarSelector.mockImplementationOnce(() => SidebarContent.MARKUP)
-    hookApi.selectLabels(mockObjects)
+    hookApi.selectLabels(mockLabels)
     mockReactRedux.batch(() => {
       expect(setActiveSidebar).not.toHaveBeenCalled()
     })

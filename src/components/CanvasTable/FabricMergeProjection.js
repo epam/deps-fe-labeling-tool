@@ -10,7 +10,7 @@ const FabricMergeProjection = fabric.util.createClass(fabric.Rect, {
       top: y,
       width: w,
       height: h,
-      fill: COLORS.AREA_BACKGROUND,
+      fill: COLORS.MERGE_PROJECTION_BACKGROUND,
       selectable: false,
       hasControls: false
     })

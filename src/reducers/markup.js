@@ -15,15 +15,10 @@ import {
   selectTables,
   updateTables,
   removeTables,
-  addAreas,
-  updateAreas,
-  selectAreas,
-  removeAreas,
   updateAllLabels,
   updateAllTables,
   updateInitialMarkup
 } from '@/actions/markup'
-import { Area } from '@/models/Area'
 import { Label, LabelType } from '@/models/Label'
 import { Table } from '@/models/Table'
 import { isEqual } from '@/utils/isEqual'
@@ -79,14 +74,11 @@ const storeMarkupHandler = (state, action) => {
     ...newState,
     [page]: {
       ...state[page],
-      areas: (pageMarkup && pageMarkup.areas) || [],
-      initialAreas: (pageMarkup && pageMarkup.areas) || [],
       labels: (pageMarkup && pageMarkup.labels) || [],
       initialLabels: (pageMarkup && pageMarkup.labels) || [],
       tables: (pageMarkup && pageMarkup.tables) || [],
       initialTables: (pageMarkup && pageMarkup.tables) || [],
       modifiedObjects: [],
-      selectedAreasIds: [],
       selectedLabelsIds: [],
       selectedTablesIds: []
     }
@@ -97,10 +89,6 @@ const updateMarkupHandler = (state, action) => {
   const getUnassignedMarkup = (markup) => markup.filter((m) => m.fieldCode === '')
 
   const getUpdatedMarkup = (oldMarkup, newMarkup) => ({
-    areas: [
-      ...newMarkup.areas || [],
-      ...getUnassignedMarkup(oldMarkup.areas)
-    ],
     labels: [
       ...newMarkup.labels || [],
       ...getUnassignedMarkup(oldMarkup.labels)
@@ -118,14 +106,11 @@ const updateMarkupHandler = (state, action) => {
       ...newState,
       [page]: {
         ...state[page],
-        areas: updatedMarkup.areas,
-        initialAreas: updatedMarkup.areas,
         labels: updatedMarkup.labels,
         initialLabels: updatedMarkup.labels,
         tables: updatedMarkup.tables,
         initialTables: updatedMarkup.tables,
         modifiedObjects: [],
-        selectedAreasIds: [],
         selectedLabelsIds: [],
         selectedTablesIds: []
       }
@@ -140,20 +125,16 @@ const storeImportMarkupHandler = (state, action) => {
     [page]: (() => {
       let modifiedObjects = []
       if (pageMarkup) {
-        modifiedObjects = pageMarkup.areas ? [...pageMarkup.areas.map((area) => area.uid)] : []
         modifiedObjects = pageMarkup.labels ? [...modifiedObjects, ...pageMarkup.labels.map((label) => label.uid)] : modifiedObjects
         modifiedObjects = pageMarkup.tables ? [...modifiedObjects, ...pageMarkup.tables.map((table) => table.uid)] : modifiedObjects
       }
       return {
         ...state[page],
-        areas: (pageMarkup && pageMarkup.areas) || [],
-        initialAreas: [],
         labels: (pageMarkup && pageMarkup.labels) || [],
         initialLabels: [],
         tables: (pageMarkup && pageMarkup.tables) || [],
         initialTables: [],
         modifiedObjects,
-        selectedAreasIds: [],
         selectedLabelsIds: [],
         selectedTablesIds: []
       }
@@ -323,83 +304,16 @@ const removeTablesHandler = (state, action) => {
 const clearSelectionHandler = (state) => ({
   ...state,
   selectedLabelsIds: [],
-  selectedTablesIds: [],
-  selectedAreasIds: []
+  selectedTablesIds: []
 })
 
 const resetDefaultHandler = () => (defaultState)
-
-const addAreasHandler = (state, action) => {
-  const modifiedObjects = [...state.modifiedObjects]
-
-  action.payload.areas.forEach((area) => {
-    modifiedObjects.push(area.uid)
-  })
-
-  return {
-    ...state,
-    modifiedObjects,
-    areas: [
-      ...state.areas,
-      ...action.payload.areas
-    ]
-  }
-}
-
-const selectAreasHandler = (state, action) => ({
-  ...state,
-  selectedAreasIds: action.payload.areas.map((a) => a.uid)
-})
-
-const removeAreasHandler = (state, action) => {
-  const idsToRemove = action.payload.areas.map((a) => a.uid)
-  const modifiedObjects = setModifiedObjectsDuringRemove(
-    idsToRemove,
-    state.initialAreas,
-    state.modifiedObjects
-  )
-
-  return {
-    ...state,
-    modifiedObjects,
-    areas: state.areas.filter((a) => (
-      !idsToRemove.includes(a.uid)
-    )),
-    selectedAreasIds: state.selectedAreasIds.filter((uid) => (
-      !idsToRemove.includes(uid)
-    ))
-  }
-}
-
-const updateAreasHandler = (state, action) => {
-  const modifiedObjects = setModifiedObjectsDuringUpdates(
-    action.payload.areas,
-    state.initialAreas,
-    state.modifiedObjects
-  )
-
-  return {
-    ...state,
-    modifiedObjects,
-    areas: state.areas.map((currentArea) => {
-      const updatedArea = action.payload.areas.find((a) => a.uid === currentArea.uid)
-      if (!updatedArea) {
-        return currentArea
-      }
-
-      return {
-        ...updatedArea
-      }
-    })
-  }
-}
 
 const updateInitialMarkupHandler = (state, action) => {
   return Object.entries(state).reduce((newState, [page, pageMarkup]) => ({
     ...newState,
     [page]: {
       ...state[page],
-      initialAreas: (pageMarkup && pageMarkup.areas) || [],
       initialLabels: (pageMarkup && pageMarkup.labels) || [],
       initialTables: (pageMarkup && pageMarkup.tables) || [],
       modifiedObjects: []
@@ -525,29 +439,6 @@ const insertCopiedMarkupHandler = (state, action) => {
     }
   }
 
-  if (pageMarkup.areas?.length) {
-    const areasToInsert = pageMarkup.areas.map((area) => {
-      const duplicatedArea = Area.duplicate(area)
-      const siftedArea = Area.shift(duplicatedArea)
-      return siftedArea
-    })
-
-    newState = {
-      ...newState,
-      [page]: addAreasHandler(
-        newState[page],
-        wrapInPayload({ areas: areasToInsert })
-      )
-    }
-    newState = {
-      ...newState,
-      [page]: selectAreasHandler(
-        newState[page],
-        wrapInPayload({ areas: areasToInsert })
-      )
-    }
-  }
-
   if (pageMarkup.tables?.length) {
     const tablesToInsert = pageMarkup.tables.map((table) => {
       const duplicatedTable = Table.duplicate(table)
@@ -628,22 +519,6 @@ const pageMarkupReducerMap = new Map([
     updateTablesHandler
   ],
   [
-    addAreas,
-    addAreasHandler
-  ],
-  [
-    selectAreas,
-    selectAreasHandler
-  ],
-  [
-    removeAreas,
-    removeAreasHandler
-  ],
-  [
-    updateAreas,
-    updateAreasHandler
-  ],
-  [
     updateInitialMarkup,
     updateInitialMarkupHandler
   ],
@@ -662,13 +537,10 @@ const pageMarkupReducerMap = new Map([
 ])
 
 const defaultPageState = {
-  areas: [],
   labels: [],
   tables: [],
-  initialAreas: [],
   initialLabels: [],
   initialTables: [],
-  selectedAreasIds: [],
   selectedLabelsIds: [],
   selectedTablesIds: [],
   modifiedObjects: []

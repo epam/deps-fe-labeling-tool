@@ -2,7 +2,7 @@
 
 exports[`Component: UnassignedMarkupObject component should render correct layout 1`] = `
 <MarkupObjectHeader
-  key="10"
+  key="6"
   name="label 1"
   onHeaderClick={[Function]}
   page="1"

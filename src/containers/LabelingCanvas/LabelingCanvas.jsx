@@ -10,7 +10,6 @@ import { setImage } from '@/actions/image'
 import { clearSelection } from '@/actions/markup'
 import { setActiveSidebar } from '@/actions/ui'
 import { Canvas } from '@/components/Canvas'
-import { CanvasArea } from '@/components/CanvasArea'
 import { CanvasBackground } from '@/components/CanvasBackground'
 import { CanvasDragger } from '@/components/CanvasDragger'
 import { CanvasLabel } from '@/components/CanvasLabel'
@@ -35,7 +34,6 @@ import { selectedToolSelector } from '@/selectors/tools'
 import { COLORS } from '@/theme/theme.default'
 import { throttleAndMergeArgs } from '@/utils/throttleAndMergeArgs'
 import { DefaultCanvasHotKeys } from './DefaultCanvasHotKeys'
-import { useAreas } from './useAreas'
 import { useLabels } from './useLabels'
 import { useTables } from './useTables'
 
@@ -51,8 +49,7 @@ const TOOL_TO_TABLE_MODE = {
 const OBJECT_CREATION_ENABLED_TOOLS = [
   Tool.DETECT_TABLES,
   Tool.LABEL,
-  Tool.TABLE,
-  Tool.AREA
+  Tool.TABLE
 ]
 
 const OBJECT_SELECTION_ENABLED_TOOLS = [
@@ -96,14 +93,6 @@ const LabelingCanvas = ({
   } = useLabels()
 
   const {
-    areas,
-    selectedAreas,
-    createAreas,
-    selectAreas,
-    updateAreas
-  } = useAreas()
-
-  const {
     tables,
     selectedTables,
     createTables,
@@ -141,9 +130,6 @@ const LabelingCanvas = ({
       case Tool.LABEL:
         createLabels(relativeSelection)
         break
-      case Tool.AREA:
-        createAreas(relativeSelection)
-        break
 
       case Tool.TABLE:
         createTables(relativeSelection)
@@ -162,7 +148,6 @@ const LabelingCanvas = ({
     scale,
     image,
     createLabels,
-    createAreas,
     createTables,
     detectTables
   ])
@@ -173,12 +158,10 @@ const LabelingCanvas = ({
     }
 
     selectLabels(selectedObjects)
-    selectAreas(selectedObjects)
     selectTables(selectedObjects)
   }, [
     selectedTool,
     selectLabels,
-    selectAreas,
     selectTables
   ])
 
@@ -193,10 +176,8 @@ const LabelingCanvas = ({
 
   const selectedObjectsIds = useMemo(() => [
     ...selectedLabels.map((l) => l.uid),
-    ...selectedTables.map((t) => t.uid),
-    ...selectedAreas.map((a) => a.uid)
+    ...selectedTables.map((t) => t.uid)
   ], [
-    selectedAreas,
     selectedLabels,
     selectedTables
   ])
@@ -236,27 +217,6 @@ const LabelingCanvas = ({
   const Dragger = useMemo(() => (
     <CanvasDragger />
   ), [])
-
-  const onAreasUpdate = useMemo(() => getThrottledFunction(updateAreas), [updateAreas])
-
-  const Areas = useMemo(() => (
-    areas.map((area) => (
-      <CanvasArea
-        key={area.uid}
-        area={area}
-        onUpdate={onAreasUpdate}
-        selectable={OBJECT_SELECTION_ENABLED_TOOLS.includes(selectedTool)}
-        scale={scale}
-        image={image}
-      />
-    ))
-  ), [
-    onAreasUpdate,
-    areas,
-    image,
-    scale,
-    selectedTool
-  ])
 
   const onLabelsUpdate = useMemo(() => getThrottledFunction(updateLabels), [updateLabels])
 
@@ -356,7 +316,6 @@ const LabelingCanvas = ({
         {Labels}
         {Relations}
         {Tables}
-        {Areas}
         {ObjectsSelection}
       </Canvas>
       <DefaultCanvasHotKeys />
