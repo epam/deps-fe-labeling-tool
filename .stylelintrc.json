@@ -2,33 +2,16 @@
   "_comment": [
     "TODO: #2241"
   ],
-  "processors": [
-    "stylelint-processor-styled-components"
-  ],
   "extends": [
     "stylelint-config-standard",
     "stylelint-config-standard-scss"
   ],
-  "overrides": [
-    {
-      "files": ["**/*.{js,jsx}"],
-      "customSyntax": "postcss-scss",
-      "rules": {
-        "function-no-unknown": null
-      }
-    }
-  ],
+  "customSyntax": "postcss-styled-syntax",
   "rules": {
     "at-rule-no-unknown": [
       true,
       {
         "ignoreAtRules": ["extends", "ignores"]
-      }
-    ],
-    "indentation": [
-      2,
-      {
-        "baseIndentLevel": "auto"
       }
     ],
     "font-family-no-missing-generic-family-keyword": [
@@ -37,13 +20,8 @@
         "ignoreFontFamilies": ["iconfont"]
       }
     ],
-    "declaration-colon-space-after": "always-single-line",
-    "color-hex-case": "lower",
     "length-zero-no-unit": true,
-    "number-leading-zero": "always",
-    "property-case": "lower",
     "value-keyword-case": null,
-    "unit-case": "lower",
     "block-no-empty": null,
     "color-no-invalid-hex": null,
     "comment-no-empty": null,

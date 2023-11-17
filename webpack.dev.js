@@ -1,7 +1,7 @@
-import { CompilationFeature } from './src/enums/CompilationFeature'
 const { DefinePlugin } = require('webpack')
 const { merge } = require('webpack-merge')
-const common = require('./webpack.common.js')
+const { CompilationFeature } = require('./src/enums/CompilationFeature')
+const common = require('./webpack.common')
 
 const ENABLED_FEATURES_NAMES = [CompilationFeature.SHOW_NOT_IMPLEMENTED]
 
