@@ -1,6 +1,6 @@
 
-import { mockUuid } from '@/mocks/mockUuid'
 import React from 'react'
+import { mockUuid } from '@/mocks/mockUuid'
 import { shallow } from 'enzyme'
 import { Label, LabelType } from '@/models/Label'
 import { LabelContent } from './LabelContent'

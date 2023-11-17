@@ -20,8 +20,6 @@ exports[`Container: ToolsPickerDropdown should render layout correctly 1`] = `
             </IconSize32>
           </Tooltip>
           <Dropdown
-            mouseEnterDelay={0.15}
-            mouseLeaveDelay={0.1}
             overlay={
               <ToolsPickerDropdownstyles__ActionMenu
                 onClick={[Function]}

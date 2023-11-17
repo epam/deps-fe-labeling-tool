@@ -1,7 +1,7 @@
+import React from 'react'
 import { mockMarkupActions } from '@/mocks/actions/markup'
 import { mockReactRedux } from '@/mocks/mockReactRedux'
 import { mockPaginationSelectors } from '@/mocks/selectors/pagination'
-import React from 'react'
 import { shallow } from 'enzyme'
 import { updateLabels } from '@/actions/markup'
 import { RadioGroup } from '@/components/Radio'

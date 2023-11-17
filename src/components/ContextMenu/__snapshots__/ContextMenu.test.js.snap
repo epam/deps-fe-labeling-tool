@@ -6,8 +6,6 @@ exports[`Components: ContextMenu should render ContextMenu with correct props 1`
   y={10}
 >
   <Dropdown
-    mouseEnterDelay={0.15}
-    mouseLeaveDelay={0.1}
     onVisibleChange={[Function]}
     overlay={
       <Menu

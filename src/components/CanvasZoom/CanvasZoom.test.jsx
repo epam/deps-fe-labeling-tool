@@ -1,6 +1,6 @@
+import React from 'react'
 import { mockCanvasProvider } from '@/mocks/mockCanvasProvider'
 import { MockCanvas, MockPoint, mockFabric } from '@/mocks/mockFabric'
-import React from 'react'
 import { shallow } from 'enzyme'
 import { CanvasZoom as ProviderMock } from './CanvasZoom'
 

@@ -1,6 +1,6 @@
+import React from 'react'
 import { mockFabric, MockCanvas, MockCell, MockTable } from '@/mocks/mockFabric'
 import { mockUuid } from '@/mocks/mockUuid'
-import React from 'react'
 import { shallow } from 'enzyme'
 import { openMenu } from '@/components/ContextMenu'
 import { Point } from '@/models/Point'

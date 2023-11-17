@@ -4,11 +4,11 @@ exports[`Component: TableDataSidebar should render correct layout 1`] = `
 <TableDataSidebarstyles__TabsStyled
   defaultActiveKey="Table Data"
 >
-  <TabPane
+  <DeprecatedTabPane
     key="Table Data"
     tab="Table Data"
   >
     <TableData />
-  </TabPane>
+  </DeprecatedTabPane>
 </TableDataSidebarstyles__TabsStyled>
 `;

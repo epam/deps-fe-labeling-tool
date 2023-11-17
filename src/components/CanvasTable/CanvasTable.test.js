@@ -1,6 +1,6 @@
+import React from 'react'
 import { MockCanvas } from '@/mocks/mockFabric'
 import { mockUuid } from '@/mocks/mockUuid'
-import React from 'react'
 import { shallow } from 'enzyme'
 import { Table } from '@/models/Table'
 import { CanvasTable, CanvasTableMode } from './CanvasTable'

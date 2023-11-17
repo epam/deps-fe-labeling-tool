@@ -1,7 +1,7 @@
+import React from 'react'
 import { mockMarkupActions } from '@/mocks/actions/markup'
 import { mockReactRedux } from '@/mocks/mockReactRedux'
 import { mockPaginationSelectors } from '@/mocks/selectors/pagination'
-import React from 'react'
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 import { Modal } from 'antd'
 import { shallow } from 'enzyme'

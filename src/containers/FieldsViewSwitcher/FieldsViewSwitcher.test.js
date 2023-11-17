@@ -1,6 +1,6 @@
 
-import { mockReactRedux } from '@/mocks/mockReactRedux'
 import React from 'react'
+import { mockReactRedux } from '@/mocks/mockReactRedux'
 import { shallow } from 'enzyme'
 import { Dropdown } from '@/components/Dropdown'
 import { Menu } from '@/components/Menu'

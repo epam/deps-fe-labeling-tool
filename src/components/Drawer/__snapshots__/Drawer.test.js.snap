@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component: Drawer should render correct layout 1`] = `
-<DrawerWrapper
+<Drawer
   getContainer={false}
 >
   <div>
     children
   </div>
-</DrawerWrapper>
+</Drawer>
 `;

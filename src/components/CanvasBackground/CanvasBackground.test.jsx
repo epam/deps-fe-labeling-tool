@@ -1,6 +1,6 @@
+import React from 'react'
 import { mockCanvasProvider } from '@/mocks/mockCanvasProvider'
 import { MockCanvas, MockImage, mockFabric } from '@/mocks/mockFabric'
-import React from 'react'
 import { shallow } from 'enzyme'
 import { fabric } from 'fabric'
 import flushPromises from 'flush-promises'

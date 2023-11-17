@@ -1,6 +1,6 @@
+import React from 'react'
 import { mockCanvasProvider } from '@/mocks/mockCanvasProvider'
 import { MockCanvas, mockFabric, MockActiveSelection } from '@/mocks/mockFabric'
-import React from 'react'
 import { shallow } from 'enzyme'
 import { CanvasObjectsSelection as ProviderMock } from '@/components/CanvasObjectsSelection'
 import { getActiveDataObjects } from '@/utils/fabric'

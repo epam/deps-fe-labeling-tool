@@ -1,6 +1,6 @@
+import React from 'react'
 import { mockCanvasProvider } from '@/mocks/mockCanvasProvider'
 import { mockFabric, MockCanvas } from '@/mocks/mockFabric'
-import React from 'react'
 import { mount } from 'enzyme'
 import { fabric } from 'fabric'
 import { CanvasLabel as ProviderMock } from '@/components/CanvasLabel'

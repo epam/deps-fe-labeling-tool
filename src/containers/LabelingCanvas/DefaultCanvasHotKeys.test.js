@@ -1,6 +1,6 @@
+import React from 'react'
 import { mockMarkupActions } from '@/mocks/actions/markup'
 import { mockReactRedux } from '@/mocks/mockReactRedux'
-import React from 'react'
 import { shallow } from 'enzyme'
 import { reset, undo, redo, copyMarkup, pasteMarkup } from '@/actions/markup'
 import { DefaultCanvasHotKeys } from './DefaultCanvasHotKeys'

@@ -1,6 +1,6 @@
+import React from 'react'
 import { mockUiActions } from '@/mocks/actions/ui'
 import { mockReactRedux } from '@/mocks/mockReactRedux'
-import React from 'react'
 import { shallow } from 'enzyme'
 import { deleteTemporaryFieldIndex } from '@/actions/ui'
 import { IndexInput } from '@/containers/ObjectNameAndIndex/IndexInput'

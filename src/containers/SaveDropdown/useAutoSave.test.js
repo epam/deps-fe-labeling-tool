@@ -1,8 +1,8 @@
 
+import { useCallback } from 'react'
 import { mockReactRedux } from '@/mocks/mockReactRedux'
 import { mockMarkupSelectors } from '@/mocks/selectors/markup'
 import { mockSettingsSelectors } from '@/mocks/selectors/settings'
-import { useCallback } from 'react'
 import { renderHook } from '@testing-library/react-hooks'
 import { useAutoSave } from '@/containers/SaveDropdown/useAutoSave'
 import { Feature } from '@/enums/Feature'

@@ -1,6 +1,6 @@
+import React from 'react'
 import { mockCanvasProvider } from '@/mocks/mockCanvasProvider'
 import { MockCanvas, MockFabricArrow } from '@/mocks/mockFabric'
-import React from 'react'
 import { shallow } from 'enzyme'
 import { CanvasRelation as ProviderMock } from '@/components/CanvasRelation'
 import { Label, LabelType } from '@/models/Label'

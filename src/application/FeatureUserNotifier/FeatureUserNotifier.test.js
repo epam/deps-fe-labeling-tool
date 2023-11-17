@@ -1,6 +1,6 @@
+import React from 'react'
 import { mockReactRedux } from '@/mocks/mockReactRedux'
 import { mockSettingsSelectors } from '@/mocks/selectors/settings'
-import React from 'react'
 import { shallow } from 'enzyme'
 import { FeatureUserNotifier } from '@/application/FeatureUserNotifier'
 import { Feature } from '@/enums/Feature'
