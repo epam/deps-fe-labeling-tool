@@ -1,9 +1,9 @@
+/* stylelint-disable */
 import 'handsontable/dist/handsontable.full.css'
 import { HotTable } from '@handsontable/react'
 import styled from 'styled-components'
 
 export const StyledHotTable = styled(HotTable)`
-  /* stylelint-disable selector-class-pattern */
   position: relative;
 
   .ht_master {
@@ -25,5 +25,4 @@ export const StyledHotTable = styled(HotTable)`
   .handsontableInput {
     box-sizing: content-box;
   }
-  /* stylelint-enable selector-class-pattern */
 `
