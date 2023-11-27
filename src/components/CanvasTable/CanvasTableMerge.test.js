@@ -1,6 +1,6 @@
-import React from 'react'
 import { MockCanvas, MockBorder } from '@/mocks/mockFabric'
 import { mockUuid } from '@/mocks/mockUuid'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { CanvasMouseSelection } from '@/components/CanvasMouseSelection'
 import {

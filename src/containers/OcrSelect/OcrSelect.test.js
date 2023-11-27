@@ -1,7 +1,7 @@
-import React from 'react'
 import { mockOcrActions } from '@/mocks/actions/ocr'
 import { mockReactRedux } from '@/mocks/mockReactRedux'
 import { mockOcrSelectors } from '@/mocks/selectors/ocr'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { setPrimaryEngine } from '@/actions/ocr'
 import { OcrSelect } from '@/containers/OcrSelect'

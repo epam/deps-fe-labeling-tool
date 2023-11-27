@@ -1,5 +1,5 @@
-import React from 'react'
 import { mockReactHookForm } from '@/mocks/mockReactHookForm'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { Form } from './Form'
 

@@ -1,7 +1,7 @@
 /* eslint-disable jest/no-conditional-expect */
 
-import React from 'react'
 import { mockUuid } from '@/mocks/mockUuid'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { Table, CellsMerge, CellValue } from '@/models/Table'
 import { StyledHotTable } from './HandsonTable.styles'

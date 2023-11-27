@@ -1,6 +1,6 @@
-import React from 'react'
 import { mockUuid } from '@/mocks/mockUuid'
 import { mockOcrEngine } from '@/mocks/selectors/ocr'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { LabelingTool } from '@/application/LabelingTool'
 import { FieldType } from '@/enums/FieldType'

@@ -1,5 +1,4 @@
 
-import React from 'react'
 import { mockCanvasActions } from '@/mocks/actions/canvas'
 import { mockMarkupActions } from '@/mocks/actions/markup'
 import { mockReactRedux } from '@/mocks/mockReactRedux'
@@ -7,6 +6,7 @@ import { mockCanvasSelectors } from '@/mocks/selectors/canvas'
 import { mockImageSelectors } from '@/mocks/selectors/image'
 import { mockMarkupSelectors } from '@/mocks/selectors/markup'
 import { mockPaginationSelectors } from '@/mocks/selectors/pagination'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { setRotationAngle } from '@/actions/canvas'
 import { updatePageMarkup } from '@/actions/markup'

@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Components: Input should render Input with correct props 1`] = `
-<ForwardRef
+<Input
   className="input"
+  type="text"
 />
 `;

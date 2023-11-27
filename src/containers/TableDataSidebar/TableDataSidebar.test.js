@@ -1,5 +1,5 @@
-import React from 'react'
 import { mockComponent } from '@/mocks/mockComponent'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { TableDataSidebar } from '@/containers/TableDataSidebar'
 

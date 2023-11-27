@@ -1,5 +1,5 @@
-import React from 'react'
 import { mockDayjs } from '@/mocks/mockDayjs'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { DatePicker } from './DatePicker'
 

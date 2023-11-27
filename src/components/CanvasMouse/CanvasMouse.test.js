@@ -1,5 +1,5 @@
-import React from 'react'
 import { MockCanvas } from '@/mocks/mockFabric'
+import React from 'react'
 import { mount } from 'enzyme'
 import { CanvasMouse } from '@/components/CanvasMouse'
 

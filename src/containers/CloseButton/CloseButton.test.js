@@ -1,7 +1,7 @@
-import React from 'react'
 import { mockReactRedux } from '@/mocks/mockReactRedux'
 import { mockMarkupSelectors } from '@/mocks/selectors/markup'
 import { mockModelSelectors } from '@/mocks/selectors/model'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { save, saveMarkup } from '@/actions/api'
 import { Button } from '@/components/Button'

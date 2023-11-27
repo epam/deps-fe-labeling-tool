@@ -58,7 +58,7 @@ exports[`Container: HotKeysDrawer should render correct layout 1`] = `
     defaultActiveKey="info"
     size="small"
   >
-    <DeprecatedTabPane
+    <TabPane
       key="info"
       tab="Hot keys info"
     >
@@ -84,7 +84,7 @@ exports[`Container: HotKeysDrawer should render correct layout 1`] = `
         renderItem={[Function]}
         split={false}
       />
-    </DeprecatedTabPane>
+    </TabPane>
   </HotKeysDrawerstyles__StyledTab>
 </HotKeysDrawerstyles__StyledDrawer>
 `;

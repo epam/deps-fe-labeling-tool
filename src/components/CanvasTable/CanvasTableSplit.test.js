@@ -1,5 +1,5 @@
-import React from 'react'
 import { MockCanvas, MockBorder } from '@/mocks/mockFabric'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { CanvasMouse } from '@/components/CanvasMouse'
 import { Table, toAbsolute, toRelative, splitCells, getSplitProjection } from '@/models/Table'

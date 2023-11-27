@@ -1,6 +1,6 @@
-import React from 'react'
 import { mockCommonActions } from '@/mocks/actions/common'
 import { mockRedux } from '@/mocks/mockRedux'
+import React from 'react'
 import { render } from '@testing-library/react'
 import ShallowRenderer from 'react-test-renderer/shallow'
 import { createStore } from 'redux'

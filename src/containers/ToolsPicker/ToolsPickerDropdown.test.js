@@ -1,6 +1,6 @@
-import React from 'react'
 import { mockReactRedux } from '@/mocks/mockReactRedux'
 import { mockSettingsSelectors } from '@/mocks/selectors/settings'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { TableIcon } from '@/components/Icons/TableIcon'
 import { Tool } from '@/enums/Tool'

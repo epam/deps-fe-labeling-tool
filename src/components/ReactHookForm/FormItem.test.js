@@ -1,5 +1,5 @@
-import React from 'react'
 import { mockReactHookForm } from '@/mocks/mockReactHookForm'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { useController } from 'react-hook-form'
 import { FormFieldType } from './FormFieldType'

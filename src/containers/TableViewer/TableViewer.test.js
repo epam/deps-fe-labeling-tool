@@ -1,9 +1,9 @@
 
-import React from 'react'
 import { mockMarkupActions } from '@/mocks/actions/markup'
 import { mockReactRedux } from '@/mocks/mockReactRedux'
 import { mockTables } from '@/mocks/selectors/markup'
 import { mockPaginationSelectors } from '@/mocks/selectors/pagination'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { updateTables } from '@/actions/markup'
 import { CellValue } from '@/models/Table'

@@ -5,17 +5,17 @@ exports[`Component: LeftSidebar should render correct layout 1`] = `
   centered={true}
   defaultActiveKey="Properties"
 >
-  <DeprecatedTabPane
+  <TabPane
     key="Properties"
     tab="Properties"
   >
     <Connect(ObjectProperties) />
-  </DeprecatedTabPane>
-  <DeprecatedTabPane
+  </TabPane>
+  <TabPane
     key="Assign to"
     tab="Assign to"
   >
     <Connect(AssignTo) />
-  </DeprecatedTabPane>
+  </TabPane>
 </MarkupSidebarstyles__TabsStyled>
 `;

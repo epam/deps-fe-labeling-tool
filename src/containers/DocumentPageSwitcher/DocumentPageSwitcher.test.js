@@ -1,7 +1,7 @@
-import React from 'react'
 import { mockReactRedux } from '@/mocks/mockReactRedux'
 import { mockDocumentSelectors } from '@/mocks/selectors/document'
 import { mockPaginationSelectors } from '@/mocks/selectors/pagination'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { openPage } from '@/actions/pagination'
 import { DocumentPageSwitcher } from '@/containers/DocumentPageSwitcher/DocumentPageSwitcher'

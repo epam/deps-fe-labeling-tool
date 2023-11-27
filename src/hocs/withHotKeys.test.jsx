@@ -1,7 +1,7 @@
 
-import React from 'react'
 import { mockReactRedux } from '@/mocks/mockReactRedux'
 import { mockHotKeysSelectors } from '@/mocks/selectors/hotkeys'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { HotKeyEvent } from '@/constants/hotKeys'
 import { withHotKeys } from '@/hocs/withHotKeys'

@@ -2,6 +2,8 @@
 
 exports[`Container: MainMenu component should render layout correctly 1`] = `
 <Dropdown
+  mouseEnterDelay={0.15}
+  mouseLeaveDelay={0.1}
   overlay={[Function]}
   placement="bottomCenter"
   trigger="click"

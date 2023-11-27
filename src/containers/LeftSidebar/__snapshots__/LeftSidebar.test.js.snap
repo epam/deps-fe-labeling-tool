@@ -17,7 +17,7 @@ exports[`Container: LeftSidebar should render correct layout 1`] = `
   <LeftSidebarstyles__TabsStyled
     defaultActiveKey="1"
   >
-    <DeprecatedTabPane
+    <TabPane
       key="All Objects"
       tab="All Objects"
     >
@@ -26,8 +26,8 @@ exports[`Container: LeftSidebar should render correct layout 1`] = `
       >
         <Connect(AllMarkupObjects) />
       </LeftSidebarstyles__TabContent>
-    </DeprecatedTabPane>
-    <DeprecatedTabPane
+    </TabPane>
+    <TabPane
       key="JSON Preview"
       tab="JSON Preview"
     >
@@ -36,7 +36,7 @@ exports[`Container: LeftSidebar should render correct layout 1`] = `
       >
         <Connect(PreviewJson) />
       </LeftSidebarstyles__TabContent>
-    </DeprecatedTabPane>
+    </TabPane>
   </LeftSidebarstyles__TabsStyled>
 </LeftSidebarstyles__StyledSider>
 `;

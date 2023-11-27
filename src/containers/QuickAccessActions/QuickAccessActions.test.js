@@ -1,7 +1,7 @@
-import React from 'react'
 import { mockMarkupActions } from '@/mocks/actions/markup'
 import { mockComponent } from '@/mocks/mockComponent'
 import { mockReactRedux } from '@/mocks/mockReactRedux'
+import React from 'react'
 import { shallow } from 'enzyme'
 import { undo } from '@/actions/markup'
 import { QuickAccessActions } from '.'
