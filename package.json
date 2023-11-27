@@ -132,7 +132,8 @@
     "redux-undo": "^1.0.1",
     "reselect": "^4.1.5",
     "styled-components": "^5.3.11",
-    "url": "^0.11.3"
+    "url": "^0.11.3",
+    "uuid": "^8.3.2"
   },
   "peerDependencies": {
     "antd": "^4.16.1",
