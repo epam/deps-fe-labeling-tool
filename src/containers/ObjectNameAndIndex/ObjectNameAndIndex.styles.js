@@ -4,8 +4,6 @@ import { COLORS } from '@/theme/theme.default'
 
 const { Paragraph } = Typography
 
-const borderColor = ({ color }) => color
-
 const ObjectName = styled(Paragraph)`
   max-width: 190px;
   height: 2.4rem;
@@ -14,7 +12,7 @@ const ObjectName = styled(Paragraph)`
   color: ${COLORS.PRIMARY_4};
   padding: 0.4rem 0 0 0.6rem;
   margin-right: 1rem;
-  border-left: 2px solid ${borderColor};
+  border-left: 2px solid ${(props) => props.color};
 `
 
 const ObjectType = styled.span`
