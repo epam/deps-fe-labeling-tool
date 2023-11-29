@@ -1,6 +1,6 @@
-import { FieldType } from '@/enums/FieldType'
-import { Field } from '@/models/Field'
-import { PairFieldMeta, ListFieldMeta, EnumFieldMeta } from '@/models/FieldMeta'
+import { FieldType } from 'labeling-tool/lib/enums/FieldType'
+import { Field } from 'labeling-tool/lib/models/Field'
+import { PairFieldMeta, ListFieldMeta, EnumFieldMeta } from 'labeling-tool/lib/models/FieldMeta'
 
 const fields = [
   new Field(

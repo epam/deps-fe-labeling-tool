@@ -1,4 +1,4 @@
-import { CompilationFeature } from './src/enums/CompilationFeature'
+import { CompilationFeature } from 'labeling-tool/lib/enums/CompilationFeature'
 const { DefinePlugin } = require('webpack')
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common.js')

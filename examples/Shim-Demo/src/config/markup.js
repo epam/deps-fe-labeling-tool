@@ -1,6 +1,6 @@
-import { Label, LabelType } from '@/models/Label'
-import { Markup, PageMarkup } from '@/models/Markup'
-import { Table, CellsMerge, CellValue } from '@/models/Table'
+import { Label, LabelType } from 'labeling-tool/lib/models/Label'
+import { Markup, PageMarkup } from 'labeling-tool/lib/models/Markup'
+import { Table, CellsMerge, CellValue } from 'labeling-tool/lib/models/Table'
 
 const markup = new Markup(
   new Map([

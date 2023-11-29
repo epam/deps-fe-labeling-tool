@@ -5,7 +5,7 @@ import { markup } from '@/config/markup'
 import { fields } from '@/config/model'
 import { ocr } from '@/config/ocr'
 import { settings } from '@/config/settings'
-import { Config } from '@/models/Config'
+import { Config } from 'labeling-tool/lib/models/Config'
 
 const SHIM_CONFIG = new Config(
   documentForLabeling,

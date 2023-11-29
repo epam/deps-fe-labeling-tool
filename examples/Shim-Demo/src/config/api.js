@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-import { Table, CellValue, CellsMerge } from '@/models/Table'
+import { Table, CellValue, CellsMerge } from 'labeling-tool/lib/models/Table'
 
 const api = {
   close: () => window.alert('Executing callback to the parent to close the application'),

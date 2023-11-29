@@ -1,6 +1,6 @@
-import { KnownLanguage } from '@/enums/KnownLanguage'
-import { OcrEngine } from '@/models/OcrEngine'
-import { OcrLanguage } from '@/models/OcrLanguage'
+import { KnownLanguage } from 'labeling-tool/lib/enums/KnownLanguage'
+import { OcrEngine } from 'labeling-tool/lib/models/OcrEngine'
+import { OcrLanguage } from 'labeling-tool/lib/models/OcrLanguage'
 
 const ocrLanguages = [
   new OcrLanguage(KnownLanguage.ENGLISH, 'English'),

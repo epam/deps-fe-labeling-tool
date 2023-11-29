@@ -31,7 +31,7 @@ const paths = {
   favicon: './src/assets/images/favicon.png',
   src: './src',
   dist: './dist',
-  entry: './src/application/entry.jsx'
+  entry: './src/entry.jsx'
 }
 
 module.exports = {
