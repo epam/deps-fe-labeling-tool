@@ -21,7 +21,7 @@ export const StyledHotTable = styled(HotTable)`
   .ht_clone_top_left_corner {
     z-index: 1;
   }
-  
+
   .handsontableInput {
     box-sizing: content-box;
   }
