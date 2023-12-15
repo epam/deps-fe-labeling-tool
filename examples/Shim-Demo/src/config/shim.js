@@ -1,10 +1,10 @@
-import { api } from '@/config/api'
-import { documentForLabeling } from '@/config/document'
-import { events } from '@/config/events'
-import { markup } from '@/config/markup'
-import { fields } from '@/config/model'
-import { ocr } from '@/config/ocr'
-import { settings } from '@/config/settings'
+import { api } from './api'
+import { documentForLabeling } from './document'
+import { events } from './events'
+import { markup } from './markup'
+import { fields } from './model'
+import { ocr } from './ocr'
+import { settings } from './settings'
 import { Config } from 'labeling-tool/lib/models/Config'
 
 const SHIM_CONFIG = new Config(
