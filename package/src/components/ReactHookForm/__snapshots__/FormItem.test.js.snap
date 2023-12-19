@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: FormItem should render FormItem with default props 1`] = `
+<FormItemstyles__Wrapper
+  hasError={false}
+>
+  <FormItemstyles__StyledFieldLabel
+    name="mockLabel"
+    required={true}
+  />
+  <FormField
+    defaultValue="defaultValue"
+    label="mockLabel"
+    onChange={[Function]}
+    type="string"
+  />
+  <FormItemstyles__ErrorMessage />
+</FormItemstyles__Wrapper>
+`;
+
+exports[`Component: FormItem should render children component correctly 1`] = `
+<FormItemstyles__Wrapper
+  hasError={false}
+>
+  <FormItemstyles__StyledFieldLabel
+    name="mockLabel"
+    required={true}
+  />
+  <textarea />
+  <FormItemstyles__ErrorMessage />
+</FormItemstyles__Wrapper>
+`;

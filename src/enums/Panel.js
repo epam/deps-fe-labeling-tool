@@ -1,9 +1,0 @@
-const Panel = {
-  TOOLBAR: 'TOOLBAR',
-  MARKUP_SIDEBAR: 'MARKUP_SIDEBAR',
-  LEFT_SIDEBAR: 'LEFT_SIDEBAR'
-}
-
-export {
-  Panel
-}

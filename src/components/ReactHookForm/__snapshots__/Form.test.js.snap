@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Component: Form should render correct Form layout 1`] = `
-<form>
-  <input />
-</form>
-`;

@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`HOC: CanvasProvider should render wrapped component if canvas was provided 1`] = `
-<Component
-  canvas={Object {}}
-/>
-`;

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: LeftSidebar should render correct layout 1`] = `
+<MarkupSidebarstyles__TabsStyled
+  centered={true}
+  defaultActiveKey="Properties"
+>
+  <TabPane
+    key="Properties"
+    tab="Properties"
+  >
+    <Connect(ObjectProperties) />
+  </TabPane>
+  <TabPane
+    key="Assign to"
+    tab="Assign to"
+  >
+    <Connect(AssignTo) />
+  </TabPane>
+</MarkupSidebarstyles__TabsStyled>
+`;

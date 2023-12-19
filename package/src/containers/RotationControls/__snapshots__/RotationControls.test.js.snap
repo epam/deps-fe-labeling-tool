@@ -1,0 +1,208 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: RotationControls Component should render layout correctly 1`] = `
+<Fragment>
+  <Tooltip
+    title="Rotate left"
+  >
+    <IconButton
+      icon={<RotateLeftIcon />}
+      onClick={[Function]}
+    />
+  </Tooltip>
+  <Tooltip
+    title="Rotate right"
+  >
+    <IconButton
+      icon={<RotateRightIcon />}
+      onClick={[Function]}
+    />
+  </Tooltip>
+</Fragment>
+`;
+
+exports[`Container: RotationControls mapStateToProps should pass expected props to WrappedComponent 1`] = `
+Object {
+  "angle": 0,
+  "currentPage": 1,
+  "pageMarkup": Object {
+    "initialLabels": Array [
+      Label {
+        "confidence": 0.8,
+        "content": "MOCK FIELD KEY 1",
+        "fieldCode": "MOCK_FIELD_1",
+        "h": 0.4,
+        "index": 0,
+        "meta": Object {},
+        "type": "key",
+        "typeName": "label",
+        "uid": "1",
+        "w": 0.3,
+        "x": 0.1,
+        "y": 0.2,
+      },
+      Label {
+        "confidence": 0.4,
+        "content": "MOCK FIELD VALUE 1",
+        "fieldCode": "MOCK_FIELD_1",
+        "h": 0.8,
+        "index": 0,
+        "meta": Object {},
+        "type": "value",
+        "typeName": "label",
+        "uid": "2",
+        "w": 0.7,
+        "x": 0.5,
+        "y": 0.6,
+      },
+      Label {
+        "confidence": 0.77,
+        "content": "MOCK FIELD KEY 2",
+        "fieldCode": "MOCK_FIELD_2",
+        "h": 0.12,
+        "index": 1,
+        "meta": Object {},
+        "type": "key",
+        "typeName": "label",
+        "uid": "3",
+        "w": 0.11,
+        "x": 0.09,
+        "y": 0.1,
+      },
+      Label {
+        "confidence": 0.66,
+        "content": "MOCK FIELD VALUE 2",
+        "fieldCode": "MOCK_FIELD_2",
+        "h": 0.16,
+        "index": 1,
+        "meta": Object {},
+        "type": "value",
+        "typeName": "label",
+        "uid": "4",
+        "w": 0.15,
+        "x": 0.13,
+        "y": 0.14,
+      },
+    ],
+    "initialTables": Array [
+      Table {
+        "fieldCode": "MOCK_FIELD_4",
+        "index": undefined,
+        "merges": Array [],
+        "meta": Object {},
+        "typeName": "table",
+        "uid": "5",
+        "values": Array [
+          CellValue {
+            "column": 0,
+            "confidence": 0.8,
+            "row": 0,
+            "value": "value",
+          },
+        ],
+        "xGuidelines": Array [
+          0.5,
+          0.6,
+          0.8,
+        ],
+        "yGuidelines": Array [
+          0.303,
+          0.32,
+          0.336,
+        ],
+      },
+    ],
+    "labels": Array [
+      Label {
+        "confidence": 0.8,
+        "content": "MOCK FIELD KEY 1",
+        "fieldCode": "MOCK_FIELD_1",
+        "h": 0.4,
+        "index": 0,
+        "meta": Object {},
+        "type": "key",
+        "typeName": "label",
+        "uid": "1",
+        "w": 0.3,
+        "x": 0.1,
+        "y": 0.2,
+      },
+      Label {
+        "confidence": 0.4,
+        "content": "MOCK FIELD VALUE 1",
+        "fieldCode": "MOCK_FIELD_1",
+        "h": 0.8,
+        "index": 0,
+        "meta": Object {},
+        "type": "value",
+        "typeName": "label",
+        "uid": "2",
+        "w": 0.7,
+        "x": 0.5,
+        "y": 0.6,
+      },
+      Label {
+        "confidence": 0.77,
+        "content": "MOCK FIELD KEY 2",
+        "fieldCode": "MOCK_FIELD_2",
+        "h": 0.12,
+        "index": 1,
+        "meta": Object {},
+        "type": "key",
+        "typeName": "label",
+        "uid": "3",
+        "w": 0.11,
+        "x": 0.09,
+        "y": 0.1,
+      },
+      Label {
+        "confidence": 0.66,
+        "content": "MOCK FIELD VALUE 2",
+        "fieldCode": "MOCK_FIELD_2",
+        "h": 0.16,
+        "index": 1,
+        "meta": Object {},
+        "type": "value",
+        "typeName": "label",
+        "uid": "4",
+        "w": 0.15,
+        "x": 0.13,
+        "y": 0.14,
+      },
+    ],
+    "modifiedObjects": Array [],
+    "selectedLabelsIds": Array [
+      "1",
+    ],
+    "selectedTablesIds": Array [],
+    "tables": Array [
+      Table {
+        "fieldCode": "MOCK_FIELD_4",
+        "index": undefined,
+        "merges": Array [],
+        "meta": Object {},
+        "typeName": "table",
+        "uid": "5",
+        "values": Array [
+          CellValue {
+            "column": 0,
+            "confidence": 0.8,
+            "row": 0,
+            "value": "value",
+          },
+        ],
+        "xGuidelines": Array [
+          0.5,
+          0.6,
+          0.8,
+        ],
+        "yGuidelines": Array [
+          0.303,
+          0.32,
+          0.336,
+        ],
+      },
+    ],
+  },
+}
+`;

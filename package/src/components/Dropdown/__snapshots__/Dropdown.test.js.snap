@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Dropdown should render correct layout based on the props 1`] = `<Dropdownstyles__StyledDropdown />`;

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components: FilterInput should render FilterInput with correct props 1`] = `
+<FilterInputstyles__FilterInputWrapper
+  className="input"
+>
+  <Input
+    onChange={[Function]}
+    placeholder="placeholder"
+    value="filter string"
+  />
+  <FilterInputstyles__CloseOutlinedIcon
+    onClick={[Function]}
+  />
+</FilterInputstyles__FilterInputWrapper>
+`;

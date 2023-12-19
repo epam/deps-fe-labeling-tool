@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: TextAreaField should render correct layout based on the props 1`] = `
+<TextAreaFieldstyles__StyledTextArea
+  defaultValue="TextAreaField"
+  disabled={false}
+  onBlur={[Function]}
+  onChange={[Function]}
+  value="TextAreaField"
+/>
+`;

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: NothingFound should render correct layout 1`] = `
+<NothingFoundstyles__ContentWrapper>
+  <NothingFoundstyles__Title>
+    No match found
+  </NothingFoundstyles__Title>
+  <Button
+    onClick={[MockFunction]}
+    type="link"
+  >
+    Show all
+  </Button>
+</NothingFoundstyles__ContentWrapper>
+`;

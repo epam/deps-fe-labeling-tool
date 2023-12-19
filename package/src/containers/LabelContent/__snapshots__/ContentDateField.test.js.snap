@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: ContentDateField Component should render correct layout based on props 1`] = `
+<Fragment>
+  <ContentDateFieldstyles__InputWrapper>
+    <ContentDateFieldstyles__StyledInput
+      onChange={[Function]}
+      value="date"
+    />
+    <ContentDateFieldstyles__StyledDatePicker
+      allowClear={false}
+      onChange={[Function]}
+      suffixIcon={<CalendarIcon />}
+      value={
+        Object {
+          "add": [Function],
+          "diff": [Function],
+          "endOf": [Function],
+          "format": [Function],
+          "isValid": [Function],
+          "localeData": [Function],
+          "longDateFormat": [Function],
+          "startOf": [Function],
+          "subtract": [Function],
+          "toISOString": [Function],
+          "valueOf": [Function],
+        }
+      }
+    />
+  </ContentDateFieldstyles__InputWrapper>
+</Fragment>
+`;

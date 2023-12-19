@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: ListOfMarkupObjects ConnectedComponent should render correct layout 1`] = `
+<ListOfMarkupObjectsstyles__MarkupCollapse
+  collapseId="field_code"
+  header={
+    <ListOfMarkupObjectsstyles__ListName>
+      List of Field Names
+    </ListOfMarkupObjectsstyles__ListName>
+  }
+  onChange={[Function]}
+>
+  <ListOfMarkupObjectsstyles__ListContentWrapper />
+</ListOfMarkupObjectsstyles__MarkupCollapse>
+`;

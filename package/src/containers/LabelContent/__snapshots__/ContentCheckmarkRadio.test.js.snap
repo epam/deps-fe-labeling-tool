@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: ContentCheckmarkRadio component should render correct layout based on props 1`] = `
+<ContentCheckmarkRadiostyles__RadioGroupWrapper>
+  <RadioGroup
+    onChange={[Function]}
+    options={
+      Array [
+        Option {
+          "disabled": undefined,
+          "text": "False",
+          "value": false,
+        },
+        Option {
+          "disabled": undefined,
+          "text": "True",
+          "value": true,
+        },
+      ]
+    }
+    value={true}
+  />
+</ContentCheckmarkRadiostyles__RadioGroupWrapper>
+`;

@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: LabelProperties component should render layout correctly 1`] = `
+<ObjectPropertiesstyles__Grid>
+  <ObjectTitle
+    title="CONTENT"
+  />
+  <ObjectNameAndIndex
+    object={
+      Label {
+        "confidence": 0.78,
+        "content": "test",
+        "fieldCode": "",
+        "h": 4,
+        "index": 5,
+        "meta": Object {},
+        "type": "string",
+        "typeName": "label",
+        "uid": "1",
+        "w": 3,
+        "x": 1,
+        "y": 2,
+      }
+    }
+    onChange={[MockFunction]}
+  />
+  <LabelContent
+    label={
+      Label {
+        "confidence": 0.78,
+        "content": "test",
+        "fieldCode": "",
+        "h": 4,
+        "index": 5,
+        "meta": Object {},
+        "type": "string",
+        "typeName": "label",
+        "uid": "1",
+        "w": 3,
+        "x": 1,
+        "y": 2,
+      }
+    }
+  />
+  <ExtractArea
+    label={
+      Label {
+        "confidence": 0.78,
+        "content": "test",
+        "fieldCode": "",
+        "h": 4,
+        "index": 5,
+        "meta": Object {},
+        "type": "string",
+        "typeName": "label",
+        "uid": "1",
+        "w": 3,
+        "x": 1,
+        "y": 2,
+      }
+    }
+  />
+  <ObjectPropertiesstyles__StyledDivider />
+  <ObjectTitle
+    title="COORDINATES"
+  />
+  <ObjectCoordinates />
+</ObjectPropertiesstyles__Grid>
+`;
+
+exports[`Container: LabelProperties mapStateToProps should pass expected state as props to WrappedComponent 1`] = `
+Object {
+  "settings": Settings {
+    "features": Array [
+      SubSettings {
+        "code": "autoSave",
+        "data": Object {
+          "interval": 180000,
+        },
+      },
+      "export",
+      "import",
+      SubSettings {
+        "code": "paging",
+        "data": Object {
+          "initialPage": 1,
+        },
+      },
+      "language",
+      "rotation",
+      SubSettings {
+        "code": "specialSymbols",
+        "data": Array [
+          "&",
+          "$",
+          "£",
+          "¥",
+          "©",
+          "®",
+          "¢",
+          "%",
+          "*",
+          "@",
+          "µ",
+          "±",
+          "´",
+          "²",
+          "~",
+          "½",
+          "«",
+          "»",
+          "°",
+          "–",
+          "—",
+          "“",
+          "”",
+        ],
+      },
+      "manageFields",
+      "multiAssignLabels",
+      "multiAssignTables",
+    ],
+    "mode": "default",
+    "panels": Array [
+      "TOOLBAR",
+      "MARKUP_SIDEBAR",
+      "LEFT_SIDEBAR",
+    ],
+    "tools": Array [
+      "detectTables",
+      "label",
+      "table",
+      "merge",
+      "split",
+      "pointer",
+      "grabbing",
+    ],
+  },
+}
+`;

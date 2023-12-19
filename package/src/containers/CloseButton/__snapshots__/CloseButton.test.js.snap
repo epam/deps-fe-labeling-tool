@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: CloseButton mapStateToProps should pass correct props to the wrapped component (state) 1`] = `
+Object {
+  "fields": Array [
+    Field {
+      "code": "123",
+      "fieldType": "string",
+      "name": "TestField",
+      "required": false,
+    },
+    Field {
+      "code": "enum",
+      "fieldMeta": Object {
+        "options": Array [
+          "test",
+          "test1",
+        ],
+      },
+      "fieldType": "enum",
+      "name": "TestField",
+      "required": false,
+    },
+    Field {
+      "code": "enumList",
+      "fieldMeta": ListFieldMeta {
+        "baseType": "enum",
+        "baseTypeMeta": EnumFieldMeta {
+          "options": Array [
+            "test",
+            "test1",
+          ],
+        },
+      },
+      "fieldType": "list",
+      "name": "EnumerationList",
+      "required": false,
+    },
+  ],
+  "initialFields": Array [
+    Field {
+      "code": "123",
+      "fieldType": "string",
+      "name": "TestField",
+      "required": false,
+    },
+    Field {
+      "code": "enum",
+      "fieldMeta": Object {
+        "options": Array [
+          "test",
+          "test1",
+        ],
+      },
+      "fieldType": "enum",
+      "name": "TestField",
+      "required": false,
+    },
+    Field {
+      "code": "enumList",
+      "fieldMeta": ListFieldMeta {
+        "baseType": "enum",
+        "baseTypeMeta": EnumFieldMeta {
+          "options": Array [
+            "test",
+            "test1",
+          ],
+        },
+      },
+      "fieldType": "list",
+      "name": "EnumerationList",
+      "required": false,
+    },
+  ],
+  "modifiedObjects": Array [],
+}
+`;
+
+exports[`Container: CloseButton should render correct layout 1`] = `
+<Fragment>
+  <Tooltip
+    title="Close"
+  >
+    <IconButton
+      icon={<CloseIcon />}
+      onClick={[Function]}
+    />
+  </Tooltip>
+  <CustomModal
+    cancelButtonProps={
+      Object {
+        "id": "ignore",
+      }
+    }
+    closable={true}
+    closeIcon={<CloseButtonstyles__StyledCloseOutlined />}
+    footer={
+      Array [
+        <CloseButtonstyles__Wrapper>
+          <CloseButtonstyles__StyledButton
+            disabled={false}
+            onClick={[Function]}
+            type="link"
+          >
+            Ignore
+          </CloseButtonstyles__StyledButton>
+          <React.Fragment>
+            <CloseButtonstyles__StyledButton
+              disabled={false}
+              onClick={[Function]}
+              type="default"
+            >
+              Save
+            </CloseButtonstyles__StyledButton>
+            <CloseButtonstyles__StyledButton
+              disabled={false}
+              onClick={[Function]}
+              type="primary"
+            >
+              Save & extract
+            </CloseButtonstyles__StyledButton>
+          </React.Fragment>
+        </CloseButtonstyles__Wrapper>,
+      ]
+    }
+    onCancel={[Function]}
+    title={
+      <CloseButtonstyles__TitleWrapper>
+        <CloseButtonstyles__StyledQuestionCircle />
+        Do you want to extract document?
+      </CloseButtonstyles__TitleWrapper>
+    }
+    visible={false}
+    width={450}
+  >
+    You have unsaved changes. Do you wish to keep them?
+  </CustomModal>
+</Fragment>
+`;
+
+exports[`Container: CloseButton should render correct layout if getApi().save is undefined 1`] = `
+<Fragment>
+  <Tooltip
+    title="Close"
+  >
+    <IconButton
+      icon={<CloseIcon />}
+      onClick={[Function]}
+    />
+  </Tooltip>
+  <CustomModal
+    cancelButtonProps={
+      Object {
+        "id": "ignore",
+      }
+    }
+    closable={true}
+    closeIcon={<CloseButtonstyles__StyledCloseOutlined />}
+    footer={
+      Array [
+        <CloseButtonstyles__Wrapper>
+          <CloseButtonstyles__StyledButton
+            disabled={false}
+            onClick={[Function]}
+            type="link"
+          >
+            Ignore
+          </CloseButtonstyles__StyledButton>
+          <CloseButtonstyles__StyledButton
+            disabled={false}
+            onClick={[Function]}
+            type="primary"
+          >
+            Save
+          </CloseButtonstyles__StyledButton>
+        </CloseButtonstyles__Wrapper>,
+      ]
+    }
+    onCancel={[Function]}
+    visible={false}
+    width={450}
+  >
+    You have unsaved changes. Do you wish to keep them?
+  </CustomModal>
+</Fragment>
+`;

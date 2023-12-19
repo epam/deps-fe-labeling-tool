@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: MarkupObjectHeader component should render correct layout 1`] = `
+<MarkupObjectHeaderstyles__TextWrapper
+  $unassigned={true}
+  onClick={[Function]}
+>
+  <MarkupObjectHeaderstyles__TitleWithIconWrapper>
+    <MarkupObjectHeaderstyles__NameSpan>
+      <TextHighlighter
+        searchTerm="test_markup"
+        text="test_name"
+      />
+    </MarkupObjectHeaderstyles__NameSpan>
+  </MarkupObjectHeaderstyles__TitleWithIconWrapper>
+  <MarkupObjectHeaderstyles__PageSpan>
+    page 1
+  </MarkupObjectHeaderstyles__PageSpan>
+</MarkupObjectHeaderstyles__TextWrapper>
+`;

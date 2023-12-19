@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: ToolsPickerItem should render layout correctly 1`] = `
+<Tooltip
+  title="Pointer (Shift+X)"
+>
+  <ToolsPickerstyles__ButtonIcon
+    $active={true}
+    icon={
+      <IconSize32>
+        <PointerIcon />
+      </IconSize32>
+    }
+    onClick={[Function]}
+  />
+</Tooltip>
+`;

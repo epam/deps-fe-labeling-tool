@@ -1,7 +1,0 @@
-const FORBIDDEN_WHITE_SPACE_BEFORE_TEXT = new RegExp(/^(?!\s*$).+/)
-const FORBIDDEN_SPECIAL_SYMBOLS = new RegExp(/[^a-z0-9_]/, 'ig')
-
-export {
-  FORBIDDEN_WHITE_SPACE_BEFORE_TEXT,
-  FORBIDDEN_SPECIAL_SYMBOLS
-}

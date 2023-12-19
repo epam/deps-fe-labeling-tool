@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: LeftSidebar should render correct layout 1`] = `
+<LeftSidebarstyles__StyledSider
+  collapsed={true}
+  collapsedWidth={0}
+  collapsible={true}
+  trigger={
+    <LeftSidebarToggler
+      collapsed={true}
+      height={48}
+      onClick={[Function]}
+    />
+  }
+  width={300}
+>
+  <LeftSidebarstyles__TabsStyled
+    defaultActiveKey="1"
+  >
+    <TabPane
+      key="All Objects"
+      tab="All Objects"
+    >
+      <LeftSidebarstyles__TabContent
+        height={0}
+      >
+        <Connect(AllMarkupObjects) />
+      </LeftSidebarstyles__TabContent>
+    </TabPane>
+    <TabPane
+      key="JSON Preview"
+      tab="JSON Preview"
+    >
+      <LeftSidebarstyles__TabContent
+        height={0}
+      >
+        <Connect(PreviewJson) />
+      </LeftSidebarstyles__TabContent>
+    </TabPane>
+  </LeftSidebarstyles__TabsStyled>
+</LeftSidebarstyles__StyledSider>
+`;

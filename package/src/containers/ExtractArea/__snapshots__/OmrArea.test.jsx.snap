@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: OmrArea component should render layout correctly 1`] = `
+<Fragment>
+  <ExtractAreastyles__StyledDivider />
+  <ObjectTitle
+    title="OMR"
+  />
+  <ExtractAreastyles__StyledButton
+    onClick={[Function]}
+    type="primary"
+  >
+    Extract data
+  </ExtractAreastyles__StyledButton>
+</Fragment>
+`;
+
+exports[`Container: OmrArea mapStateToProps should pass expected state as props to WrappedComponent 1`] = `
+Object {
+  "currentPage": 1,
+}
+`;

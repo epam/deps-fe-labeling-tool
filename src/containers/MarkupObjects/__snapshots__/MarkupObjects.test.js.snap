@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Container: MarkupObjects ConnectedComponent should render correct layout 1`] = `
-<NothingFound
-  resetFilter={[Function]}
-/>
-`;
-
-exports[`Container: MarkupObjects ConnectedComponent should render correct layout without markup 1`] = `""`;

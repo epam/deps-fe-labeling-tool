@@ -1,0 +1,270 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: SpecialSymbols Component should render layout correctly 1`] = `
+<Fragment>
+  <SpecialSymbolsstyles__TogglerButton
+    onClick={[Function]}
+    type="link"
+  >
+    Hide
+  </SpecialSymbolsstyles__TogglerButton>
+  <SpecialSymbolsstyles__SymbolsContainer>
+    <SpecialSymbolsstyles__SymbolButton
+      key="0"
+      onClick={[Function]}
+    >
+      <code>
+        &
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="1"
+      onClick={[Function]}
+    >
+      <code>
+        $
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="2"
+      onClick={[Function]}
+    >
+      <code>
+        £
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="3"
+      onClick={[Function]}
+    >
+      <code>
+        ¥
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="4"
+      onClick={[Function]}
+    >
+      <code>
+        ©
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="5"
+      onClick={[Function]}
+    >
+      <code>
+        ®
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="6"
+      onClick={[Function]}
+    >
+      <code>
+        ¢
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="7"
+      onClick={[Function]}
+    >
+      <code>
+        %
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="8"
+      onClick={[Function]}
+    >
+      <code>
+        *
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="9"
+      onClick={[Function]}
+    >
+      <code>
+        @
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="10"
+      onClick={[Function]}
+    >
+      <code>
+        µ
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="11"
+      onClick={[Function]}
+    >
+      <code>
+        ±
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="12"
+      onClick={[Function]}
+    >
+      <code>
+        ´
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="13"
+      onClick={[Function]}
+    >
+      <code>
+        ²
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="14"
+      onClick={[Function]}
+    >
+      <code>
+        ~
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="15"
+      onClick={[Function]}
+    >
+      <code>
+        ½
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="16"
+      onClick={[Function]}
+    >
+      <code>
+        «
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="17"
+      onClick={[Function]}
+    >
+      <code>
+        »
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="18"
+      onClick={[Function]}
+    >
+      <code>
+        °
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="19"
+      onClick={[Function]}
+    >
+      <code>
+        –
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="20"
+      onClick={[Function]}
+    >
+      <code>
+        —
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="21"
+      onClick={[Function]}
+    >
+      <code>
+        “
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+    <SpecialSymbolsstyles__SymbolButton
+      key="22"
+      onClick={[Function]}
+    >
+      <code>
+        ”
+      </code>
+    </SpecialSymbolsstyles__SymbolButton>
+  </SpecialSymbolsstyles__SymbolsContainer>
+</Fragment>
+`;
+
+exports[`Container: SpecialSymbols mapStateToProps should pass expected props to WrappedComponent 1`] = `
+Object {
+  "currentPage": 1,
+  "settings": Settings {
+    "features": Array [
+      SubSettings {
+        "code": "autoSave",
+        "data": Object {
+          "interval": 180000,
+        },
+      },
+      "export",
+      "import",
+      SubSettings {
+        "code": "paging",
+        "data": Object {
+          "initialPage": 1,
+        },
+      },
+      "language",
+      "rotation",
+      SubSettings {
+        "code": "specialSymbols",
+        "data": Array [
+          "&",
+          "$",
+          "£",
+          "¥",
+          "©",
+          "®",
+          "¢",
+          "%",
+          "*",
+          "@",
+          "µ",
+          "±",
+          "´",
+          "²",
+          "~",
+          "½",
+          "«",
+          "»",
+          "°",
+          "–",
+          "—",
+          "“",
+          "”",
+        ],
+      },
+      "manageFields",
+      "multiAssignLabels",
+      "multiAssignTables",
+    ],
+    "mode": "default",
+    "panels": Array [
+      "TOOLBAR",
+      "MARKUP_SIDEBAR",
+      "LEFT_SIDEBAR",
+    ],
+    "tools": Array [
+      "detectTables",
+      "label",
+      "table",
+      "merge",
+      "split",
+      "pointer",
+      "grabbing",
+    ],
+  },
+}
+`;
