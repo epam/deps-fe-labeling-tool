@@ -1,5 +1,12 @@
-import { documentForLabeling } from '@/config/document'
+import { KnownLanguage } from '@/enums/KnownLanguage'
 import { resetDefault, storeDocument } from './document'
+
+const documentForLabeling = new Document(
+  [],
+  KnownLanguage.ENGLISH,
+  'Demo',
+  'Tesseract'
+)
 
 describe('Actions: document', () => {
   it('should create storeDocument action with correct type and payload', () => {
