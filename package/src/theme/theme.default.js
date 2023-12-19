@@ -1,4 +1,4 @@
-export const COLORS = {
+const COLORS = {
   PRIMARY_1: 'linear-gradient(273.22deg, #5DB9FF -9.6%, #3980E8 104.4%);',
   PRIMARY_1_DARKER: '#1890ff',
   PRIMARY_2: '#3980E8',
@@ -65,3 +65,5 @@ export const COLORS = {
   ADD_FIELD_PLUS: '#657990',
   FIELD_LABEL_TOOLTIP_TEXT: '#f5222d'
 }
+
+module.exports = { COLORS }
