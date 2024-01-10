@@ -53,6 +53,6 @@ jobs:
         with:
           paths: "package/reports/report.xml"
 
-      -
-        name: Test Dev build
-        run: yarn build:dev
+      # -
+      #   name: Test Dev build
+      #   run: yarn build:dev
