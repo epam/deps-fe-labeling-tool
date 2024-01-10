@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: OcrArea component should render layout correctly 1`] = `
+<Fragment>
+  <ExtractAreastyles__StyledDivider />
+  <ObjectTitle
+    title="OCR"
+  />
+  <OcrSelect
+    ocr={[Function]}
+  />
+  <ExtractAreastyles__StyledButton
+    onClick={[Function]}
+    type="primary"
+  >
+    Extract data
+  </ExtractAreastyles__StyledButton>
+</Fragment>
+`;
+
+exports[`Container: OcrArea mapStateToProps should pass expected state as props to WrappedComponent 1`] = `
+Object {
+  "currentPage": 1,
+  "ocrEngines": Array [
+    OcrEngine {
+      "code": "ocrCode",
+      "name": "ocr Name",
+    },
+  ],
+  "primaryEngine": "ocrCode",
+}
+`;

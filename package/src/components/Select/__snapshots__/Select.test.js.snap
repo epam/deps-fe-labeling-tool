@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Select should render antd Select with correct value and options 1`] = `
+<Selectstyles__Select
+  allowClear={true}
+  dropdownMatchSelectWidth={true}
+  dropdownRender={[MockFunction]}
+  filterOption={[Function]}
+  getPopupContainer={[Function]}
+  mode="multiple"
+  onChange={[MockFunction]}
+  onSearch={[MockFunction]}
+  placeholder="MOCK_PLACEHOLDER"
+  showSearch={true}
+  value={
+    Array [
+      "MOCK_VALUE_1",
+    ]
+  }
+>
+  <Option
+    key="MOCK_VALUE_1"
+    value="MOCK_VALUE_1"
+  >
+    MOCK_TEXT_1
+  </Option>
+  <Option
+    key="MOCK_VALUE_2"
+    value="MOCK_VALUE_2"
+  >
+    MOCK_TEXT_2
+  </Option>
+</Selectstyles__Select>
+`;

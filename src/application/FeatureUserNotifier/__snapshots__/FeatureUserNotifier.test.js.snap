@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Application: FeatureUserNotifier should return correct snapshot 1`] = `"Test children"`;

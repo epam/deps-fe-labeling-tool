@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: ObjectCoordinates mapStateToProps should pass expected state as props to WrappedComponent 1`] = `
+Object {
+  "currentPage": 1,
+  "selectedLabels": Array [
+    Label {
+      "confidence": 0.8,
+      "content": "MOCK FIELD KEY 1",
+      "fieldCode": "MOCK_FIELD_1",
+      "h": 0.4,
+      "index": 0,
+      "meta": Object {},
+      "type": "key",
+      "typeName": "label",
+      "uid": "1",
+      "w": 0.3,
+      "x": 0.1,
+      "y": 0.2,
+    },
+  ],
+  "selectedTables": Array [],
+}
+`;
+
+exports[`Container: ObjectCoordinates should render layout correctly 1`] = `
+<ObjectCoordinatesstyles__InputsWrapper>
+  <Input
+    disabled={false}
+    key="x"
+    maxLength={6}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onPressEnter={[Function]}
+    prefix={
+      <ObjectCoordinatesstyles__InputPrefix>
+        <ObjectCoordinatesstyles__Param>
+          x
+        </ObjectCoordinatesstyles__Param>
+      </ObjectCoordinatesstyles__InputPrefix>
+    }
+    value="0.1"
+  />
+  <Input
+    disabled={false}
+    key="y"
+    maxLength={6}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onPressEnter={[Function]}
+    prefix={
+      <ObjectCoordinatesstyles__InputPrefix>
+        <ObjectCoordinatesstyles__Param>
+          y
+        </ObjectCoordinatesstyles__Param>
+      </ObjectCoordinatesstyles__InputPrefix>
+    }
+    value="0.2"
+  />
+  <Input
+    disabled={false}
+    key="w"
+    maxLength={6}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onPressEnter={[Function]}
+    prefix={
+      <ObjectCoordinatesstyles__InputPrefix>
+        <ObjectCoordinatesstyles__Param>
+          w
+        </ObjectCoordinatesstyles__Param>
+      </ObjectCoordinatesstyles__InputPrefix>
+    }
+    value="0.3"
+  />
+  <Input
+    disabled={false}
+    key="h"
+    maxLength={6}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onPressEnter={[Function]}
+    prefix={
+      <ObjectCoordinatesstyles__InputPrefix>
+        <ObjectCoordinatesstyles__Param>
+          h
+        </ObjectCoordinatesstyles__Param>
+      </ObjectCoordinatesstyles__InputPrefix>
+    }
+    value="0.4"
+  />
+</ObjectCoordinatesstyles__InputsWrapper>
+`;

@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: HandsonTable should render correct layout 1`] = `
+<HotTable
+  afterChange={[Function]}
+  className="HandsonTablestyles__StyledHotTable-sc-14xqz4u-0 bPkPFr"
+  columns={
+    Array [
+      HTColumn {
+        "data": "0.value",
+      },
+      HTColumn {
+        "data": "1.value",
+      },
+    ]
+  }
+  data={
+    Table {
+      "fieldCode": "codeTable",
+      "index": 1,
+      "merges": Array [
+        CellsMerge {
+          "colspan": 1,
+          "column": 0,
+          "row": 1,
+          "rowspan": 2,
+        },
+      ],
+      "meta": Object {},
+      "typeName": "table",
+      "uid": 1,
+      "values": Array [
+        CellValue {
+          "column": 0,
+          "confidence": 0.3,
+          "row": 0,
+          "value": "",
+        },
+        CellValue {
+          "column": 0,
+          "confidence": 0.8,
+          "row": 1,
+          "value": "Piloncillo D",
+        },
+      ],
+      "xGuidelines": Array [
+        10,
+        20,
+        30,
+        40,
+      ],
+      "yGuidelines": Array [
+        50,
+        60,
+        70,
+        80,
+      ],
+    }
+  }
+  mergeCells={
+    Array [
+      HTMerge {
+        "col": 1,
+        "colspan": 1,
+        "row": 0,
+        "rowspan": 2,
+      },
+    ]
+  }
+  readOnly={false}
+  renderer={[Function]}
+/>
+`;

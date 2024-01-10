@@ -1,0 +1,50 @@
+{
+  "name": "labeling-tool-demo",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Labeling tool demo project",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
+    "antd": "^4.16.1",
+    "dayjs": "1.10.7",
+    "labeling-tool": "^2.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-is": "^17.0.2",
+    "react-proptype-conditional-require": "1.0.4",
+    "react-scripts": "^5.0.1"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "eject": "react-app-rewired eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "antd-dayjs-webpack-plugin": "^1.0.6",
+    "customize-cra": "^1.0.0",
+    "esm": "^3.2.25",
+    "less": "4.1.2",
+    "less-loader": "10.2.0",
+    "react-app-rewired": "^2.2.1"
+  }
+}

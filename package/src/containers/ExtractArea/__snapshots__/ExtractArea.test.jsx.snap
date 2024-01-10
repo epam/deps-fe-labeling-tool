@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: ExtractArea should render OcrArea layout based on props 1`] = `
+<Connect(OcrArea)
+  label={
+    Label {
+      "confidence": 0.66,
+      "content": "hello world",
+      "fieldCode": "enclosures",
+      "h": 0.0119,
+      "index": undefined,
+      "meta": Object {
+        "data": "some meta for enclosures value label",
+      },
+      "type": "string",
+      "typeName": "label",
+      "uid": "1",
+      "w": 0.017,
+      "x": 0.113,
+      "y": 0.8104,
+    }
+  }
+/>
+`;
+
+exports[`Container: ExtractArea should render correct OmrArea layout based on props 1`] = `
+<Connect(OmrArea)
+  label={
+    Label {
+      "confidence": 0.66,
+      "content": false,
+      "fieldCode": "enclosures",
+      "h": 0.0119,
+      "index": undefined,
+      "meta": Object {
+        "data": "some meta for enclosures value label",
+      },
+      "type": "checkmark",
+      "typeName": "label",
+      "uid": "2",
+      "w": 0.017,
+      "x": 0.113,
+      "y": 0.8104,
+    }
+  }
+/>
+`;

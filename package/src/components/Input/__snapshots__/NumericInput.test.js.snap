@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components: NumericInput should render NumericInput with correct props 1`] = `
+<ForwardRef
+  className="input"
+  disabled={false}
+  formatter={[MockFunction]}
+  max={10}
+  min={1}
+  onChange={[Function]}
+  onKeyDown={[Function]}
+  value={5}
+/>
+`;

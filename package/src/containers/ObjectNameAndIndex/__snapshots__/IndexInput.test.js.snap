@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: IndexInput WrappedComponent should render layout correctly 1`] = `
+<IndexInputstyles__StyledNumericInput
+  min={1}
+  onChange={[Function]}
+  value={1}
+/>
+`;

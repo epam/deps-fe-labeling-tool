@@ -1,0 +1,336 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: LabelingCanvas Component should render layout correctly 1`] = `
+<Fragment>
+  <Canvas
+    height={768}
+    width={1024}
+  >
+    <CanvasHOC
+      setZoom={[MockFunction]}
+      zoom={3}
+    />
+    <CanvasHOC />
+    <CanvasHOC
+      color="#F2F6FB"
+      image={
+        Object {
+          "height": 1000,
+          "width": 1000,
+        }
+      }
+      rotationAngle={0}
+      scale={2}
+      setImage={[MockFunction]}
+      setScale={[MockFunction]}
+      url="mockPageImageUrl.pdf"
+    />
+    <CanvasHOC
+      onSelectionEnd={[Function]}
+    />
+    <CanvasHOC
+      image={
+        Object {
+          "height": 1000,
+          "width": 1000,
+        }
+      }
+      isContentVisible={true}
+      key="6"
+      label={
+        Label {
+          "confidence": 0.8,
+          "content": "MOCK FIELD KEY 1",
+          "fieldCode": "MOCK_FIELD_1",
+          "h": 0.4,
+          "index": 0,
+          "meta": Object {},
+          "type": "key",
+          "typeName": "label",
+          "uid": "6",
+          "w": 0.3,
+          "x": 0.1,
+          "y": 0.2,
+        }
+      }
+      onUpdate={[Function]}
+      scale={2}
+      selectable={false}
+    />
+    <CanvasHOC
+      image={
+        Object {
+          "height": 1000,
+          "width": 1000,
+        }
+      }
+      key="1 + 2"
+      relation={
+        Relation {
+          "from": Label {
+            "confidence": 0.8,
+            "content": "MOCK FIELD KEY 1",
+            "fieldCode": "MOCK_FIELD_1",
+            "h": 0.4,
+            "index": 0,
+            "meta": Object {},
+            "type": "key",
+            "typeName": "label",
+            "uid": "1",
+            "w": 0.3,
+            "x": 0.1,
+            "y": 0.2,
+          },
+          "to": Label {
+            "confidence": 0.4,
+            "content": "MOCK FIELD VALUE 1",
+            "fieldCode": "MOCK_FIELD_1",
+            "h": 0.8,
+            "index": 0,
+            "meta": Object {},
+            "type": "value",
+            "typeName": "label",
+            "uid": "2",
+            "w": 0.7,
+            "x": 0.5,
+            "y": 0.6,
+          },
+          "typeName": "relation",
+          "uid": "1 + 2",
+        }
+      }
+      scale={2}
+    />
+    <CanvasHOC
+      image={
+        Object {
+          "height": 1000,
+          "width": 1000,
+        }
+      }
+      key="3 + 4"
+      relation={
+        Relation {
+          "from": Label {
+            "confidence": 0.77,
+            "content": "MOCK FIELD KEY 2",
+            "fieldCode": "MOCK_FIELD_2",
+            "h": 0.12,
+            "index": 1,
+            "meta": Object {},
+            "type": "key",
+            "typeName": "label",
+            "uid": "3",
+            "w": 0.11,
+            "x": 0.09,
+            "y": 0.1,
+          },
+          "to": Label {
+            "confidence": 0.66,
+            "content": "MOCK FIELD VALUE 2",
+            "fieldCode": "MOCK_FIELD_2",
+            "h": 0.16,
+            "index": 1,
+            "meta": Object {},
+            "type": "value",
+            "typeName": "label",
+            "uid": "4",
+            "w": 0.15,
+            "x": 0.13,
+            "y": 0.14,
+          },
+          "typeName": "relation",
+          "uid": "3 + 4",
+        }
+      }
+      scale={2}
+    />
+    <CanvasHOC
+      image={
+        Object {
+          "height": 1000,
+          "width": 1000,
+        }
+      }
+      key="9"
+      onUpdate={[Function]}
+      scale={2}
+      selectable={false}
+      table={
+        Table {
+          "fieldCode": "MOCK_FIELD_4",
+          "index": undefined,
+          "merges": Array [],
+          "meta": Object {},
+          "typeName": "table",
+          "uid": "9",
+          "values": CellValue {
+            "column": 0,
+            "confidence": 0.8,
+            "row": 0,
+            "value": "value",
+          },
+          "xGuidelines": Array [
+            0.5,
+            0.6,
+            0.8,
+          ],
+          "yGuidelines": Array [
+            0.303,
+            0.32,
+            0.336,
+          ],
+        }
+      }
+    />
+  </Canvas>
+  <DefaultCanvasHotKeys />
+</Fragment>
+`;
+
+exports[`Container: LabelingCanvas mapStateToProps should pass correct props to the wrapped component 1`] = `
+Object {
+  "currentPage": 1,
+  "image": Object {
+    "height": 1000,
+    "width": 1000,
+  },
+  "imageUrl": "mockPageImageUrl.pdf",
+  "relations": Array [
+    Relation {
+      "from": Label {
+        "confidence": 0.8,
+        "content": "MOCK FIELD KEY 1",
+        "fieldCode": "MOCK_FIELD_1",
+        "h": 0.4,
+        "index": 0,
+        "meta": Object {},
+        "type": "key",
+        "typeName": "label",
+        "uid": "1",
+        "w": 0.3,
+        "x": 0.1,
+        "y": 0.2,
+      },
+      "to": Label {
+        "confidence": 0.4,
+        "content": "MOCK FIELD VALUE 1",
+        "fieldCode": "MOCK_FIELD_1",
+        "h": 0.8,
+        "index": 0,
+        "meta": Object {},
+        "type": "value",
+        "typeName": "label",
+        "uid": "2",
+        "w": 0.7,
+        "x": 0.5,
+        "y": 0.6,
+      },
+      "typeName": "relation",
+      "uid": "1 + 2",
+    },
+    Relation {
+      "from": Label {
+        "confidence": 0.77,
+        "content": "MOCK FIELD KEY 2",
+        "fieldCode": "MOCK_FIELD_2",
+        "h": 0.12,
+        "index": 1,
+        "meta": Object {},
+        "type": "key",
+        "typeName": "label",
+        "uid": "3",
+        "w": 0.11,
+        "x": 0.09,
+        "y": 0.1,
+      },
+      "to": Label {
+        "confidence": 0.66,
+        "content": "MOCK FIELD VALUE 2",
+        "fieldCode": "MOCK_FIELD_2",
+        "h": 0.16,
+        "index": 1,
+        "meta": Object {},
+        "type": "value",
+        "typeName": "label",
+        "uid": "4",
+        "w": 0.15,
+        "x": 0.13,
+        "y": 0.14,
+      },
+      "typeName": "relation",
+      "uid": "3 + 4",
+    },
+  ],
+  "rotationAngle": 0,
+  "scale": 2,
+  "selectedTool": "label",
+  "settings": Settings {
+    "features": Array [
+      SubSettings {
+        "code": "autoSave",
+        "data": Object {
+          "interval": 180000,
+        },
+      },
+      "export",
+      "import",
+      SubSettings {
+        "code": "paging",
+        "data": Object {
+          "initialPage": 1,
+        },
+      },
+      "language",
+      "rotation",
+      SubSettings {
+        "code": "specialSymbols",
+        "data": Array [
+          "&",
+          "$",
+          "£",
+          "¥",
+          "©",
+          "®",
+          "¢",
+          "%",
+          "*",
+          "@",
+          "µ",
+          "±",
+          "´",
+          "²",
+          "~",
+          "½",
+          "«",
+          "»",
+          "°",
+          "–",
+          "—",
+          "“",
+          "”",
+        ],
+      },
+      "manageFields",
+      "multiAssignLabels",
+      "multiAssignTables",
+    ],
+    "mode": "default",
+    "panels": Array [
+      "TOOLBAR",
+      "MARKUP_SIDEBAR",
+      "LEFT_SIDEBAR",
+    ],
+    "tools": Array [
+      "detectTables",
+      "label",
+      "table",
+      "merge",
+      "split",
+      "pointer",
+      "grabbing",
+    ],
+  },
+  "zoom": 3,
+}
+`;

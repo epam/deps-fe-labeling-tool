@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: AllMarkupObject ConnectedComponent should render correct layout 1`] = `
+<AllMarkupObjectsstyles__MarkupCollapse
+  activeKey="Mock Title"
+  collapseId="Mock Title"
+  extra={
+    <AllMarkupObjectsstyles__ExtraIcons>
+      <Tooltip
+        title="Collapse all"
+      >
+        <AllMarkupObjectsstyles__ButtonIcon
+          disabled={false}
+          icon={<CollapseIcon />}
+          onClick={[Function]}
+        />
+      </Tooltip>
+      <Tooltip
+        title="Expand all"
+      >
+        <AllMarkupObjectsstyles__ButtonIcon
+          disabled={false}
+          icon={<ExpandIcon />}
+          onClick={[Function]}
+        />
+      </Tooltip>
+    </AllMarkupObjectsstyles__ExtraIcons>
+  }
+  header={
+    <AllMarkupObjectsstyles__DocumentName>
+      Mock Extra Name | Mock Title
+    </AllMarkupObjectsstyles__DocumentName>
+  }
+  onChange={[Function]}
+>
+  <AllMarkupObjectsstyles__FiltersWrapper>
+    <SearchInput
+      onChange={[Function]}
+      value="testMarkupFilter"
+    />
+    <FieldsViewSwitcher
+      groups={
+        Array [
+          Group {
+            "code": "viewAll",
+            "name": "View all",
+          },
+          Group {
+            "code": "fieldType",
+            "name": "View according to field type",
+          },
+        ]
+      }
+      setFieldsGrouping={[Function]}
+    />
+  </AllMarkupObjectsstyles__FiltersWrapper>
+  <MarkupObjects
+    fieldsGrouping="viewAll"
+    setFilter={[Function]}
+  />
+</AllMarkupObjectsstyles__MarkupCollapse>
+`;

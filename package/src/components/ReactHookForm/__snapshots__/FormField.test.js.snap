@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: FormField should render component correctly in case render was passed as a default prop 1`] = `
+<input
+  onChange={[MockFunction]}
+  placeholder="mockText"
+/>
+`;
+
+exports[`Component: FormField should render correct layout for each field type 1`] = `
+<Input
+  onChange={[MockFunction]}
+  placeholder="mockText"
+/>
+`;
+
+exports[`Component: FormField should render correct layout for each field type 2`] = `
+<DatePicker
+  onChange={[MockFunction]}
+  placeholder="mockText"
+/>
+`;
+
+exports[`Component: FormField should render correct layout for each field type 3`] = `
+<Select
+  onChange={[MockFunction]}
+  options={
+    Array [
+      Option {
+        "disabled": undefined,
+        "text": "mock",
+        "value": "mock",
+      },
+    ]
+  }
+  placeholder="mockText"
+/>
+`;
+
+exports[`Component: FormField should render correct layout for each field type 4`] = `
+<Checkbox
+  onChange={[MockFunction]}
+  placeholder="mockText"
+/>
+`;
+
+exports[`Component: FormField should render correct layout for each field type 5`] = `
+<TextAreaField
+  onChange={[MockFunction]}
+  placeholder="mockText"
+/>
+`;

@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container: ObjectNameAndIndex ConnectedComponent should correctly render label with type checkmark 1`] = `
+<ObjectNameAndIndexstyles__Wrapper>
+  <ObjectNameAndIndexstyles__ObjectName
+    color="rgba(141, 180, 31, 1)"
+    ellipsis={
+      Object {
+        "tooltip": <Tooltip
+          title="label"
+        />,
+      }
+    }
+  />
+</ObjectNameAndIndexstyles__Wrapper>
+`;
+
+exports[`Container: ObjectNameAndIndex ConnectedComponent should correctly render label with type key 1`] = `
+<ObjectNameAndIndexstyles__Wrapper>
+  <ObjectNameAndIndexstyles__ObjectName
+    color="#3980E8"
+    ellipsis={
+      Object {
+        "tooltip": <Tooltip
+          title="label"
+        >
+          <span>
+            undefined.
+            <ObjectNameAndIndexstyles__ObjectType>
+              key
+            </ObjectNameAndIndexstyles__ObjectType>
+          </span>
+        </Tooltip>,
+      }
+    }
+  >
+    <span>
+      undefined.
+      <ObjectNameAndIndexstyles__ObjectType>
+        key
+      </ObjectNameAndIndexstyles__ObjectType>
+    </span>
+  </ObjectNameAndIndexstyles__ObjectName>
+</ObjectNameAndIndexstyles__Wrapper>
+`;
+
+exports[`Container: ObjectNameAndIndex ConnectedComponent should correctly render unassignedLabel 1`] = `
+<ObjectNameAndIndexstyles__Wrapper>
+  <ObjectNameAndIndexstyles__ObjectName
+    color="#FF5645"
+    ellipsis={
+      Object {
+        "tooltip": <Tooltip
+          title="label"
+        >
+          Unassigned label 0
+        </Tooltip>,
+      }
+    }
+  >
+    Unassigned label 0
+  </ObjectNameAndIndexstyles__ObjectName>
+</ObjectNameAndIndexstyles__Wrapper>
+`;
+
+exports[`Container: ObjectNameAndIndex ConnectedComponent should render layout correctly 1`] = `
+<ObjectNameAndIndexstyles__Wrapper>
+  <ObjectNameAndIndexstyles__ObjectName
+    color="#FFB357"
+    ellipsis={
+      Object {
+        "tooltip": <Tooltip
+          title="label"
+        />,
+      }
+    }
+  />
+</ObjectNameAndIndexstyles__Wrapper>
+`;
