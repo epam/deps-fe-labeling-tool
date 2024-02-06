@@ -34,8 +34,10 @@ const GlobalStyle = createGlobalStyle`${css`
     background: ${COLORS.GRAYSCALE_1};
   }
 
-  scrollbar-color: ${COLORS.PRIMARY_3} ${COLORS.GRAYSCALE_1};
-  scrollbar-width: thin;
+  @supports not selector(::-webkit-scrollbar) {
+    scrollbar-color: ${COLORS.PRIMARY_3} ${COLORS.GRAYSCALE_1};
+    scrollbar-width: thin;
+  }
 }
   
 `}`
