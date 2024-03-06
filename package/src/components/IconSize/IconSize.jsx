@@ -9,6 +9,10 @@ const IconSize = styled.div`
   align-items: center;
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
+
+  svg {
+    overflow: visible;
+  }
 `
 
 const IconSize32 = ({ children, ...rest }) => (
