@@ -3,7 +3,7 @@ import { resetDefault, registerHotKeyEvents } from '@/actions/hotkeys'
 import { hotKeysReducer } from '@/reducers/hotkeys'
 
 describe('Reducer: hotkeys', () => {
-  let defaultState
+  let defaultState = ['ZOOM']
 
   beforeEach(() => {
     defaultState = hotKeysReducer(defaultState, mockAction)
@@ -15,14 +15,14 @@ describe('Reducer: hotkeys', () => {
   })
 
   it('should create correct default state object', () => {
-    expect(defaultState).toEqual([])
+    expect(defaultState).toEqual(['ZOOM'])
   })
 
   it('should handle registerHotKeyEvents action correctly', () => {
     const action = registerHotKeyEvents(['DELETE'])
 
     expect(hotKeysReducer(defaultState, action)).toEqual([
-      'DELETE'
+      'ZOOM', 'DELETE'
     ])
   })
 })
