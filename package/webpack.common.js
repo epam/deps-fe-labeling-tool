@@ -84,7 +84,24 @@ module.exports = {
       },
       {
         test: /\.svg$/i,
-        use: ['@svgr/webpack'],
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              svgoConfig: {
+                plugins: [
+                  {
+                    name: 'preset-default',
+                    params: {
+                      overrides: {
+                        removeViewBox: false
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }],
         issuer: /\.(js|ts)x?$/
       },
       {
