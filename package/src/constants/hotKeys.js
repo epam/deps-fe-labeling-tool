@@ -38,7 +38,8 @@ const HotKeyEvent = {
   GRABBING_UP: new HotKey('GRABBING_UP', { action: 'keyup', sequence: 'alt' }),
   ROTATION_LEFT: new HotKey('ROTATION_LEFT', ['ctrl+KeyLeftArrow'], 'Rotate left'),
   ROTATION_RIGHT: new HotKey('ROTATION_RIGHT', ['ctrl+KeyRightArrow'], 'Rotate right'),
-  COLLAPSE_EXPAND_SIDERS: new HotKey('COLLAPSE_EXPAND_SIDERS', ['ctrl+Backslash'], 'Collapse/expand side bar')
+  COLLAPSE_EXPAND_SIDERS: new HotKey('COLLAPSE_EXPAND_SIDERS', ['ctrl+Backslash'], 'Collapse/expand side bar'),
+  ZOOM: new HotKey('ZOOM', ['alt+mouseWheel'], 'Zoom')
 }
 
 const HotKeyModifier = {
