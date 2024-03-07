@@ -1,8 +1,10 @@
 import { Component } from 'react'
 import { fabric } from 'fabric'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { withCanvas } from '@/components/CanvasProvider'
 import { ZOOM_STEP, ZOOM_MIN, ZOOM_MAX } from '@/constants/canvas'
+import { withHotKeys } from '@/hocs/withHotKeys'
 import { canvasShape } from '@/models/Canvas'
 
 class CanvasZoom extends Component {
@@ -67,8 +69,13 @@ class CanvasZoom extends Component {
   render = () => null
 }
 
-const WithCanvas = withCanvas(CanvasZoom)
+const ConnectedComponent =
+  withCanvas(
+    withHotKeys(
+      connect()(CanvasZoom)
+    )
+  )
 
 export {
-  WithCanvas as CanvasZoom
+  ConnectedComponent as CanvasZoom
 }

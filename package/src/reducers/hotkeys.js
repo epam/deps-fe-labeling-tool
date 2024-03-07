@@ -1,8 +1,7 @@
 import { handleActions } from 'redux-actions'
 import { registerHotKeyEvents, resetDefault } from '@/actions/hotkeys'
-import { HotKeyEvent } from '@/constants/hotKeys'
 
-const defaultState = [HotKeyEvent.ZOOM.name]
+const defaultState = []
 
 const resetDefaultHandler = () => (defaultState)
 
