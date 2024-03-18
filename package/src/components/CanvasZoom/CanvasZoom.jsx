@@ -1,9 +1,9 @@
 import { Component } from 'react'
 import { fabric } from 'fabric'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { withCanvas } from '@/components/CanvasProvider'
 import { ZOOM_STEP, ZOOM_MIN, ZOOM_MAX } from '@/constants/canvas'
+import { HotKeyEvent } from '@/constants/hotKeys'
 import { withHotKeys } from '@/hocs/withHotKeys'
 import { canvasShape } from '@/models/Canvas'
 
@@ -11,11 +11,16 @@ class CanvasZoom extends Component {
   static propTypes = {
     canvas: canvasShape.isRequired,
     zoom: PropTypes.number,
-    setZoom: PropTypes.func.isRequired
+    setZoom: PropTypes.func.isRequired,
+    registerHandlers: PropTypes.func.isRequired
   }
 
   static defaultProps = {
     zoom: 1
+  }
+
+  zoomHotKeyHandler = {
+    [HotKeyEvent.ZOOM]: () => this.onZoom
   }
 
   on = () => {
@@ -64,17 +69,13 @@ class CanvasZoom extends Component {
     this.canvas = this.props.canvas
     this.setZoom(this.props.zoom)
     this.on()
+    this.props.registerHandlers(this.zoomHotKeyHandler)
   }
 
   render = () => null
 }
 
-const ConnectedComponent =
-  withCanvas(
-    withHotKeys(
-      connect()(CanvasZoom)
-    )
-  )
+const ConnectedComponent = withCanvas(withHotKeys(CanvasZoom))
 
 export {
   ConnectedComponent as CanvasZoom

@@ -3,7 +3,7 @@ import { resetDefault, registerHotKeyEvents } from '@/actions/hotkeys'
 import { hotKeysReducer } from '@/reducers/hotkeys'
 
 describe('Reducer: hotkeys', () => {
-  let defaultState = []
+  let defaultState
 
   beforeEach(() => {
     defaultState = hotKeysReducer(defaultState, mockAction)
