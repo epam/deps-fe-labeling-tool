@@ -1,18 +1,18 @@
 import { mockCanvasProvider } from '@/mocks/mockCanvasProvider'
 import { MockCanvas, MockPoint, mockFabric } from '@/mocks/mockFabric'
-import { mockReactRedux } from '@/mocks/mockReactRedux'
 import React from 'react'
 import { shallow } from 'enzyme'
-import { CanvasZoom } from './CanvasZoom'
+import { CanvasZoom as ProviderMock } from './CanvasZoom'
 
 jest.mock('fabric', () => mockFabric)
+
 jest.mock('@/components/CanvasProvider', () => mockCanvasProvider)
-jest.mock('react-redux', () => mockReactRedux)
+
 jest.mock('@/hocs/withHotKeys', () => ({
   withHotKeys: (Component) => Component
 }))
 
-const { WrappedComponent } = CanvasZoom.WrappedComponent
+const CanvasZoom = ProviderMock.WrappedComponent
 
 const ZOOM_STEP = 1 / 500
 const MIN_ZOOM = 0.5
@@ -37,10 +37,11 @@ describe('Component: CanvasZoom', () => {
     defaultProps = {
       canvas: new MockCanvas(),
       zoom: 1,
-      setZoom: jest.fn()
+      setZoom: jest.fn(),
+      registerHandlers: jest.fn()
     }
 
-    wrapper = shallow(<WrappedComponent {...defaultProps} />)
+    wrapper = shallow(<CanvasZoom {...defaultProps} />)
   })
 
   it('should register correct canvas events callbacks', () => {
