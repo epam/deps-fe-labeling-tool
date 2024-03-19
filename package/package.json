@@ -1,6 +1,6 @@
 {
   "name": "labeling-tool",
-  "version": "2.0.4",
+  "version": "2.0.6",
   "private": false,
   "description": "Project agnostic tool for documents labeling",
   "main": "lib/application/LabelingTool/LabelingTool.js",
