@@ -20,7 +20,7 @@ class CanvasZoom extends Component {
   }
 
   zoomHotKeyHandler = {
-    [HotKeyEvent.ZOOM]: () => this.onZoom
+    [HotKeyEvent.ZOOM]: null
   }
 
   on = () => {
