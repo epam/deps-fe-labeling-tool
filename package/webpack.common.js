@@ -48,7 +48,8 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       '@': path.resolve(__dirname, paths.src),
-      '~': path.resolve(__dirname, paths.app)
+      '~': path.resolve(__dirname, paths.app),
+      handsontable: 'handsontable-mit'
     }
   },
   module: {
