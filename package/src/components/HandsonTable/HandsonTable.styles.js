@@ -1,5 +1,5 @@
 /* stylelint-disable */
-import 'handsontable/dist/handsontable.full.css'
+import 'handsontable-mit/dist/handsontable.full.css'
 import { HotTable } from '@handsontable/react'
 import styled from 'styled-components'
 

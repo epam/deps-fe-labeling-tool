@@ -39,7 +39,8 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|less|s[c|a]ss|png|jpg|jpeg|gif)$': 'identity-obj-proxy',
     '\\.svg': '<rootDir>/src/mocks/mockSvg.js',
-    '@/(.*)$': '<rootDir>/src/$1'
+    '@/(.*)$': '<rootDir>/src/$1',
+    '^handsontable$': 'handsontable-mit'
   },
   errorOnDeprecated: true,
   setupFilesAfterEnv: [

@@ -1,9 +1,10 @@
-const { override, addWebpackPlugin, addWebpackModuleRule } = require('customize-cra');
+const { override, addWebpackPlugin, addWebpackModuleRule, addWebpackAlias } = require('customize-cra');
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 const { overrideProcessEnv } = require('./misc/overrideProcessEnv');
 const esmRequire = require('esm')(module);
 const themeVariables = esmRequire('./misc/antd-theme');
 const { CompilationFeature } = esmRequire('labeling-tool/lib/enums/CompilationFeature');
+const path = require('path');
 
 const ENABLED_FEATURES_NAMES = [CompilationFeature.SHOW_NOT_IMPLEMENTED];
 
@@ -16,6 +17,9 @@ module.exports = override(
   ),
   overrideProcessEnv({
     FEATURES: JSON.stringify(ENABLED_FEATURES_NAMES),
+  }),
+  addWebpackAlias({
+    'handsontable': 'handsontable-mit',
   }),
   addWebpackModuleRule({
     test: /\.svg$/i,

@@ -8,7 +8,8 @@
     "@testing-library/react": "^12.1.2",
     "antd": "^4.16.1",
     "dayjs": "1.10.7",
-    "labeling-tool": "^2.0.1",
+    "handsontable-mit": "^6.2.4",
+    "labeling-tool": "^2.0.13",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
@@ -46,5 +47,9 @@
     "less": "4.1.2",
     "less-loader": "10.2.0",
     "react-app-rewired": "^2.2.1"
+  },
+  "resolutions": {
+    "labeling-tool/**/form-data": "^2.5.5",
+    "handsontable-mit/moment": "^2.30.1"
   }
 }
