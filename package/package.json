@@ -1,6 +1,6 @@
 {
   "name": "labeling-tool",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "private": false,
   "description": "Project agnostic tool for documents labeling",
   "main": "lib/application/LabelingTool/LabelingTool.js",
@@ -114,7 +114,7 @@
     "dayjs": "1.10.7",
     "fabric": "4.6.0",
     "file-saver": "^2.0.2",
-    "handsontable": "6.2.2",
+    "handsontable-mit": "^6.2.4",
     "jsonschema": "^1.4.0",
     "lodash": "^4.17.21",
     "prop-types": "^15.7.2",
