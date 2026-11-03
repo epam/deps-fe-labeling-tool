@@ -57,23 +57,23 @@ describe('Components: Canvas', () => {
     expect(getCanvas().requestRenderAll).toHaveBeenCalledTimes(1)
   })
 
-  it('should call to canvas canvas.setWidth after props.width update', () => {
+  it('should call to canvas canvas.setDimensions after props.width update', () => {
     jest.clearAllMocks()
     const width = defaultProps.width + 1
 
     wrapper.setProps({ ...defaultProps, width })
 
     expect(getCanvas().getHeight).toHaveBeenCalledTimes(1)
-    expect(getCanvas().setWidth).nthCalledWith(1, width)
+    expect(getCanvas().setDimensions).nthCalledWith(1, { width })
   })
 
-  it('should call to canvas canvas.setHeight after props.height update', () => {
+  it('should call to canvas canvas.setDimensions after props.height update', () => {
     jest.clearAllMocks()
     const height = defaultProps.height + 1
 
     wrapper.setProps({ ...defaultProps, height })
 
-    expect(getCanvas().setHeight).toHaveBeenCalledTimes(1)
-    expect(getCanvas().setHeight).nthCalledWith(1, height)
+    expect(getCanvas().setDimensions).toHaveBeenCalledTimes(1)
+    expect(getCanvas().setDimensions).nthCalledWith(1, { height })
   })
 })

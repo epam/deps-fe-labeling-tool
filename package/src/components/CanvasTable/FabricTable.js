@@ -1,4 +1,4 @@
-import { fabric } from 'fabric'
+import { Group, classRegistry } from 'fabric'
 
 const MOUSE_HOVERING_DELAY = 100
 
@@ -17,19 +17,27 @@ const MOUSE_HOVERING_DELAY = 100
  *
  * This code aims to provide custom mouseover event, that is fired if the user is inside physical table dimensions and hovers his mouse for some time.
  */
-const FabricTable = fabric.util.createClass(fabric.Group, {
-  type: 'table',
+class FabricTable extends Group {
+  static type = 'table'
+
   /**
    * Initializes fabric group
    *
    * Registers mousemove events on the canvas to track mouse position
    * Registers mouseup and mousedown events to ignore mouseover when user presses LMB and builds a selection
    *
-   * @param {Array<fabric.Rect>} rectangles - Array of the table cells that should be grouped
-   * @param {fabric.IGroupOptions} options - Options for the fabric group. Canvas object is required
+   * @param {Array<Rect>} rectangles - Array of the table cells that should be grouped
+   * @param {object} options - Options for the fabric group. Canvas object is required
    */
-  initialize: function (rectangles, options) {
+  constructor (rectangles, options) {
+    super(rectangles, {
+      ...options,
+      lockScalingX: true,
+      lockScalingY: true
+    })
+
     const { canvas } = options
+
     this.onCanvasMouseMove = this.onCanvasMouseMove.bind(this)
     this.onCanvasMouseDown = this.onCanvasMouseDown.bind(this)
     this.onCanvasMouseUp = this.onCanvasMouseUp.bind(this)
@@ -43,42 +51,44 @@ const FabricTable = fabric.util.createClass(fabric.Group, {
       canvas.off('mouse:down', this.onCanvasMouseDown)
       canvas.off('mouse:up', this.onCanvasMouseUp)
     })
-    fabric.Group.prototype.initialize.apply(this, arguments)
-  },
+  }
+
   /**
    * Returns coordinates of the top left point.
    *
    * @param {Array<FabricCell>} objects - array of the object to search through.
    * @return {{x: number, y: number}} coordinates of the point.
    */
-  getP1Coords: function (objects) {
+  getP1Coords (objects) {
     const x = objects.map((object) => object.aCoords.tl.x)
     const y = objects.map((object) => object.aCoords.tl.y)
     return {
       x: Math.min(...x),
       y: Math.min(...y)
     }
-  },
+  }
+
   /**
    * Returns coordinates of the bottom right point.
    *
    * @param {Array<FabricCell>} objects - array of the object to search through.
    * @return {{x: number, y: number}} coordinates of the point.
    */
-  getP2Coords: function (objects) {
+  getP2Coords (objects) {
     const x = objects.map((object) => object.aCoords.br.x)
     const y = objects.map((object) => object.aCoords.br.y)
     return {
       x: Math.max(...x),
       y: Math.max(...y)
     }
-  },
+  }
+
   /**
    * Checks if the mouse is over the table and there are no other objects that are in front of it.
    *
    * @return {boolean} Result of the check
    */
-  isMouseInside: function () {
+  isMouseInside () {
     const objects = this.getObjects()
     if (
       !objects ||
@@ -89,9 +99,9 @@ const FabricTable = fabric.util.createClass(fabric.Group, {
 
     const { x: x1, y: y1 } = this.getP1Coords(objects)
     const { x: x2, y: y2 } = this.getP2Coords(objects)
-    const { x, y } = this.opts.absolutePointer
+    const { x, y } = this.opts.scenePoint
 
-    const target = this.canvas && this.canvas.findTarget(this.opts.e)
+    const target = this.canvas && this.canvas.findTarget(this.opts.e).target
     return (
       x > x1 &&
       x < x2 &&
@@ -99,27 +109,31 @@ const FabricTable = fabric.util.createClass(fabric.Group, {
       y < y2 &&
       target === this
     )
-  },
-  onCanvasMouseDown: function () {
+  }
+
+  onCanvasMouseDown () {
     this.mouseDown = true
-  },
-  onCanvasMouseUp: function () {
+  }
+
+  onCanvasMouseUp () {
     this.mouseDown = false
-  },
+  }
+
   /**
    * Clears the flag that indicates that mouse currently is inside the group.
    *
    * @return {boolean} Result of the check
    */
-  onCanvasMouseMoveOutside: function () {
+  onCanvasMouseMoveOutside () {
     this.notifiedInside = false
-  },
+  }
+
   /**
    * Sets up a timer when mouse has entered area inside the group if mouse is not already inside.
    * When timer elapses, checks if the mouse is still inside the table and if there is no left mouse button pressed.
    * Notifies listeners that mouse is over the table and sets the flag that prevents multiple mouseover events being fired.
    */
-  onCanvasMouseMoveInside: function () {
+  onCanvasMouseMoveInside () {
     if (this.mouseInsideTimeout || this.notifiedInside) {
       return
     }
@@ -130,19 +144,21 @@ const FabricTable = fabric.util.createClass(fabric.Group, {
         this.notifiedInside = true
       }
     }, MOUSE_HOVERING_DELAY)
-  },
+  }
+
   /**
    * Stores latest mouse options for the usage in the isMouseInside method.
    * Checks if the mouse is inside the group or outside and splits the code into two methods.
    */
-  onCanvasMouseMove: function (opts) {
+  onCanvasMouseMove (opts) {
     this.opts = opts
     if (this.isMouseInside()) {
       this.onCanvasMouseMoveInside()
     } else {
       this.onCanvasMouseMoveOutside()
     }
-  },
+  }
+
   /**
    * Monkey patches default group on method.
    * Stores listeners of the mouseover event in the custom listeners array.
@@ -151,9 +167,10 @@ const FabricTable = fabric.util.createClass(fabric.Group, {
    * @param {string} eventName - name of the event to subscribe for
    * @param {*} handler - handler of the event.
    */
-  on: function (eventName, handler) {
-    return fabric.Group.prototype.on.call(this, eventName, handler)
-  },
+  on (eventName, handler) {
+    return super.on(eventName, handler)
+  }
+
   /**
    * Monkey patches default group off methods.
    * Removes listeners of the mouseover event from the custom listeners array.
@@ -162,10 +179,13 @@ const FabricTable = fabric.util.createClass(fabric.Group, {
    * @param {string} eventName - name of the event to subscribe for.
    * @param {*} handler - handler of the event.
    */
-  off: function (eventName, handler) {
-    return fabric.Group.prototype.on.call(this, eventName, handler)
+  off (eventName, handler) {
+    return super.off(eventName, handler)
   }
-})
+}
+
+classRegistry.setClass(FabricTable, 'table')
+classRegistry.setSVGClass(FabricTable, 'table')
 
 export {
   FabricTable

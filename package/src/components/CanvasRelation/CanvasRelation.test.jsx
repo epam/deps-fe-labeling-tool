@@ -18,7 +18,7 @@ jest.mock('@/utils/fabric', () => ({
 }))
 
 jest.mock('@/components/CanvasRelation/FabricArrow', () => ({
-  FabricArrow: MockFabricArrow
+  LineArrow: MockFabricArrow
 }))
 
 const CanvasRelation = ProviderMock.WrappedComponent
@@ -54,10 +54,10 @@ describe('Component: CanvasRelation', () => {
     expect(defaultProps.canvas.add).nthCalledWith(1, arrow)
   })
 
-  it('should register correct canvas sendToBack add events callbacks', () => {
+  it('should register correct canvas sendObjectToBack add events callbacks', () => {
     const arrow = wrapper.instance().arrow
 
-    expect(defaultProps.canvas.sendToBack).nthCalledWith(1, arrow)
+    expect(defaultProps.canvas.sendObjectToBack).nthCalledWith(1, arrow)
   })
 
   it('should triggered remove method when the component is unmounted', () => {

@@ -132,7 +132,9 @@ const applyScale = (target) => {
     })
   }
 
-  return target.setCoords()
+  target.setCoords()
+
+  return target
 }
 
 /**
@@ -167,13 +169,21 @@ const withSuppressedSelectionEvents = (target, callback) => {
   const created = target.__eventListeners['selection:created']
   const updated = target.__eventListeners['selection:updated']
   const cleared = target.__eventListeners['selection:cleared']
+  const endCurrentTransform = target.endCurrentTransform
+  const preserveTransform = !!target._currentTransform
   target.__eventListeners['selection:created'] = []
   target.__eventListeners['selection:updated'] = []
   target.__eventListeners['selection:cleared'] = []
-  callback()
-  target.__eventListeners['selection:created'] = created
-  target.__eventListeners['selection:updated'] = updated
-  target.__eventListeners['selection:cleared'] = cleared
+
+  preserveTransform && (target.endCurrentTransform = () => {})
+  try {
+    callback()
+  } finally {
+    target.__eventListeners['selection:created'] = created
+    target.__eventListeners['selection:updated'] = updated
+    target.__eventListeners['selection:cleared'] = cleared
+    preserveTransform && (target.endCurrentTransform = endCurrentTransform)
+  }
 }
 
 /**

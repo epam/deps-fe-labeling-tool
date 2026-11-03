@@ -73,19 +73,19 @@ describe('Component: CanvasTableSplit', () => {
     expect(newProps.canvas.add).toHaveBeenCalled()
   })
 
-  it('should call canvas.getPointer method when calling to onMouseDown with empty altKey', () => {
-    defaultProps.canvas.getPointer = jest.fn(() => mockOnDownCursor)
+  it('should call canvas.getScenePoint method when calling to onMouseDown with empty altKey', () => {
+    defaultProps.canvas.getScenePoint = jest.fn(() => mockOnDownCursor)
     const mockOpts = { e: { altKey: '' } }
     const CanvasMouseProps = wrapper.find(CanvasMouse).props()
     CanvasMouseProps.onMouseDown(mockOpts)
-    expect(defaultProps.canvas.getPointer).nthCalledWith(1, mockOpts.e)
+    expect(defaultProps.canvas.getScenePoint).nthCalledWith(1, mockOpts.e)
   })
 
-  it('should not call canvas.getPointer method when calling to onMouseDown with a given altKey', () => {
+  it('should not call canvas.getScenePoint method when calling to onMouseDown with a given altKey', () => {
     const mockOpts = { e: { altKey: '1' } }
     const CanvasMouseProps = wrapper.find(CanvasMouse).props()
     CanvasMouseProps.onMouseDown(mockOpts)
-    expect(defaultProps.canvas.getPointer).toHaveBeenCalledTimes(0)
+    expect(defaultProps.canvas.getScenePoint).toHaveBeenCalledTimes(0)
   })
 
   it('should call canvas.add with correct props method when calling to renderSplitProjection()', () => {
@@ -99,7 +99,7 @@ describe('Component: CanvasTableSplit', () => {
   it('should call onUpdate with correct props when calling onMouseUp if shouldSplit is true', () => {
     Object.defineProperty(wrapper.instance(), 'onDownCursor', { value: mockOnDownCursor, configurable: true, writable: true })
     const mockOpts = { e: { altKey: '' } }
-    defaultProps.canvas.getPointer.mockImplementationOnce(() => (mockOnUpCursor))
+    defaultProps.canvas.getScenePoint.mockImplementationOnce(() => (mockOnUpCursor))
     const CanvasMouseProps = wrapper.find(CanvasMouse).props()
     CanvasMouseProps.onMouseUp(mockOpts)
     const mockAbsolutePropsTable = toAbsolute(defaultProps.table, defaultProps.scale, defaultProps.image)
@@ -110,7 +110,7 @@ describe('Component: CanvasTableSplit', () => {
   it('should not call onUpdate when calling onMouseUp if shouldSplit is false', () => {
     Object.defineProperty(wrapper.instance(), 'onDownCursor', { value: mockOnDownCursor, configurable: true, writable: true })
     const mockOpts = { e: { altKey: '1' } }
-    defaultProps.canvas.getPointer.mockImplementationOnce(() => ({ x: 1, y: 1 }))
+    defaultProps.canvas.getScenePoint.mockImplementationOnce(() => ({ x: 1, y: 1 }))
     const CanvasMouseProps = wrapper.find(CanvasMouse).props()
     CanvasMouseProps.onMouseUp(mockOpts)
     expect(defaultProps.onUpdate).toHaveBeenCalledTimes(0)
@@ -119,7 +119,7 @@ describe('Component: CanvasTableSplit', () => {
   it('should call canvas.add method when calling to onMouseMove if onDownCursor is given', () => {
     Object.defineProperty(wrapper.instance(), 'onDownCursor', { value: mockOnDownCursor, configurable: true, writable: true })
     const mockOpts = { e: { altKey: '' } }
-    defaultProps.canvas.getPointer.mockImplementationOnce(() => ({ x: 1, y: 1 }))
+    defaultProps.canvas.getScenePoint.mockImplementationOnce(() => ({ x: 1, y: 1 }))
     const CanvasMouseProps = wrapper.find(CanvasMouse).props()
     CanvasMouseProps.onMouseMove(mockOpts)
     expect(defaultProps.canvas.add).toHaveBeenCalled()
@@ -132,7 +132,7 @@ describe('Component: CanvasTableSplit', () => {
     const mockProjection = new FabricSplitProjection(mockSplitProjection)
     Object.defineProperty(wrapper.instance(), 'onDownCursor', { value: mockOnDownCursor, configurable: true, writable: true })
     const mockOpts = { e: { altKey: '' } }
-    defaultProps.canvas.getPointer.mockImplementationOnce(() => ({ x: 1, y: 1 }))
+    defaultProps.canvas.getScenePoint.mockImplementationOnce(() => ({ x: 1, y: 1 }))
     const CanvasMouseProps = wrapper.find(CanvasMouse).props()
     CanvasMouseProps.onMouseMove(mockOpts)
     expect(defaultProps.canvas.remove).toHaveBeenCalledWith(mockProjection)

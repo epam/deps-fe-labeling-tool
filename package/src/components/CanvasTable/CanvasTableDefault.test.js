@@ -128,9 +128,8 @@ describe('Component: CanvasTableDefault', () => {
 
     wrapper = shallow(<CanvasTableDefault {...defaultProps} />)
 
-    expect(defaultProps.canvas.on).toBeCalledTimes(2)
-    expect(defaultProps.canvas.on).nthCalledWith(1, 'object:moved', wrapper.instance().onMoveOrScale)
-    expect(defaultProps.canvas.on).nthCalledWith(2, 'object:scaled', wrapper.instance().onMoveOrScale)
+    expect(defaultProps.canvas.on).toBeCalledTimes(1)
+    expect(defaultProps.canvas.on).nthCalledWith(1, 'object:modified', wrapper.instance().onMoveOrScale)
   })
 
   it('should check that passed prop canvas is the same as component prop canvas', () => {
@@ -162,8 +161,7 @@ describe('Component: CanvasTableDefault', () => {
     const onMoveOrScale = wrapper.instance().onMoveOrScale
     wrapper.unmount()
 
-    expect(defaultProps.canvas.off).nthCalledWith(1, 'object:moved', onMoveOrScale)
-    expect(defaultProps.canvas.off).nthCalledWith(2, 'object:scaled', onMoveOrScale)
+    expect(defaultProps.canvas.off).nthCalledWith(1, 'object:modified', onMoveOrScale)
   })
 
   it('should not render any layout', () => {
@@ -257,10 +255,46 @@ describe('Component: CanvasTableDefault', () => {
     expect(defaultProps.canvas.findTarget).nthCalledWith(1, opts.e)
   })
 
+  it('should reset cached target before finding target in onTableMouseUp', () => {
+    defaultProps.table.uid = '1'
+
+    wrapper.setProps(defaultProps)
+    jest.clearAllMocks()
+
+    wrapper.instance().onTableMouseUp(opts)
+
+    expect(defaultProps.canvas._resetTransformEventData).toHaveBeenCalledTimes(1)
+    expect(defaultProps.canvas._resetTransformEventData.mock.invocationCallOrder[0])
+      .toBeLessThan(defaultProps.canvas.findTarget.mock.invocationCallOrder[0])
+  })
+
+  it('should reset cached target before finding target in onTableMouseOver', () => {
+    const cell = { fill: null, set: jest.fn() }
+    const tableGroup = {
+      data: { uid: '1' },
+      removeAll: jest.fn(() => [cell]),
+      getObjects: jest.fn(() => [cell])
+    }
+    defaultProps.table.uid = '1'
+    defaultProps.canvas.getActiveObjects = jest.fn(() => [])
+    defaultProps.canvas.getObjects = jest.fn(() => [tableGroup])
+    defaultProps.canvas.findTarget = jest.fn(() => ({ target: cell }))
+
+    wrapper.setProps({ ...defaultProps, selectable: true })
+    jest.clearAllMocks()
+
+    wrapper.instance().onTableMouseOver(opts)
+
+    expect(defaultProps.canvas._resetTransformEventData).toHaveBeenCalledTimes(1)
+    expect(defaultProps.canvas._resetTransformEventData.mock.invocationCallOrder[0])
+      .toBeLessThan(defaultProps.canvas.findTarget.mock.invocationCallOrder[0])
+    expect(defaultProps.canvas.setActiveObject).toHaveBeenCalledWith(cell)
+  })
+
   it('should call openContextMenu with correctly args when calling to onTableMouseUp and opts.button === MouseButton.RIGHT', () => {
     const mockResult = 'test'
     defaultProps.table.uid = '1'
-    defaultProps.canvas.findTarget = jest.fn(() => mockResult)
+    defaultProps.canvas.findTarget = jest.fn(() => ({ target: mockResult }))
 
     wrapper.setProps(defaultProps)
 
@@ -327,6 +361,29 @@ describe('Component: CanvasTableDefault', () => {
     wrapper.instance().onTableMouseOver(opts)
 
     expect(defaultProps.canvas.getActiveObject).toBeCalled()
+    expect(defaultProps.canvas.add).not.toBeCalled()
+  })
+
+  it('should not ungroup table in onTableMouseOver when table is a part of a multi selection', () => {
+    defaultProps.table.uid = '1'
+    const tableGroup = {
+      data: { uid: '1' },
+      getObjects: jest.fn(() => []),
+      removeAll: jest.fn(() => [])
+    }
+    defaultProps.canvas.getObjects = jest.fn(() => [tableGroup])
+    defaultProps.canvas.getActiveObject = jest.fn(() => ({
+      getObjects: jest.fn(() => [tableGroup, { data: { uid: '2' } }])
+    }))
+    defaultProps.canvas.getActiveObjects = jest.fn(() => [tableGroup, { data: { uid: '2' } }])
+
+    wrapper.setProps({ ...defaultProps, selectable: true })
+    jest.clearAllMocks()
+
+    wrapper.instance().onTableMouseOver(opts)
+
+    expect(defaultProps.canvas.getActiveObjects).toBeCalled()
+    expect(defaultProps.canvas.remove).not.toBeCalled()
     expect(defaultProps.canvas.add).not.toBeCalled()
   })
 

@@ -105,4 +105,10 @@ describe('Component: CanvasObjectsSelection', () => {
   it('should getObjects must be called once', () => {
     expect(defaultProps.canvas.getObjects).toHaveBeenCalledTimes(1)
   })
+
+  it('should ignore ids of objects that are not rendered on the canvas', () => {
+    const objects = wrapper.instance().getObjectsForSelection()
+    expect(objects).toHaveLength(1)
+    expect(objects[0]).toEqual({ data: { uid: 'test' }, set: expect.any(Function) })
+  })
 })

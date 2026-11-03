@@ -60,9 +60,8 @@ describe('Component: CanvasLabel', () => {
   it('should call canvas off method with correct args in case component unmounting', () => {
     const updatedLabel = wrapper.instance().updateCanvasLabel
     wrapper.unmount()
-    expect(defaultProps.canvas.off).toHaveBeenCalledTimes(2)
-    expect(defaultProps.canvas.on).toHaveBeenCalledWith('object:moved', updatedLabel)
-    expect(defaultProps.canvas.on).toHaveBeenCalledWith('object:scaled', updatedLabel)
+    expect(defaultProps.canvas.off).toHaveBeenCalledTimes(1)
+    expect(defaultProps.canvas.off).toHaveBeenCalledWith('object:modified', updatedLabel)
   })
 
   it('should call canvas remove method with correct args in case component unmounting', () => {
@@ -75,9 +74,8 @@ describe('Component: CanvasLabel', () => {
   })
 
   it('should register correct canvas events callbacks', () => {
-    expect(defaultProps.canvas.on).toHaveBeenCalledTimes(2)
-    expect(defaultProps.canvas.on).toHaveBeenCalledWith('object:moved', wrapper.instance().updateCanvasLabel)
-    expect(defaultProps.canvas.on).toHaveBeenCalledWith('object:scaled', wrapper.instance().updateCanvasLabel)
+    expect(defaultProps.canvas.on).toHaveBeenCalledTimes(1)
+    expect(defaultProps.canvas.on).toHaveBeenCalledWith('object:modified', wrapper.instance().updateCanvasLabel)
   })
 
   it('should register correct selection events callbacks', () => {
@@ -89,6 +87,29 @@ describe('Component: CanvasLabel', () => {
     defaultProps.canvas.getActiveObject.mockImplementationOnce(() => wrapper.instance().selection)
     wrapper.instance().showCaptions()
     expect(defaultProps.canvas.requestRenderAll).toHaveBeenCalled()
+  })
+
+  it('should not show captions on mouseover when label is a part of multiple selection', () => {
+    const { selection, content, name } = wrapper.instance()
+    defaultProps.canvas.getActiveObject.mockImplementation(() => ({ data: {} }))
+    defaultProps.canvas.getActiveObjects.mockImplementation(() => [selection, { data: {} }])
+
+    wrapper.instance().showCaptions(undefined, true)
+
+    expect(content.set).not.toHaveBeenCalledWith('visible', true)
+    expect(name.set).not.toHaveBeenCalledWith('visible', true)
+  })
+
+  it('should show captions on mouseover when label is not a part of multiple selection', () => {
+    const { selection, content, name } = wrapper.instance()
+    defaultProps.canvas.getActiveObject.mockImplementation(() => null)
+    defaultProps.canvas.getActiveObjects.mockImplementation(() => [])
+
+    wrapper.instance().showCaptions(undefined, true)
+
+    expect(selection.set).toHaveBeenCalledWith('fill', COLORS.SELECTION)
+    expect(content.set).toHaveBeenCalledWith('visible', true)
+    expect(name.set).toHaveBeenCalledWith('visible', true)
   })
 
   it('should call requestRenderAll in hideCaptions when several labels are selected', () => {

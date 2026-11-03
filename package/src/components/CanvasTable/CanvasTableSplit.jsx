@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { fabric } from 'fabric'
+import { Circle } from 'fabric'
 import PropTypes from 'prop-types'
 import { CanvasMouse } from '@/components/CanvasMouse'
 import { Cursor } from '@/enums/Cursor'
@@ -43,7 +43,7 @@ class CanvasTableSplit extends PureComponent {
   }
 
   renderPivotPoint = (point) => {
-    this.pivotPoint = new fabric.Circle({
+    this.pivotPoint = new Circle({
       left: point.x - SIZE_PIVOT_POINT,
       top: point.y - SIZE_PIVOT_POINT,
       radius: SIZE_PIVOT_POINT,
@@ -78,7 +78,7 @@ class CanvasTableSplit extends PureComponent {
       return
     }
 
-    const onDownCursor = this.props.canvas.getPointer(opts.e)
+    const onDownCursor = this.props.canvas.getScenePoint(opts.e)
     const point = new Point(onDownCursor.x, onDownCursor.y)
     const absolutePropsTable = Table.toAbsolute(this.props.table, this.props.scale, this.props.image)
     const { x, y } = Table.getPosition(absolutePropsTable)
@@ -99,7 +99,7 @@ class CanvasTableSplit extends PureComponent {
 
     this.removePivotPoint()
     this.removeSplitProjection()
-    const onUpCursor = this.props.canvas.getPointer(opts.e)
+    const onUpCursor = this.props.canvas.getScenePoint(opts.e)
     const shouldSplit = this.shouldSplit(this.onDownCursor, onUpCursor)
     if (shouldSplit) {
       const absolutePropsTable = Table.toAbsolute(this.props.table, this.props.scale, this.props.image)
@@ -116,7 +116,7 @@ class CanvasTableSplit extends PureComponent {
     }
 
     this.removeSplitProjection()
-    const onMoveCursor = this.props.canvas.getPointer(opts.e)
+    const onMoveCursor = this.props.canvas.getScenePoint(opts.e)
     const shouldSplit = this.shouldSplit(this.onDownCursor, onMoveCursor)
     shouldSplit && this.renderSplitProjection(this.onDownCursor, onMoveCursor, opts.e.shiftKey)
   }

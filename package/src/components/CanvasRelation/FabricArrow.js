@@ -1,16 +1,17 @@
-import { fabric } from 'fabric'
+import { Line, classRegistry } from 'fabric'
 
-const FabricArrow = fabric.util.createClass(fabric.Line, {
-  type: 'arrow',
+class LineArrow extends Line {
+  static type = 'LineArrow'
 
-  _render: function (ctx) {
-    this.callSuper('_render', ctx)
+  constructor (points = [], options = {}) {
+    super(points, options)
+    this.size = options.size || 15
+  }
 
-    if (
-      this.width === 0 ||
-      this.height === 0 ||
-      !this.visible
-    ) {
+  _render (ctx) {
+    super._render(ctx)
+
+    if (this.width === 0 || this.height === 0 || !this.visible) {
       return
     }
 
@@ -29,8 +30,9 @@ const FabricArrow = fabric.util.createClass(fabric.Line, {
     ctx.fill()
     ctx.restore()
   }
-})
-
-export {
-  FabricArrow
 }
+
+classRegistry.setClass(LineArrow, 'LineArrow')
+classRegistry.setSVGClass(LineArrow, 'LineArrow')
+
+export { LineArrow }
