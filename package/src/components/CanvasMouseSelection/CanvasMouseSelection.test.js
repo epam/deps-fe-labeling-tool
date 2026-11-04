@@ -12,7 +12,7 @@ jest.mock('fabric', () => mockFabric)
 jest.mock('@/components/CanvasProvider', () => mockCanvasProvider)
 
 const mockCanvas = new MockCanvas()
-mockCanvas.getPointer = jest.fn(() => ({
+mockCanvas.getScenePoint = jest.fn(() => ({
   x: 10,
   y: 10
 }))
@@ -56,18 +56,18 @@ describe('Component: CanvasMouseSelection', () => {
     expect(defaultProps.canvas.selectionBorderColor).toBe(COLORS.TRANSPARENT)
   })
 
-  it('should call canvas getPointer on onMouseDown event', () => {
+  it('should call canvas getScenePoint on onMouseDown event', () => {
     wrapper.find(CanvasMouse).props().onMouseDown(mockOpts)
-    expect(defaultProps.canvas.getPointer).nthCalledWith(1, mockOpts.e)
+    expect(defaultProps.canvas.getScenePoint).nthCalledWith(1, mockOpts.e)
   })
 
-  it('should not call canvas getPointer on onMouseDown event when given altKey', () => {
+  it('should not call canvas getScenePoint on onMouseDown event when given altKey', () => {
     const opts = { e: { altKey: 'altKey' } }
     wrapper.find(CanvasMouse).props().onMouseDown(opts)
-    expect(defaultProps.canvas.getPointer).not.toHaveBeenCalled()
+    expect(defaultProps.canvas.getScenePoint).not.toHaveBeenCalled()
   })
 
-  it('should call defaultProps.onSelecionEnd on onMouseUp event', () => {
+  it('should call defaultProps.onSelectionEnd on onMouseUp event', () => {
     wrapper.instance().cursorA = mockCursor
     wrapper.find(CanvasMouse).props().onMouseUp(mockOpts)
     expect(defaultProps.onSelectionEnd).nthCalledWith(1, mockRectangle, mockOpts)
@@ -85,7 +85,7 @@ describe('Component: CanvasMouseSelection', () => {
   })
 
   it('CanvasMouseSelection.getSelectionRectangle should return rectangle with minimum size if coords are equal', () => {
-    wrapper.instance().cursorA = mockCanvas.getPointer()
+    wrapper.instance().cursorA = mockCanvas.getScenePoint()
     expect(wrapper.instance().getSelectionRectangle(mockOpts)).toEqual(new Rectangle(10, 10, MIN_REQUIRED_THRESHOLD, MIN_REQUIRED_THRESHOLD))
   })
 

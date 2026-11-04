@@ -110,7 +110,7 @@ module.exports = {
         type: 'asset/inline'
       },
       {
-        exclude: [/\.(m|e)?js(x?)$/, /\.(c|le)ss$/, /\.html$/, /\.svg$/i, /\.(woff(2)?|eot|ttf|otf|)$/],
+        exclude: [/\.(c|m|e)?js(x?)$/, /\.(c|le)ss$/, /\.html$/, /\.svg$/i, /\.(woff(2)?|eot|ttf|otf|)$/],
         type: 'asset/resource'
       }
     ]

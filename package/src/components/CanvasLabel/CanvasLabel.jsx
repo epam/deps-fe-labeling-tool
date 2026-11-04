@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { fabric } from 'fabric'
+import { Rect, Textbox } from 'fabric'
 import PropTypes from 'prop-types'
 import { withCanvas } from '@/components/CanvasProvider'
 import { Cursor } from '@/enums/Cursor'
@@ -76,8 +76,13 @@ class CanvasLabel extends Component {
     this.canvas.getActiveObject() === this.selection
   )
 
+  isPartOfMultipleSelection = () => {
+    const activeObjects = this.canvas.getActiveObjects()
+    return activeObjects.length > 1 && activeObjects.includes(this.selection)
+  }
+
   showCaptions = (opts, force) => {
-    if (this.selectedAlone() || force) {
+    if (this.selectedAlone() || (force && !this.isPartOfMultipleSelection())) {
       this.selection.set('fill', COLORS.SELECTION)
       this.props.isContentVisible && this.props.selectable && this.content.set('visible', true)
       this.props.selectable && this.name.set('visible', true)
@@ -123,11 +128,10 @@ class CanvasLabel extends Component {
     this.selection.on('deselected', this.hideCaptions)
     this.selection.on('mouseover', (opts) => this.showCaptions(opts, true))
     this.selection.on('mouseout', this.hideCaptions)
-    this.canvas.on('object:moved', this.updateCanvasLabel)
-    this.canvas.on('object:scaled', this.updateCanvasLabel)
+    this.canvas.on('object:modified', this.updateCanvasLabel)
   }
 
-  createContent = () => new fabric.Textbox(
+  createContent = () => new Textbox(
     Label.getStringContent(this.props.label),
     {
       fontSize: SIZE_LABEL_CONTENT_FONT,
@@ -155,7 +159,7 @@ class CanvasLabel extends Component {
     content.setCoords()
   }
 
-  createSelection = () => new fabric.Rect({
+  createSelection = () => new Rect({
     cornerColor: COLORS.LABEL_KEY_BORDER,
     strokeWidth: SIZE_LABEL_BORDER,
     cornerSize: SIZE_LABEL_CORNER,
@@ -189,7 +193,7 @@ class CanvasLabel extends Component {
     selection.setCoords()
   }
 
-  createName = () => new fabric.Textbox(Label.getName(this.props.label), {
+  createName = () => new Textbox(Label.getName(this.props.label), {
     fontSize: SIZE_LABEL_NAME_FONT,
     fill: COLORS.PRIMARY_EMPHASIS,
     backgroundColor: COLORS.LABEL_NAME_BACKGROUND,
@@ -227,8 +231,7 @@ class CanvasLabel extends Component {
     this.canvas.remove(this.content)
     this.canvas.remove(this.selection)
     this.canvas.remove(this.name)
-    this.canvas.off('object:moved', this.updateCanvasLabel)
-    this.canvas.off('object:scaled', this.updateCanvasLabel)
+    this.canvas.off('object:modified', this.updateCanvasLabel)
   }
 
   componentDidUpdate = () => {

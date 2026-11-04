@@ -1,12 +1,12 @@
-import { fabric } from 'fabric'
+import { Line, classRegistry } from 'fabric'
 import { Cursor } from '@/enums/Cursor'
 import { COLORS } from '@/theme/theme.default'
 
-const FabricBorder = fabric.util.createClass(fabric.Line, {
-  type: 'border',
-  initialize: function (border, color = COLORS.TABLE_BORDER) {
-    fabric.Line.prototype.initialize.call(
-      this,
+class FabricBorder extends Line {
+  static type = 'border'
+
+  constructor (border, color = COLORS.TABLE_BORDER) {
+    super(
       [
         border.p1.x,
         border.p1.y,
@@ -14,7 +14,6 @@ const FabricBorder = fabric.util.createClass(fabric.Line, {
         border.p2.y
       ],
       {
-        data: border,
         stroke: color,
         selectable: false,
         hasControls: false,
@@ -23,8 +22,12 @@ const FabricBorder = fabric.util.createClass(fabric.Line, {
         objectCaching: false
       }
     )
+    this.data = border
   }
-})
+}
+
+classRegistry.setClass(FabricBorder, 'border')
+classRegistry.setSVGClass(FabricBorder, 'border')
 
 export {
   FabricBorder

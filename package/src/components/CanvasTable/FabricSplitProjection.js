@@ -1,11 +1,11 @@
-import { fabric } from 'fabric'
+import { Line, classRegistry } from 'fabric'
 import { COLORS } from '@/theme/theme.default'
 
-const FabricSplitProjection = fabric.util.createClass(fabric.Line, {
-  type: 'split-line',
-  initialize: function (line) {
-    fabric.Line.prototype.initialize.call(
-      this,
+class FabricSplitProjection extends Line {
+  static type = 'split-line'
+
+  constructor (line) {
+    super(
       [
         line.p1.x,
         line.p1.y,
@@ -19,7 +19,10 @@ const FabricSplitProjection = fabric.util.createClass(fabric.Line, {
       }
     )
   }
-})
+}
+
+classRegistry.setClass(FabricSplitProjection, 'split-line')
+classRegistry.setSVGClass(FabricSplitProjection, 'split-line')
 
 export {
   FabricSplitProjection

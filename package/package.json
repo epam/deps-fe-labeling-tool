@@ -1,6 +1,6 @@
 {
   "name": "labeling-tool",
-  "version": "2.0.13",
+  "version": "2.0.14",
   "private": false,
   "description": "Project agnostic tool for documents labeling",
   "main": "lib/application/LabelingTool/LabelingTool.js",
@@ -112,7 +112,7 @@
     "@handsontable/react": "^4.0.0",
     "antd": "^4.16.1",
     "dayjs": "1.10.7",
-    "fabric": "4.6.0",
+    "fabric": "7.4.0",
     "file-saver": "^2.0.2",
     "handsontable-mit": "^6.2.4",
     "jsonschema": "^1.4.0",

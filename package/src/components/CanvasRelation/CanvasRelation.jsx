@@ -7,7 +7,7 @@ import { Rectangle } from '@/models/Rectangle'
 import { relationShape } from '@/models/Relation'
 import { COLORS } from '@/theme/theme.default'
 import { atSameSpot, hasSameSize } from '@/utils/fabric'
-import { FabricArrow } from './FabricArrow'
+import { LineArrow as FabricArrow } from './FabricArrow'
 
 const SIZE_ARROW = 8
 
@@ -106,7 +106,7 @@ class CanvasRelation extends Component {
     this.arrow = this.createArrow()
     this.updateArrowProps()
     this.canvas.add(this.arrow)
-    this.canvas.sendToBack(this.arrow)
+    this.canvas.sendObjectToBack(this.arrow)
   }
 
   render = () => null

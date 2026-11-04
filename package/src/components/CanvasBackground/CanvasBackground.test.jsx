@@ -2,12 +2,9 @@ import { mockCanvasProvider } from '@/mocks/mockCanvasProvider'
 import { MockCanvas, MockImage, mockFabric } from '@/mocks/mockFabric'
 import React from 'react'
 import { shallow } from 'enzyme'
-import { fabric } from 'fabric'
 import flushPromises from 'flush-promises'
 import { CanvasBackground as ProviderMock } from '@/components/CanvasBackground'
 import { Placement } from '@/enums/Placement'
-import { getApi } from '@/services/api'
-import { loadImage } from '@/utils/image'
 
 jest.mock('fabric', () => mockFabric)
 
@@ -62,54 +59,52 @@ describe('Component: CanvasBackground', () => {
     expect(wrapper.children().exists()).toBeFalsy()
   })
 
-  it('should call to canvas.setBackgroundColor if props.color was specified', () => {
-    expect(defaultProps.canvas.setBackgroundColor).nthCalledWith(1, defaultProps.color)
+  it('should set canvas.backgroundColor if props.color was specified', () => {
+    expect(defaultProps.canvas.backgroundColor).toBe(defaultProps.color)
   })
 
-  it('should not call to canvas.setBackgroundColor if props.color was not specified', async () => {
-    jest.clearAllMocks()
+  it('should not change canvas.backgroundColor if props.color was not specified', async () => {
+    const mockColor = 'EXISTING_COLOR'
+    const canvas = new MockCanvas()
+    canvas.backgroundColor = mockColor
     const { color, ...resetProps } = defaultProps
 
-    shallow(<CanvasBackground {...resetProps} />)
+    shallow(<CanvasBackground {...resetProps} canvas={canvas} />)
 
-    expect(defaultProps.canvas.setBackgroundColor).not.toHaveBeenCalled()
+    expect(canvas.backgroundColor).toBe(mockColor)
   })
 
-  it('should call to canvas.setBackgroundImage with correct args if props.url was specified', async () => {
+  it('should set canvas.backgroundImage with correct props if props.url was specified', async () => {
     await flushPromises()
 
-    const { image } = await loadImage(defaultProps.url, getApi().getImage)
     const { originX, originY } = mockImgPlacement
 
-    expect(defaultProps.canvas.setBackgroundImage).nthCalledWith(1,
-      new fabric.Image(image),
-      expect.any(Function),
-      {
-        scaleX: defaultProps.scale,
-        scaleY: defaultProps.scale,
-        angle: defaultProps.rotationAngle,
-        originX,
-        originY
-      })
+    expect(defaultProps.canvas.backgroundImage).toEqual(expect.objectContaining({
+      scaleX: defaultProps.scale,
+      scaleY: defaultProps.scale,
+      angle: defaultProps.rotationAngle,
+      originX,
+      originY
+    }))
   })
 
   it('should call to canvas.setViewportTransform with correct args to align the image', () => {
     expect(defaultProps.canvas.setViewportTransform).nthCalledWith(1, [0, 0, 0, 0, 50, 50])
   })
 
-  it('should not call to canvas.setBackgroundImage if props.url was not specified', async () => {
-    jest.clearAllMocks()
+  it('should not change canvas.backgroundImage if props.url was not specified', async () => {
+    const canvas = new MockCanvas()
+    canvas.backgroundImage = { existing: true }
     const { url, ...resetProps } = defaultProps
 
-    shallow(<CanvasBackground {...resetProps} />)
+    shallow(<CanvasBackground {...resetProps} canvas={canvas} />)
 
     await flushPromises()
 
-    expect(defaultProps.canvas.setBackgroundImage).not.toHaveBeenCalled()
+    expect(canvas.backgroundImage).toEqual({ existing: true })
   })
 
   it('should update canvas.backgroundColor if props.color has changed', () => {
-    jest.clearAllMocks()
     const color = 'NEW_COLOR'
 
     wrapper.setProps({
@@ -117,7 +112,7 @@ describe('Component: CanvasBackground', () => {
       color
     })
 
-    expect(defaultProps.canvas.setBackgroundColor).nthCalledWith(1, color)
+    expect(defaultProps.canvas.backgroundColor).toBe(color)
   })
 
   it('should clear background color if props.color was cleared', () => {
@@ -128,13 +123,11 @@ describe('Component: CanvasBackground', () => {
       color: undefined
     })
 
-    expect(defaultProps.canvas.setBackgroundColor).nthCalledWith(1, '')
+    expect(defaultProps.canvas.backgroundColor).toBe('')
   })
 
-  it('should call to canvas.setBackgroundImage if props.url has changed', async () => {
-    jest.clearAllMocks()
+  it('should update canvas.backgroundImage if props.url has changed', async () => {
     const url = 'NEW_URL'
-    const { image } = await loadImage(url, getApi().getImage)
 
     wrapper.setProps({
       ...defaultProps,
@@ -143,11 +136,10 @@ describe('Component: CanvasBackground', () => {
 
     await flushPromises()
 
-    expect(defaultProps.canvas.setBackgroundImage).nthCalledWith(1,
-      new fabric.Image(image),
-      expect.any(Function),
-      expect.any(Object)
-    )
+    expect(defaultProps.canvas.backgroundImage).toEqual(expect.objectContaining({
+      scaleX: defaultProps.scale,
+      scaleY: defaultProps.scale
+    }))
   })
 
   it('should clear backgroundImage if props.url was cleared', () => {

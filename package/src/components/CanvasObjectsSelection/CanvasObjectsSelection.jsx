@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { fabric } from 'fabric'
+import { ActiveSelection } from 'fabric'
 import PropTypes from 'prop-types'
 import { withCanvas } from '@/components/CanvasProvider'
 import { canvasShape } from '@/models/Canvas'
@@ -29,15 +29,15 @@ class CanvasObjectsSelection extends Component {
     this.props.onSelectionClear()
   }
 
-  onSelection = (opts) => {
+  onSelection = () => {
     this.props.onSelection && this.props.onSelection(getActiveDataObjects(this.canvas))
   }
 
   getObjectsForSelection = () => {
     const objects = this.canvas.getObjects()
-    return this.props.selectedObjectsIds.map((id) => {
-      return objects.find((o) => o.data && o.data.uid === id)
-    })
+    return this.props.selectedObjectsIds
+      .map((id) => objects.find((o) => o.data && o.data.uid === id))
+      .filter(Boolean)
   }
 
   getActiveSelection = (selectedObjects) => {
@@ -45,7 +45,7 @@ class CanvasObjectsSelection extends Component {
       return selectedObjects[0]
     }
 
-    return new fabric.ActiveSelection(selectedObjects, {
+    return new ActiveSelection(selectedObjects, {
       canvas: this.canvas
     })
   }

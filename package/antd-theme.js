@@ -1,4 +1,4 @@
-import { COLORS } from '../src/theme/theme.default'
+const { COLORS } = require('../src/theme/theme.default')
 
 module.exports = {
   'font-family': 'Open Sans, -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, \'Noto Sans\', sans-serif',

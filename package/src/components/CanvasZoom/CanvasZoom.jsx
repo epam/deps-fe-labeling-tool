@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { fabric } from 'fabric'
+import { Point } from 'fabric'
 import PropTypes from 'prop-types'
 import { withCanvas } from '@/components/CanvasProvider'
 import { ZOOM_STEP, ZOOM_MIN, ZOOM_MAX } from '@/constants/canvas'
@@ -32,15 +32,15 @@ class CanvasZoom extends Component {
   }
 
   setZoom = (zoom) => {
-    const center = this.canvas.getCenter()
-    this.canvas.zoomToPoint(new fabric.Point(center.left, center.top), zoom)
+    const center = this.canvas.getCenterPoint()
+    this.canvas.zoomToPoint(new Point(center.x, center.y), zoom)
   }
 
   onZoom = (e) => {
     let targetZoom = this.canvas.getZoom() - e.deltaY * ZOOM_STEP
     targetZoom = targetZoom <= ZOOM_MIN ? ZOOM_MIN : targetZoom
     targetZoom = targetZoom >= ZOOM_MAX ? ZOOM_MAX : targetZoom
-    this.canvas.zoomToPoint(new fabric.Point(e.offsetX, e.offsetY), targetZoom)
+    this.canvas.zoomToPoint(new Point(e.offsetX, e.offsetY), targetZoom)
     this.props.setZoom(targetZoom)
   }
 

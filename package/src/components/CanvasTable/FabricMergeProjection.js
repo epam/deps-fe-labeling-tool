@@ -1,21 +1,25 @@
-import { fabric } from 'fabric'
+import { Rect, classRegistry } from 'fabric'
 import { COLORS } from '@/theme/theme.default'
 
-const FabricMergeProjection = fabric.util.createClass(fabric.Rect, {
-  type: 'merge-projection',
-  initialize: function (rectangle) {
+class FabricMergeProjection extends Rect {
+  static type = 'merge-projection'
+
+  constructor (rectangle) {
     const { x, y, w, h } = rectangle
-    fabric.Rect.prototype.initialize.call(this, {
+    super({
       left: x,
       top: y,
       width: w,
       height: h,
-      fill: COLORS.MERGE_PROJECTION_BACKGROUND,
+      fill: COLORS.AREA_BACKGROUND,
       selectable: false,
       hasControls: false
     })
   }
-})
+}
+
+classRegistry.setClass(FabricMergeProjection, 'merge-projection')
+classRegistry.setSVGClass(FabricMergeProjection, 'merge-projection')
 
 export {
   FabricMergeProjection

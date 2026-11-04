@@ -10,7 +10,7 @@ const MIN_REQUIRED_THRESHOLD = 0.001
 
 class CanvasMouseSelection extends PureComponent {
   getSelectionRectangle = (opts) => {
-    const cursorB = this.props.canvas.getPointer(opts.e)
+    const cursorB = this.props.canvas.getScenePoint(opts.e)
     if (!this.cursorA || !cursorB) {
       return
     }
@@ -30,11 +30,11 @@ class CanvasMouseSelection extends PureComponent {
   }
 
   onMouseDown = (opts) => {
-    if (this.props.canvas.findTarget(opts.e) || opts.e.altKey) {
+    if (this.props.canvas.findTarget(opts.e).target || opts.e.altKey) {
       return
     }
 
-    this.cursorA = this.props.canvas.getPointer(opts.e)
+    this.cursorA = this.props.canvas.getScenePoint(opts.e)
   }
 
   onMouseMove = (opts) => {

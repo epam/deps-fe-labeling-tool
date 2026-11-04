@@ -1,6 +1,7 @@
 import { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { openMenu } from '@/components/ContextMenu'
+import { FabricEventAction } from '@/enums/FabricEventAction'
 import { MouseButton } from '@/enums/MouseButton'
 import { canvasShape } from '@/models/Canvas'
 import { Option } from '@/models/Option'
@@ -138,6 +139,18 @@ class CanvasTableDefault extends PureComponent {
   )
 
   /**
+   * Finds the object under the pointer after the canvas objects have been changed inside a pointer event handler.
+   * Fabric caches the target for the duration of the pointer event, so after ungrouping the table
+   * a regular findTarget call would return the removed table group instead of the cell under the pointer.
+   * @param {Event} e pointer event.
+   * @returns {fabric.Object|undefined} object under the pointer.
+   */
+  findTarget = (e) => {
+    this.canvas._resetTransformEventData && this.canvas._resetTransformEventData()
+    return this.canvas.findTarget(e).target
+  }
+
+  /**
    * Ungroups table if its not selected and fires cell onMouseOver event.
    * Saves current canvas selection to restore it when mouse will leave the table
    * (in case user just hovers/flyby above the table without clicking on it)
@@ -149,14 +162,17 @@ class CanvasTableDefault extends PureComponent {
     }
 
     const ao = this.canvas.getActiveObject()
-    if (this.isTable(ao, this.props.table)) {
+    const tableSelected = this.canvas.getActiveObjects()
+      .some((activeObject) => this.isTable(activeObject, this.props.table))
+
+    if (this.isTable(ao, this.props.table) || tableSelected) {
       return
     }
 
     this.restoreSelection = saveSelection(this.canvas)
     this.ungroupTable(this.props.table)
 
-    const target = this.canvas.findTarget(opts.e)
+    const target = this.findTarget(opts.e)
     this.onCellMouseOver({ target })
   }
 
@@ -171,8 +187,8 @@ class CanvasTableDefault extends PureComponent {
 
     this.ungroupTable(this.props.table)
     this.clearSelection()
-    const context = this.canvas.findTarget(opts.e)
-    this.openContextMenu(opts.e, context)
+    const target = this.findTarget(opts.e)
+    this.openContextMenu(opts.e, target)
   }
 
   /**
@@ -314,7 +330,7 @@ class CanvasTableDefault extends PureComponent {
       return
     }
 
-    const rectangles = group.ungroupOnCanvas().getObjects()
+    const rectangles = group.removeAll()
     withSuppressedSelectionEvents(this.canvas, () => {
       this.canvas.remove(group)
     })
@@ -470,6 +486,19 @@ class CanvasTableDefault extends PureComponent {
   }
 
   /**
+   * Map fabric event actions to corresponding handlers.
+    */
+  onTableModified = (opts) => {
+    const { action } = opts
+
+    if (action === FabricEventAction.SCALE) {
+      return this.onCellScaled()
+    }
+
+    return this.onCellMoved()
+  }
+
+  /**
    * Renders FabricCell (fabric.Rect essentially with hardcoded parameters for the table) on the canvas and registers event handlers.
    * @param {Cell} cell object representing table cell
    */
@@ -484,9 +513,8 @@ class CanvasTableDefault extends PureComponent {
     disableRotationControls(rectangle)
 
     rectangle.on('scaling', this.onCellScaling)
-    rectangle.on('scaled', this.onCellScaled)
     rectangle.on('moving', this.onCellMoving)
-    rectangle.on('moved', this.onCellMoved)
+    rectangle.on('modified', this.onTableModified)
     rectangle.on('mouseout', this.onCellMouseOut)
     rectangle.on('mouseover', this.onCellMouseOver)
     rectangle.on('mousedown', this.onCellMouseDown)
@@ -602,13 +630,11 @@ class CanvasTableDefault extends PureComponent {
   }
 
   on = () => {
-    this.canvas.on('object:moved', this.onMoveOrScale)
-    this.canvas.on('object:scaled', this.onMoveOrScale)
+    this.canvas.on('object:modified', this.onMoveOrScale)
   }
 
   off = () => {
-    this.canvas.off('object:moved', this.onMoveOrScale)
-    this.canvas.off('object:scaled', this.onMoveOrScale)
+    this.canvas.off('object:modified', this.onMoveOrScale)
   }
 
   componentWillUnmount = () => {

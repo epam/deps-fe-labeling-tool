@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react'
-import { fabric } from 'fabric'
+import { Canvas as FabricCanvas } from 'fabric'
 import PropTypes from 'prop-types'
 import { CANVAS_HOC_NAME } from '@/components/CanvasProvider'
 import { DocumentListener } from '@/components/DocumentListener'
 import { COLORS } from '@/theme/theme.default'
+import '@/utils/fabricDefaults'
 
 class Canvas extends PureComponent {
   static propTypes = {
@@ -30,23 +31,21 @@ class Canvas extends PureComponent {
 
   componentDidUpdate = () => {
     if (this.canvas.getWidth() !== this.props.width) {
-      this.canvas.setWidth(this.props.width)
+      this.canvas.setDimensions({ width: this.props.width })
     }
 
     if (this.canvas.getHeight() !== this.props.height) {
-      this.canvas.setHeight(this.props.height)
+      this.canvas.setDimensions({ height: this.props.height })
     }
 
     this.canvas.requestRenderAll()
   }
 
   componentDidMount = () => {
-    this.canvas = new fabric.Canvas(this.canvasRef.current, {
+    this.canvas = new FabricCanvas(this.canvasRef.current, {
       fireRightClick: true
     })
 
-    fabric.Group.prototype.lockScalingX = true
-    fabric.Group.prototype.lockScalingY = true
     this.canvas.altActionKey = undefined
     this.canvas.uniformScaling = false
     this.canvas.centeredKey = undefined

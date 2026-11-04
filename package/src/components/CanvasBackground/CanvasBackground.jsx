@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { fabric } from 'fabric'
+import { FabricText, FabricImage } from 'fabric'
 import PropTypes from 'prop-types'
 import { withCanvas } from '@/components/CanvasProvider'
 import { WIDTH_SCALING_TARGET } from '@/constants/canvas'
@@ -25,7 +25,7 @@ class CanvasBackground extends Component {
     })
   }
 
-  loading = new fabric.Text('Loading...', {
+  loading = new FabricText('Loading...', {
     selectable: false,
     fontSize: 20,
     fontFamily: 'sans-serif'
@@ -50,7 +50,7 @@ class CanvasBackground extends Component {
   }
 
   setBackgroundColor = (color) => {
-    this.canvas.setBackgroundColor(color)
+    this.canvas.backgroundColor = color
   }
 
   rotateBackgroundImage = (currentAngle = 0, prevAngle = 0) => {
@@ -79,10 +79,6 @@ class CanvasBackground extends Component {
       return
     }
 
-    if (this.canvas.backgroundImage) {
-      this.canvas.fxRemove(this.canvas.backgroundImage)
-    }
-
     this.canvas.add(this.loading)
     const api = getApi()
     const { image } = await loadImage(url, api.getImage)
@@ -90,17 +86,17 @@ class CanvasBackground extends Component {
     const { originX, originY } = getImagePosition(angle)
 
     this.canvas.remove(this.loading)
-    this.canvas.setBackgroundImage(
-      new fabric.Image(image),
-      this.canvas.requestRenderAll.bind(this.canvas),
-      {
-        scaleX: scale || 1,
-        scaleY: scale || 1,
-        angle,
-        originX,
-        originY
-      }
-    )
+    const backgroundImage = new FabricImage(image)
+    backgroundImage.set({
+      scaleX: scale || 1,
+      scaleY: scale || 1,
+      angle,
+      originX,
+      originY
+    })
+
+    this.canvas.backgroundImage = backgroundImage
+    this.canvas.requestRenderAll()
   }
 
   shouldComponentUpdate = (nextProps) => (

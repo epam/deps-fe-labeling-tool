@@ -4,6 +4,7 @@ exports[`Component: CanvasTable should render correct layout based on the props 
 <CanvasTableDefault
   canvas={
     MockCanvas {
+      "_resetTransformEventData": [MockFunction],
       "add": [MockFunction],
       "backgroundColor": "#ffffff",
       "backgroundImage": Object {},
@@ -13,10 +14,10 @@ exports[`Component: CanvasTable should render correct layout based on the props 
       "fxRemove": [MockFunction],
       "getActiveObject": [MockFunction],
       "getActiveObjects": [MockFunction],
-      "getCenter": [MockFunction],
+      "getCenterPoint": [MockFunction],
       "getHeight": [MockFunction],
       "getObjects": [MockFunction],
-      "getPointer": [MockFunction],
+      "getScenePoint": [MockFunction],
       "getWidth": [MockFunction],
       "getZoom": [MockFunction],
       "height": 768,
@@ -28,14 +29,13 @@ exports[`Component: CanvasTable should render correct layout based on the props 
       "renderAll": [MockFunction],
       "requestRenderAll": [MockFunction],
       "selection": true,
-      "sendToBack": [MockFunction],
+      "sendObjectToBack": [MockFunction],
       "setActiveObject": [MockFunction],
       "setBackgroundColor": [MockFunction],
       "setBackgroundImage": [MockFunction],
       "setCursor": [MockFunction],
-      "setHeight": [MockFunction],
+      "setDimensions": [MockFunction],
       "setViewportTransform": [MockFunction],
-      "setWidth": [MockFunction],
       "setZoom": [MockFunction],
       "viewportTransform": Array [
         0,

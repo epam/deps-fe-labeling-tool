@@ -94,7 +94,7 @@ describe('Component: CanvasZoom', () => {
     wrapper.setProps({ ...defaultProps, zoom })
 
     expect(defaultProps.canvas.getZoom).toHaveBeenCalledTimes(1)
-    expect(defaultProps.canvas.getCenter).toHaveBeenCalledTimes(1)
+    expect(defaultProps.canvas.getCenterPoint).toHaveBeenCalledTimes(1)
     expect(defaultProps.canvas.zoomToPoint).nthCalledWith(1, MockPoint.getLastCreatedInstance(), zoom)
   })
 })

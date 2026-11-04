@@ -61,13 +61,10 @@ class MockCanvas {
 
   getWidth = jest.fn(() => this.width)
 
-  setWidth = jest.fn((width) => {
-    this.width = width
-  })
-
   getHeight = jest.fn(() => this.height)
 
-  setHeight = jest.fn((height) => {
+  setDimensions = jest.fn(({ width = this.width, height = this.height }) => {
+    this.width = width
     this.height = height
   })
 
@@ -77,9 +74,9 @@ class MockCanvas {
     this.zoom = zoom
   })
 
-  getCenter = jest.fn(() => ({
-    left: this.width / 2,
-    top: this.height / 2
+  getCenterPoint = jest.fn(() => ({
+    x: this.width / 2,
+    y: this.height / 2
   }))
 
   setBackgroundColor = jest.fn((backgroundColor) => {
@@ -100,7 +97,7 @@ class MockCanvas {
     data: {
       uid: '1'
     },
-    ungroupOnCanvas: jest.fn(() => ({ getObjects: jest.fn(() => ['testEl']) })),
+    removeAll: jest.fn(() => ['testEl']),
     getObjects: jest.fn(() => ['testEl'])
   }])
 
@@ -114,7 +111,9 @@ class MockCanvas {
 
   fxRemove = jest.fn()
 
-  findTarget = jest.fn()
+  findTarget = jest.fn(() => ({}))
+
+  _resetTransformEventData = jest.fn()
 
   discardActiveObject = jest.fn()
 
@@ -122,7 +121,7 @@ class MockCanvas {
 
   add = jest.fn()
 
-  sendToBack = jest.fn()
+  sendObjectToBack = jest.fn()
 
   setActiveObject = jest.fn()
 
@@ -132,7 +131,7 @@ class MockCanvas {
 
   fire = jest.fn()
 
-  getPointer = jest.fn()
+  getScenePoint = jest.fn()
 }
 
 class MockImage {
@@ -147,6 +146,10 @@ class MockImage {
     this.width = 288
     this.height = 512
   }
+
+  set = jest.fn((props) => {
+    Object.assign(this, props)
+  })
 
   static fromURL = jest.fn().mockImplementation((src, callback) => {
     const image = new MockImage()
@@ -215,18 +218,23 @@ class MockCircle {
   set = jest.fn()
 }
 
+const fabricClasses = {
+  Text: MockText,
+  FabricText: MockText,
+  Image: MockImage,
+  FabricImage: MockImage,
+  Canvas: MockCanvas,
+  Point: MockPoint,
+  Group: MockGroup,
+  Textbox: MockTextbox,
+  Rect: MockRect,
+  Circle: MockCircle,
+  ActiveSelection: MockActiveSelection
+}
+
 const mockFabric = {
-  fabric: {
-    Text: MockText,
-    Image: MockImage,
-    Canvas: MockCanvas,
-    Point: MockPoint,
-    Group: MockGroup,
-    Textbox: MockTextbox,
-    Rect: MockRect,
-    Circle: MockCircle,
-    ActiveSelection: MockActiveSelection
-  }
+  ...fabricClasses,
+  fabric: fabricClasses
 }
 
 class MockTable {

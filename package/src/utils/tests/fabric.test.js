@@ -244,6 +244,10 @@ describe('util: fabric applyScale', () => {
     expect(fakeFabricObject.setCoords).toHaveBeenCalled()
   })
 
+  it('should return the target object', () => {
+    expect(applyScale(fakeFabricObject)).toBe(fakeFabricObject)
+  })
+
   it('should not call getScaledHeight and getScaledHeight if scales is equal to 1', () => {
     fakeFabricObject.scaleX = 1
     fakeFabricObject.scaleY = 1
